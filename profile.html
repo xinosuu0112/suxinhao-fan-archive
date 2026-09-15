@@ -12,13 +12,10 @@
             --pink: #F19483;
             --red: #EE3F4D;
             --dark-red: #D93645;
-
             --cream: #FFF9F5;
             --white: #FFFFFF;
-
             --dark: #241E1E;
             --gray: #756D6B;
-
             --border: #E8D9D4;
             --soft: #F9E9E5;
             --pale: #FCEDEA;
@@ -36,11 +33,7 @@
         }
 
         body {
-            font-family:
-                Arial,
-                "Microsoft YaHei",
-                "PingFang SC",
-                sans-serif;
+            font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
             background: var(--cream);
             color: var(--dark);
             line-height: 1.6;
@@ -52,9 +45,10 @@
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
         }
+
 
         /* =========================
            NAVIGATION
@@ -66,7 +60,7 @@
             left: 0;
             width: 100%;
             height: 72px;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, .96);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
@@ -125,7 +119,6 @@
             color: var(--red);
         }
 
-        /* ACTIVE RED DOT */
         .nav-links a::after {
             content: "";
             position: absolute;
@@ -152,13 +145,14 @@
             cursor: pointer;
         }
 
+
         /* =========================
            HERO
         ========================= */
 
         .hero {
             width: min(1240px, calc(100% - 48px));
-            margin: 0 auto;
+            margin: auto;
             padding: 150px 0 65px;
         }
 
@@ -212,23 +206,20 @@
             background: var(--border);
         }
 
+
         /* =========================
            PROFILE
         ========================= */
 
         .profile {
             width: min(1240px, calc(100% - 48px));
-            margin: 0 auto;
+            margin: auto;
             padding: 45px 0 110px;
             display: grid;
             grid-template-columns: .85fr 1.15fr;
             gap: 80px;
             align-items: start;
         }
-
-        /* =========================
-           IMAGE
-        ========================= */
 
         .image-column {
             position: sticky;
@@ -259,8 +250,8 @@
             left: 18px;
             bottom: 18px;
             padding: 6px 12px;
-            background: rgba(255,255,255,.92);
-            border: 1px solid rgba(232,217,212,.8);
+            background: rgba(255, 255, 255, .92);
+            border: 1px solid rgba(232, 217, 212, .8);
             border-radius: 999px;
             color: var(--red);
             font-size: 10px;
@@ -280,10 +271,6 @@
             color: var(--red);
             font-weight: 800;
         }
-
-        /* =========================
-           CONTENT
-        ========================= */
 
         .profile-content {
             padding-top: 5px;
@@ -312,6 +299,7 @@
             font-size: 14px;
             line-height: 2;
         }
+
 
         /* =========================
            BASIC INFORMATION
@@ -353,7 +341,7 @@
             transform: translateY(-3px);
             background: var(--pale);
             border-color: var(--medium-pink);
-            box-shadow: 0 10px 25px rgba(36,30,30,.05);
+            box-shadow: 0 10px 25px rgba(36, 30, 30, .05);
         }
 
         .info-label {
@@ -368,6 +356,7 @@
             font-size: 13px;
             font-weight: 700;
         }
+
 
         /* =========================
            KEYWORDS
@@ -415,6 +404,7 @@
             border-color: var(--medium-pink);
         }
 
+
         /* =========================
            TRAITS
         ========================= */
@@ -427,7 +417,7 @@
 
         .traits-inner {
             width: min(1240px, calc(100% - 48px));
-            margin: 0 auto;
+            margin: auto;
             padding: 110px 0;
         }
 
@@ -476,7 +466,7 @@
             transform: translateY(-5px);
             background: var(--pale);
             border-color: var(--medium-pink);
-            box-shadow: 0 15px 30px rgba(36,30,30,.06);
+            box-shadow: 0 15px 30px rgba(36, 30, 30, .06);
         }
 
         .trait-number {
@@ -499,13 +489,14 @@
             line-height: 1.8;
         }
 
+
         /* =========================
            EXPLORE
         ========================= */
 
         .explore {
             width: min(1240px, calc(100% - 48px));
-            margin: 0 auto;
+            margin: auto;
             padding: 110px 0;
         }
 
@@ -532,7 +523,6 @@
         }
 
         .explore-card {
-            position: relative;
             min-height: 200px;
             padding: 28px;
             display: flex;
@@ -541,7 +531,6 @@
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: 18px;
-            overflow: hidden;
             transition: .3s ease;
         }
 
@@ -549,7 +538,7 @@
             transform: translateY(-5px);
             background: var(--pale);
             border-color: var(--medium-pink);
-            box-shadow: 0 15px 30px rgba(36,30,30,.06);
+            box-shadow: 0 15px 30px rgba(36, 30, 30, .06);
         }
 
         .explore-number {
@@ -559,20 +548,27 @@
             letter-spacing: 2px;
         }
 
-        .explore-card h3 {
+        .explore-card-content h3 {
             margin-bottom: 4px;
             font-size: 22px;
             font-weight: 800;
         }
 
-        .explore-card p {
+        .explore-card-content p {
             color: var(--gray);
             font-size: 12px;
         }
 
-        /* =========================
-           SAME ARROW AS INDEX
-        ========================= */
+        /*
+           EXACT SAME ARROW STYLE AS INDEX
+        */
+
+        .explore-card-bottom {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+        }
 
         .stage-arrow {
             width: 42px;
@@ -585,7 +581,6 @@
             justify-content: center;
             font-size: 18px;
             transition: .25s ease;
-            align-self: flex-end;
         }
 
         .explore-card:hover .stage-arrow {
@@ -593,6 +588,7 @@
             color: var(--white);
             transform: translate(3px, -3px);
         }
+
 
         /* =========================
            FOOTER
@@ -605,7 +601,7 @@
 
         .footer-inner {
             width: min(1240px, calc(100% - 48px));
-            margin: 0 auto;
+            margin: auto;
             padding: 55px 0;
             display: flex;
             justify-content: space-between;
@@ -623,6 +619,7 @@
             font-size: 10px;
             opacity: .8;
         }
+
 
         /* =========================
            TABLET
@@ -651,8 +648,9 @@
             }
         }
 
+
         /* =========================
-           MOBILE / TABLET NAV
+           MOBILE NAV
         ========================= */
 
         @media (max-width: 950px) {
@@ -676,7 +674,6 @@
                 display: none;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: flex-start;
                 gap: 0;
                 background: var(--white);
                 border-bottom: 1px solid var(--border);
@@ -692,14 +689,18 @@
                 font-size: 12px;
             }
 
+            /*
+               Keep mobile active dot centered
+            */
+
             .nav-links a::after {
-                left: 5px;
+                left: 50%;
                 bottom: 7px;
-                transform: translateX(0) scale(0);
+                transform: translateX(-50%) scale(0);
             }
 
             .nav-links a.active::after {
-                transform: translateX(0) scale(1);
+                transform: translateX(-50%) scale(1);
             }
 
             .hero {
@@ -745,6 +746,7 @@
                 padding: 85px 0;
             }
         }
+
 
         /* =========================
            MOBILE
@@ -815,641 +817,654 @@
     </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
 
-<nav class="navbar">
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-    <div class="nav-inner">
+    <nav class="navbar">
 
-        <a href="index.html" class="logo">
+        <div class="nav-inner">
 
-            <span class="logo-mark">
-                苏
-            </span>
+            <a href="index.html" class="logo">
 
-            <span>
-                苏新皓｜档案馆
-            </span>
+                <span class="logo-mark">苏</span>
 
-        </a>
+                <span>
+                    苏新皓｜档案馆
+                </span>
 
-        <button
-            class="menu-btn"
-            id="menuBtn"
-            aria-label="打开导航"
-        >
-            ☰
-        </button>
-
-        <div
-            class="nav-links"
-            id="navLinks"
-        >
-
-            <a href="index.html">
-                首页
             </a>
 
-            <a
-                href="profile.html"
-                class="active"
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="打开导航"
             >
-                个人档案
-            </a>
+                ☰
+            </button>
 
-            <a href="journey.html">
-                成长经历
-            </a>
 
-            <a href="moments.html">
-                瞬间
-            </a>
+            <div class="nav-links" id="navLinks">
 
-            <a href="works.html">
-                作品
-            </a>
+                <a href="index.html">
+                    首页
+                </a>
 
-            <a href="stage.html">
-                舞台
-            </a>
+                <a href="profile.html" class="active">
+                    个人档案
+                </a>
 
-            <a href="fan-edits.html">
-                粉丝剪辑
-            </a>
+                <a href="journey.html">
+                    成长经历
+                </a>
 
-            <a href="comments.html">
-                留言
-            </a>
+                <a href="moments.html">
+                    瞬间
+                </a>
 
-            <a href="arts.html">
-                美工
-            </a>
+                <a href="works.html">
+                    作品
+                </a>
 
-            <a href="archive.html">
-                资料
-            </a>
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<header class="hero">
-
-    <div class="hero-top">
-
-        <div>
-
-            <div class="hero-label">
-                01 · PROFILE
-            </div>
-
-            <h1>
-                认识<br>
-                <span>苏新皓</span>
-            </h1>
-
-        </div>
-
-        <p class="hero-description">
-            从重庆出发，到站上更大的舞台。
-            这里记录他的基本资料、成长变化，
-            以及粉丝眼中的那些细节。
-        </p>
-
-    </div>
-
-    <div class="hero-line"></div>
-
-</header>
-
-
-<!-- =========================
-     PROFILE
-========================= -->
-
-<main class="profile">
-
-    <!-- IMAGE -->
-
-    <div class="image-column">
-
-        <div class="profile-image-container">
-
-            <img
-                src="IMAGES/PROFILE.jpg"
-                alt="苏新皓个人照片"
-                class="profile-image"
-            >
-
-            <div class="image-tag">
-                PROFILE
-            </div>
-
-        </div>
-
-        <div class="image-caption">
-
-            <span>
-                PERSONAL ARCHIVE
-            </span>
-
-            <span>
-                苏新皓
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- CONTENT -->
-
-    <div class="profile-content">
-
-        <div class="section-label">
-            BASIC INFORMATION
-        </div>
-
-        <h2 class="section-title">
-            关于他
-        </h2>
-
-        <p class="about-text">
-            苏新皓，2007年1月12日出生于重庆。
-            从小时候接触街舞，到逐渐站上更大的舞台，
-            舞蹈、音乐和舞台表演一直贯穿着他的成长。
-            这里以粉丝视角整理关于他的基础资料与成长印记，
-            希望让每一次值得被记住的出现，都有属于自己的位置。
-        </p>
-
-
-        <!-- BASIC INFORMATION -->
-
-        <div class="info-title">
-
-            <h3>
-                基本资料
-            </h3>
-
-            <span>
-                PROFILE DETAILS
-            </span>
-
-        </div>
-
-        <div class="basic-info">
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    姓名
-                </span>
-
-                <span class="info-value">
-                    苏新皓
-                </span>
-
-            </div>
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    出生日期
-                </span>
-
-                <span class="info-value">
-                    2007年1月12日
-                </span>
-
-            </div>
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    出生地
-                </span>
-
-                <span class="info-value">
-                    重庆
-                </span>
-
-            </div>
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    所属组合
-                </span>
-
-                <span class="info-value">
-                    TOP登陆少年
-                </span>
-
-            </div>
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    粉丝称呼
-                </span>
-
-                <span class="info-value">
-                    信号灯
-                </span>
-
-            </div>
-
-            <div class="info-item">
-
-                <span class="info-label">
-                    主要领域
-                </span>
-
-                <span class="info-value">
-                    歌唱 · 舞蹈 · 舞台
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- KEYWORDS -->
-
-        <div class="keywords">
-
-            <div class="keywords-title">
-                KEYWORDS
-            </div>
-
-            <div class="keyword-list">
-
-                <span class="keyword">
+                <a href="stage.html">
                     舞台
-                </span>
+                </a>
 
-                <span class="keyword">
-                    歌唱
-                </span>
+                <a href="fan-edits.html">
+                    粉丝剪辑
+                </a>
 
-                <span class="keyword">
-                    舞蹈
-                </span>
+                <a href="comments.html">
+                    留言
+                </a>
 
-                <span class="keyword">
-                    成长
-                </span>
+                <a href="arts.html">
+                    美工
+                </a>
 
-                <span class="keyword">
-                    少年感
-                </span>
-
-                <span class="keyword">
-                    坚持
-                </span>
+                <a href="archive.html">
+                    资料
+                </a>
 
             </div>
 
         </div>
 
-    </div>
-
-</main>
+    </nav>
 
 
-<!-- =========================
-     TRAITS
-========================= -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
-<section class="traits-section">
+    <header class="hero">
 
-    <div class="traits-inner">
+        <div class="hero-top">
 
-        <div class="section-header">
+            <div>
 
-            <div class="section-header-left">
-
-                <div class="section-label">
-                    02 · PERSONALITY
+                <div class="hero-label">
+                    01 · PROFILE
                 </div>
 
-                <h2 class="traits-title">
-                    粉丝眼中的他
-                </h2>
+                <h1>
+                    认识<br>
+                    <span>苏新皓</span>
+                </h1>
 
             </div>
 
-            <p class="section-description">
-                不同的舞台、不同的时期，
-                也让大家看见了他身上越来越丰富的一面。
+
+            <p class="hero-description">
+                从重庆出发，到站上更大的舞台。
+                这里记录他的基本资料、成长变化，
+                以及粉丝眼中的那些细节。
             </p>
 
         </div>
 
 
-        <div class="traits-grid">
+        <div class="hero-line"></div>
 
-            <div class="trait-card">
+    </header>
 
-                <div class="trait-number">
+
+    <!-- =========================
+         PROFILE
+    ========================= -->
+
+    <main class="profile">
+
+
+        <!-- IMAGE -->
+
+        <div class="image-column">
+
+            <div class="profile-image-container">
+
+                <img
+                    src="IMAGES/PROFILE.jpg"
+                    alt="苏新皓个人照片"
+                    class="profile-image"
+                >
+
+                <div class="image-tag">
+                    PROFILE
+                </div>
+
+            </div>
+
+
+            <div class="image-caption">
+
+                <span>
+                    PERSONAL ARCHIVE
+                </span>
+
+                <span>
+                    苏新皓
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="profile-content">
+
+            <div class="section-label">
+                BASIC INFORMATION
+            </div>
+
+            <h2 class="section-title">
+                关于他
+            </h2>
+
+
+            <p class="about-text">
+                苏新皓，2007年1月12日出生于重庆。
+                从小时候接触街舞，到逐渐站上更大的舞台，
+                舞蹈、音乐和舞台表演一直贯穿着他的成长。
+                这里以粉丝视角整理关于他的基础资料与成长印记，
+                希望让每一次值得被记住的出现，都有属于自己的位置。
+            </p>
+
+
+            <div class="info-title">
+
+                <h3>
+                    基本资料
+                </h3>
+
+                <span>
+                    PROFILE DETAILS
+                </span>
+
+            </div>
+
+
+            <div class="basic-info">
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        姓名
+                    </span>
+
+                    <span class="info-value">
+                        苏新皓
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        出生日期
+                    </span>
+
+                    <span class="info-value">
+                        2007年1月12日
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        出生地
+                    </span>
+
+                    <span class="info-value">
+                        重庆
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        所属组合
+                    </span>
+
+                    <span class="info-value">
+                        TOP登陆少年
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        粉丝称呼
+                    </span>
+
+                    <span class="info-value">
+                        信号灯
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        主要领域
+                    </span>
+
+                    <span class="info-value">
+                        歌唱 · 舞蹈 · 舞台
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEYWORDS -->
+
+            <div class="keywords">
+
+                <div class="keywords-title">
+                    KEYWORDS
+                </div>
+
+                <div class="keyword-list">
+
+                    <span class="keyword">
+                        舞台
+                    </span>
+
+                    <span class="keyword">
+                        歌唱
+                    </span>
+
+                    <span class="keyword">
+                        舞蹈
+                    </span>
+
+                    <span class="keyword">
+                        成长
+                    </span>
+
+                    <span class="keyword">
+                        少年感
+                    </span>
+
+                    <span class="keyword">
+                        坚持
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TRAITS
+    ========================= -->
+
+    <section class="traits-section">
+
+        <div class="traits-inner">
+
+
+            <div class="section-header">
+
+                <div class="section-header-left">
+
+                    <div class="section-label">
+                        02 · PERSONALITY
+                    </div>
+
+                    <h2 class="traits-title">
+                        粉丝眼中的他
+                    </h2>
+
+                </div>
+
+
+                <p class="section-description">
+                    不同的舞台、不同的时期，
+                    也让大家看见了他身上越来越丰富的一面。
+                </p>
+
+            </div>
+
+
+            <div class="traits-grid">
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        01
+                    </div>
+
+                    <h3>
+                        自律
+                    </h3>
+
+                    <p>
+                        对舞蹈、舞台和自己的要求，
+                        一点一点累积成现在的样子。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        02
+                    </div>
+
+                    <h3>
+                        努力刻苦
+                    </h3>
+
+                    <p>
+                        每一次舞台表现的背后，
+                        都有长时间的练习和准备。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        03
+                    </div>
+
+                    <h3>
+                        热爱舞台
+                    </h3>
+
+                    <p>
+                        舞台是表达自己的地方，
+                        也是不断挑战自己的地方。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        04
+                    </div>
+
+                    <h3>
+                        萌萌的
+                    </h3>
+
+                    <p>
+                        舞台之外，也有自然、可爱和
+                        让粉丝觉得很有趣的一面。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        05
+                    </div>
+
+                    <h3>
+                        多面
+                    </h3>
+
+                    <p>
+                        舞者、歌手、舞台表演者，
+                        不同身份都有属于自己的表达。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        06
+                    </div>
+
+                    <h3>
+                        成长
+                    </h3>
+
+                    <p>
+                        从少年时期到现在，
+                        时间留下了清晰可见的变化。
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPLORE
+    ========================= -->
+
+    <section class="explore">
+
+        <div class="explore-label">
+            CONTINUE EXPLORING
+        </div>
+
+        <h2 class="explore-title">
+            继续探索
+        </h2>
+
+
+        <div class="explore-grid">
+
+
+            <!-- CARD 01 -->
+
+            <a href="journey.html" class="explore-card">
+
+                <div class="explore-number">
                     01
                 </div>
 
-                <h3>
-                    自律
-                </h3>
 
-                <p>
-                    对舞蹈、舞台和自己的要求，
-                    一点一点累积成现在的样子。
-                </p>
+                <div class="explore-card-content">
 
-            </div>
+                    <h3>
+                        成长经历
+                    </h3>
+
+                    <p>
+                        从重庆少年到更大的舞台
+                    </p>
+
+                </div>
 
 
-            <div class="trait-card">
+                <div class="explore-card-bottom">
 
-                <div class="trait-number">
+                    <span class="stage-arrow">
+                        ↗︎
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CARD 02 -->
+
+            <a href="stage.html" class="explore-card">
+
+                <div class="explore-number">
                     02
                 </div>
 
-                <h3>
-                    努力刻苦
-                </h3>
 
-                <p>
-                    每一次舞台表现的背后，
-                    都有长时间的练习和准备。
-                </p>
+                <div class="explore-card-content">
 
-            </div>
+                    <h3>
+                        舞台档案
+                    </h3>
+
+                    <p>
+                        记录那些值得回看的舞台
+                    </p>
+
+                </div>
 
 
-            <div class="trait-card">
+                <div class="explore-card-bottom">
 
-                <div class="trait-number">
+                    <span class="stage-arrow">
+                        ↗︎
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CARD 03 -->
+
+            <a href="moments.html" class="explore-card">
+
+                <div class="explore-number">
                     03
                 </div>
 
-                <h3>
-                    热爱舞台
-                </h3>
 
-                <p>
-                    舞台是表达自己的地方，
-                    也是不断挑战自己的地方。
-                </p>
+                <div class="explore-card-content">
 
-            </div>
+                    <h3>
+                        精彩瞬间
+                    </h3>
 
+                    <p>
+                        收藏那些值得记住的时刻
+                    </p>
 
-            <div class="trait-card">
-
-                <div class="trait-number">
-                    04
                 </div>
 
-                <h3>
-                    萌萌的
-                </h3>
 
-                <p>
-                    舞台之外，也有自然、可爱和
-                    让粉丝觉得很有趣的一面。
-                </p>
+                <div class="explore-card-bottom">
 
-            </div>
+                    <span class="stage-arrow">
+                        ↗︎
+                    </span>
 
-
-            <div class="trait-card">
-
-                <div class="trait-number">
-                    05
                 </div>
 
-                <h3>
-                    多面
-                </h3>
-
-                <p>
-                    舞者、歌手、舞台表演者，
-                    不同身份都有属于自己的表达。
-                </p>
-
-            </div>
+            </a>
 
 
-            <div class="trait-card">
+        </div>
 
-                <div class="trait-number">
-                    06
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-title">
+                    苏新皓 · FAN ARCHIVE
                 </div>
 
-                <h3>
-                    成长
-                </h3>
-
-                <p>
-                    从少年时期到现在，
-                    时间留下了清晰可见的变化。
-                </p>
+                <div class="footer-text">
+                    A fan-made archive · For appreciation & memories
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- =========================
-     EXPLORE
-========================= -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-<section class="explore">
+    <script>
 
-    <div class="explore-label">
-        CONTINUE EXPLORING
-    </div>
-
-    <h2 class="explore-title">
-        继续探索
-    </h2>
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
 
 
-    <div class="explore-grid">
-
-        <a
-            href="journey.html"
-            class="explore-card"
-        >
-
-            <div class="explore-number">
-                01
-            </div>
-
-            <div>
-
-                <h3>
-                    成长经历
-                </h3>
-
-                <p>
-                    从重庆少年到更大的舞台
-                </p>
-
-            </div>
-
-            <!-- SAME ARROW AS INDEX -->
-            <span class="stage-arrow">
-                ↗︎
-            </span>
-
-        </a>
-
-
-        <a
-            href="stage.html"
-            class="explore-card"
-        >
-
-            <div class="explore-number">
-                02
-            </div>
-
-            <div>
-
-                <h3>
-                    舞台档案
-                </h3>
-
-                <p>
-                    记录那些值得回看的舞台
-                </p>
-
-            </div>
-
-            <!-- SAME ARROW AS INDEX -->
-            <span class="stage-arrow">
-                ↗︎
-            </span>
-
-        </a>
-
-
-        <a
-            href="moments.html"
-            class="explore-card"
-        >
-
-            <div class="explore-number">
-                03
-            </div>
-
-            <div>
-
-                <h3>
-                    精彩瞬间
-                </h3>
-
-                <p>
-                    收藏那些值得记住的时刻
-                </p>
-
-            </div>
-
-            <!-- SAME ARROW AS INDEX -->
-            <span class="stage-arrow">
-                ↗︎
-            </span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <div>
-
-            <div class="footer-title">
-                苏新皓 · FAN ARCHIVE
-            </div>
-
-            <div class="footer-text">
-                A fan-made archive · For appreciation & memories
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-    const menuBtn =
-        document.getElementById("menuBtn");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-
-    menuBtn.addEventListener(
-        "click",
-        function () {
+        menuBtn.addEventListener("click", function () {
 
             navLinks.classList.toggle("show");
 
-        }
-    );
+        });
 
 
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach(
-            function (link) {
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
 
-                link.addEventListener(
-                    "click",
-                    function () {
+                link.addEventListener("click", function () {
 
-                        navLinks.classList.remove(
-                            "show"
-                        );
+                    navLinks.classList.remove("show");
 
-                    }
-                );
+                });
 
-            }
-        );
+            });
 
-</script>
+    </script>
+
 
 </body>
+
 </html>
