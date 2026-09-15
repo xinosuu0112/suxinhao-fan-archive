@@ -8,7 +8,6 @@
     <title>个人档案｜苏新皓档案馆</title>
 
     <style>
-
         :root {
             --pink: #F19483;
             --red: #EE3F4D;
@@ -26,18 +25,15 @@
             --medium-pink: #F6C1B8;
         }
 
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
-
 
         body {
             font-family:
@@ -45,25 +41,20 @@
                 "Microsoft YaHei",
                 "PingFang SC",
                 sans-serif;
-
             background: var(--cream);
             color: var(--dark);
-
             line-height: 1.6;
         }
-
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
-
         img {
             max-width: 100%;
             display: block;
         }
-
 
         /* =========================
            NAVIGATION
@@ -73,148 +64,93 @@
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
             height: 72px;
-
             background: rgba(255, 255, 255, 0.96);
-
             backdrop-filter: blur(15px);
-
             border-bottom: 1px solid var(--border);
-
             z-index: 1000;
         }
 
-
         .nav-inner {
             width: min(1240px, calc(100% - 48px));
-
             height: 100%;
-
             margin: auto;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 30px;
         }
 
-
         .logo {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
-
             font-size: 15px;
-
             font-weight: 800;
-
             white-space: nowrap;
-
             flex-shrink: 0;
         }
-
 
         .logo-mark {
             width: 34px;
             height: 34px;
-
             border-radius: 50%;
-
             background: var(--red);
-
             color: var(--white);
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-size: 14px;
         }
 
-
         .nav-links {
             display: flex;
-
             align-items: center;
-
             justify-content: flex-end;
-
             gap: 24px;
         }
 
-
         .nav-links a {
             position: relative;
-
             padding: 27px 0 25px;
-
             color: var(--gray);
-
             font-size: 12px;
-
             white-space: nowrap;
-
             transition: color .25s ease;
         }
-
 
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--red);
         }
 
-
         /* ACTIVE RED DOT */
-
         .nav-links a::after {
             content: "";
-
             position: absolute;
-
             left: 50%;
             bottom: 16px;
-
             width: 5px;
             height: 5px;
-
             border-radius: 50%;
-
             background: var(--red);
-
             transform: translateX(-50%) scale(0);
-
             transition: transform .25s ease;
         }
-
 
         .nav-links a.active::after {
             transform: translateX(-50%) scale(1);
         }
 
-
         .menu-btn {
             display: none;
-
             border: none;
-
             background: transparent;
-
             color: var(--dark);
-
             font-size: 25px;
-
             cursor: pointer;
         }
-
 
         /* =========================
            HERO
@@ -222,90 +158,59 @@
 
         .hero {
             width: min(1240px, calc(100% - 48px));
-
             margin: 0 auto;
-
             padding: 150px 0 65px;
         }
 
-
         .hero-top {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
-
             gap: 60px;
         }
 
-
         .hero-label {
             display: inline-flex;
-
             align-items: center;
-
             gap: 8px;
-
             margin-bottom: 24px;
-
             color: var(--red);
-
             font-size: 11px;
-
             font-weight: 800;
-
             letter-spacing: 2px;
         }
 
-
         .hero-label::before {
             content: "";
-
             width: 28px;
             height: 1px;
-
             background: var(--red);
         }
 
-
         .hero h1 {
             font-size: clamp(55px, 8vw, 105px);
-
             line-height: .9;
-
             letter-spacing: -5px;
-
             font-weight: 800;
         }
-
 
         .hero h1 span {
             color: var(--red);
         }
 
-
         .hero-description {
             max-width: 390px;
-
             color: var(--gray);
-
             font-size: 13px;
-
             line-height: 1.9;
         }
 
-
         .hero-line {
             width: 100%;
-
             height: 1px;
-
             margin-top: 55px;
-
             background: var(--border);
         }
-
 
         /* =========================
            PROFILE
@@ -313,20 +218,13 @@
 
         .profile {
             width: min(1240px, calc(100% - 48px));
-
             margin: 0 auto;
-
             padding: 45px 0 110px;
-
             display: grid;
-
             grid-template-columns: .85fr 1.15fr;
-
             gap: 80px;
-
             align-items: start;
         }
-
 
         /* =========================
            IMAGE
@@ -334,83 +232,54 @@
 
         .image-column {
             position: sticky;
-
             top: 105px;
         }
 
-
         .profile-image-container {
             position: relative;
-
             overflow: hidden;
-
             border-radius: 18px;
-
             background: var(--pale);
-
             border: 1px solid var(--border);
         }
 
-
         .profile-image {
             width: 100%;
-
             aspect-ratio: 4 / 5;
-
             object-fit: cover;
-
             transition: transform .5s ease;
         }
-
 
         .profile-image-container:hover .profile-image {
             transform: scale(1.025);
         }
 
-
         .image-tag {
             position: absolute;
-
             left: 18px;
             bottom: 18px;
-
             padding: 6px 12px;
-
             background: rgba(255,255,255,.92);
-
             border: 1px solid rgba(232,217,212,.8);
-
             border-radius: 999px;
-
             color: var(--red);
-
             font-size: 10px;
-
             font-weight: 800;
-
             letter-spacing: 1px;
         }
 
-
         .image-caption {
             margin-top: 13px;
-
             display: flex;
-
             justify-content: space-between;
-
             color: var(--gray);
-
             font-size: 10px;
         }
 
-
         .image-caption span:first-child {
             color: var(--red);
-
             font-weight: 800;
         }
-
 
         /* =========================
            CONTENT
@@ -420,45 +289,29 @@
             padding-top: 5px;
         }
 
-
         .section-label {
             margin-bottom: 11px;
-
             color: var(--red);
-
             font-size: 11px;
-
             font-weight: 800;
-
             letter-spacing: 2px;
         }
 
-
         .section-title {
             margin-bottom: 22px;
-
             font-size: clamp(35px, 5vw, 58px);
-
             line-height: 1;
-
             letter-spacing: -2px;
-
             font-weight: 800;
         }
 
-
         .about-text {
             max-width: 700px;
-
             margin-bottom: 38px;
-
             color: var(--gray);
-
             font-size: 14px;
-
             line-height: 2;
         }
-
 
         /* =========================
            BASIC INFORMATION
@@ -466,83 +319,55 @@
 
         .info-title {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
             margin-bottom: 16px;
         }
 
-
         .info-title h3 {
             font-size: 17px;
-
             font-weight: 800;
         }
 
-
         .info-title span {
             color: var(--gray);
-
             font-size: 10px;
-
             letter-spacing: 1px;
         }
-
 
         .basic-info {
             display: grid;
-
             grid-template-columns: repeat(2, 1fr);
-
             gap: 12px;
         }
 
-
         .info-item {
             padding: 18px;
-
             background: var(--white);
-
             border: 1px solid var(--border);
-
             border-radius: 14px;
-
             transition: .25s ease;
         }
 
-
         .info-item:hover {
             transform: translateY(-3px);
-
             background: var(--pale);
-
             border-color: var(--medium-pink);
-
             box-shadow: 0 10px 25px rgba(36,30,30,.05);
         }
 
-
         .info-label {
             display: block;
-
             margin-bottom: 4px;
-
             color: var(--gray);
-
             font-size: 10px;
-
             letter-spacing: 1px;
         }
 
-
         .info-value {
             font-size: 13px;
-
             font-weight: 700;
         }
-
 
         /* =========================
            KEYWORDS
@@ -550,69 +375,45 @@
 
         .keywords {
             margin-top: 28px;
-
             padding-top: 25px;
-
             border-top: 1px solid var(--border);
         }
 
-
         .keywords-title {
             margin-bottom: 12px;
-
             color: var(--gray);
-
             font-size: 10px;
-
             font-weight: 700;
-
             letter-spacing: 2px;
         }
 
-
         .keyword-list {
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 8px;
         }
 
-
         .keyword {
             padding: 6px 13px;
-
             background: var(--white);
-
             border: 1px solid var(--border);
-
             border-radius: 999px;
-
             color: var(--gray);
-
             font-size: 11px;
-
             transition: .25s ease;
         }
 
-
         .keyword:hover {
             color: var(--red);
-
             background: var(--pale);
-
             border-color: var(--medium-pink);
         }
-
 
         .keyword:first-child {
             color: var(--red);
-
             background: var(--pale);
-
             border-color: var(--medium-pink);
         }
-
 
         /* =========================
            TRAITS
@@ -620,127 +421,83 @@
 
         .traits-section {
             background: var(--white);
-
             border-top: 1px solid var(--border);
-
             border-bottom: 1px solid var(--border);
         }
 
-
         .traits-inner {
             width: min(1240px, calc(100% - 48px));
-
             margin: 0 auto;
-
             padding: 110px 0;
         }
 
-
         .section-header {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
-
             gap: 50px;
-
             margin-bottom: 50px;
         }
-
 
         .section-header-left {
             max-width: 600px;
         }
 
-
         .traits-title {
             font-size: clamp(35px, 5vw, 62px);
-
             line-height: 1;
-
             letter-spacing: -2px;
-
             font-weight: 800;
         }
-
 
         .section-description {
             max-width: 380px;
-
             color: var(--gray);
-
             font-size: 13px;
-
             line-height: 1.9;
         }
 
-
         .traits-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 14px;
         }
 
-
         .trait-card {
             min-height: 210px;
-
             padding: 28px;
-
             background: var(--cream);
-
             border: 1px solid var(--border);
-
             border-radius: 18px;
-
             transition: .3s ease;
         }
 
-
         .trait-card:hover {
             transform: translateY(-5px);
-
             background: var(--pale);
-
             border-color: var(--medium-pink);
-
             box-shadow: 0 15px 30px rgba(36,30,30,.06);
         }
 
-
         .trait-number {
             margin-bottom: 35px;
-
             color: var(--red);
-
             font-size: 10px;
-
             font-weight: 800;
-
             letter-spacing: 2px;
         }
 
-
         .trait-card h3 {
             margin-bottom: 9px;
-
             font-size: 22px;
-
             font-weight: 800;
         }
 
-
         .trait-card p {
             color: var(--gray);
-
             font-size: 12px;
-
             line-height: 1.8;
         }
-
 
         /* =========================
            EXPLORE
@@ -748,202 +505,94 @@
 
         .explore {
             width: min(1240px, calc(100% - 48px));
-
             margin: 0 auto;
-
             padding: 110px 0;
         }
 
-
         .explore-label {
             margin-bottom: 11px;
-
             color: var(--red);
-
             font-size: 11px;
-
             font-weight: 800;
-
             letter-spacing: 2px;
         }
-
 
         .explore-title {
             margin-bottom: 50px;
-
             font-size: clamp(35px, 5vw, 62px);
-
             line-height: 1;
-
             letter-spacing: -2px;
-
             font-weight: 800;
         }
-
 
         .explore-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 14px;
         }
 
-
         .explore-card {
             position: relative;
-
             min-height: 200px;
-
             padding: 28px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
-
             background: var(--white);
-
             border: 1px solid var(--border);
-
             border-radius: 18px;
-
             overflow: hidden;
-
-            transition:
-                transform .3s ease,
-                background .3s ease,
-                border-color .3s ease,
-                box-shadow .3s ease;
+            transition: .3s ease;
         }
-
 
         .explore-card:hover {
             transform: translateY(-5px);
-
             background: var(--pale);
-
             border-color: var(--medium-pink);
-
             box-shadow: 0 15px 30px rgba(36,30,30,.06);
         }
 
-
-        /* =========================
-           PURE CSS ARROW
-           
-           NO UNICODE ARROW
-           NO EMOJI
-        ========================= */
-
-        .arrow-icon {
-            position: absolute;
-
-            right: 24px;
-            bottom: 21px;
-
-            width: 38px;
-            height: 38px;
-
-            border-radius: 50%;
-
-            background: var(--medium-pink);
-
-            transition:
-                background .25s ease,
-                transform .25s ease;
-        }
-
-
-        /* arrow shaft */
-
-        .arrow-icon::before {
-            content: "";
-
-            position: absolute;
-
-            left: 9px;
-            top: 18px;
-
-            width: 13px;
-            height: 1.5px;
-
-            background: var(--red);
-
-            transition:
-                background .25s ease;
-        }
-
-
-        /* arrow head */
-
-        .arrow-icon::after {
-            content: "";
-
-            position: absolute;
-
-            right: 9px;
-            top: 13px;
-
-            width: 9px;
-            height: 9px;
-
-            border-top: 1.5px solid var(--red);
-            border-right: 1.5px solid var(--red);
-
-            transform: rotate(45deg);
-
-            transition:
-                border-color .25s ease;
-        }
-
-
-        /* hover */
-
-        .explore-card:hover .arrow-icon {
-            background: var(--red);
-
-            transform: translate(3px, -3px);
-        }
-
-
-        .explore-card:hover .arrow-icon::before {
-            background: var(--white);
-        }
-
-
-        .explore-card:hover .arrow-icon::after {
-            border-color: var(--white);
-        }
-
-
         .explore-number {
             color: var(--red);
-
             font-size: 10px;
-
             font-weight: 800;
-
             letter-spacing: 2px;
         }
 
-
         .explore-card h3 {
             margin-bottom: 4px;
-
             font-size: 22px;
-
             font-weight: 800;
         }
 
-
         .explore-card p {
             color: var(--gray);
-
             font-size: 12px;
         }
 
+        /* =========================
+           SAME ARROW AS INDEX
+        ========================= */
+
+        .stage-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--medium-pink);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: .25s ease;
+            align-self: flex-end;
+        }
+
+        .explore-card:hover .stage-arrow {
+            background: var(--red);
+            color: var(--white);
+            transform: translate(3px, -3px);
+        }
 
         /* =========================
            FOOTER
@@ -951,43 +600,29 @@
 
         footer {
             background: var(--red);
-
             color: var(--white);
         }
 
-
         .footer-inner {
             width: min(1240px, calc(100% - 48px));
-
             margin: 0 auto;
-
             padding: 55px 0;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
         }
 
-
         .footer-title {
             font-size: 16px;
-
             font-weight: 800;
-
             letter-spacing: 1px;
         }
 
-
         .footer-text {
             margin-top: 5px;
-
             font-size: 10px;
-
             opacity: .8;
         }
-
 
         /* =========================
            TABLET
@@ -999,28 +634,22 @@
                 gap: 16px;
             }
 
-
             .nav-links a {
                 font-size: 11px;
             }
-
 
             .profile {
                 gap: 50px;
             }
 
-
             .traits-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-
             .explore-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
         }
-
 
         /* =========================
            MOBILE / TABLET NAV
@@ -1032,137 +661,90 @@
                 width: calc(100% - 40px);
             }
 
-
             .menu-btn {
                 display: block;
             }
 
-
             .nav-links {
                 position: absolute;
-
                 top: 72px;
                 left: 0;
-
                 width: 100%;
-
                 max-height: calc(100vh - 72px);
-
                 padding: 15px 24px 25px;
-
                 overflow-y: auto;
-
                 display: none;
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 justify-content: flex-start;
-
                 gap: 0;
-
                 background: var(--white);
-
                 border-bottom: 1px solid var(--border);
             }
-
 
             .nav-links.show {
                 display: flex;
             }
 
-
             .nav-links a {
                 width: 100%;
-
                 padding: 13px 0;
-
                 font-size: 12px;
             }
 
-
             .nav-links a::after {
                 left: 5px;
-
                 bottom: 7px;
-
-                transform:
-                    translateX(0)
-                    scale(0);
+                transform: translateX(0) scale(0);
             }
-
 
             .nav-links a.active::after {
-                transform:
-                    translateX(0)
-                    scale(1);
+                transform: translateX(0) scale(1);
             }
-
 
             .hero {
                 width: calc(100% - 40px);
-
                 padding-top: 125px;
             }
 
-
             .hero-top {
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 25px;
             }
-
 
             .hero-description {
                 max-width: 600px;
             }
 
-
             .profile {
                 width: calc(100% - 40px);
-
                 grid-template-columns: 1fr;
-
                 gap: 55px;
-
                 padding-top: 35px;
             }
 
-
             .image-column {
                 position: static;
-
                 max-width: 560px;
             }
 
-
             .traits-inner {
                 width: calc(100% - 40px);
-
                 padding: 85px 0;
             }
-
 
             .section-header {
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 20px;
             }
 
-
             .explore {
                 width: calc(100% - 40px);
-
                 padding: 85px 0;
             }
-
         }
-
 
         /* =========================
            MOBILE
@@ -1172,92 +754,68 @@
 
             .hero {
                 width: calc(100% - 40px);
-
                 padding-top: 120px;
-
                 padding-bottom: 50px;
             }
 
-
             .hero h1 {
                 font-size: 62px;
-
                 letter-spacing: -3px;
             }
-
 
             .hero-line {
                 margin-top: 40px;
             }
 
-
             .profile {
                 width: calc(100% - 40px);
-
                 padding-bottom: 80px;
             }
-
 
             .basic-info {
                 grid-template-columns: 1fr;
             }
 
-
             .profile-image-container {
                 border-radius: 16px;
             }
 
-
             .traits-inner {
                 width: calc(100% - 40px);
-
                 padding: 75px 0;
             }
-
 
             .traits-grid {
                 grid-template-columns: 1fr;
             }
 
-
             .trait-card {
                 min-height: 175px;
-
                 padding: 25px;
             }
 
-
             .explore {
                 width: calc(100% - 40px);
-
                 padding: 75px 0;
             }
-
 
             .explore-grid {
                 grid-template-columns: 1fr;
             }
 
-
             .explore-card {
                 min-height: 180px;
             }
 
-
             .footer-inner {
                 width: calc(100% - 40px);
-
                 padding: 45px 0;
             }
-
         }
-
     </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      NAVIGATION
@@ -1279,7 +837,6 @@
 
         </a>
 
-
         <button
             class="menu-btn"
             id="menuBtn"
@@ -1287,7 +844,6 @@
         >
             ☰
         </button>
-
 
         <div
             class="nav-links"
@@ -1344,7 +900,6 @@
 </nav>
 
 
-
 <!-- =========================
      HERO
 ========================= -->
@@ -1359,7 +914,6 @@
                 01 · PROFILE
             </div>
 
-
             <h1>
                 认识<br>
                 <span>苏新皓</span>
@@ -1367,22 +921,17 @@
 
         </div>
 
-
         <p class="hero-description">
-
             从重庆出发，到站上更大的舞台。
             这里记录他的基本资料、成长变化，
             以及粉丝眼中的那些细节。
-
         </p>
 
     </div>
 
-
     <div class="hero-line"></div>
 
 </header>
-
 
 
 <!-- =========================
@@ -1391,6 +940,7 @@
 
 <main class="profile">
 
+    <!-- IMAGE -->
 
     <div class="image-column">
 
@@ -1408,7 +958,6 @@
 
         </div>
 
-
         <div class="image-caption">
 
             <span>
@@ -1424,31 +973,28 @@
     </div>
 
 
+    <!-- CONTENT -->
 
     <div class="profile-content">
-
 
         <div class="section-label">
             BASIC INFORMATION
         </div>
 
-
         <h2 class="section-title">
             关于他
         </h2>
 
-
         <p class="about-text">
-
             苏新皓，2007年1月12日出生于重庆。
             从小时候接触街舞，到逐渐站上更大的舞台，
             舞蹈、音乐和舞台表演一直贯穿着他的成长。
             这里以粉丝视角整理关于他的基础资料与成长印记，
             希望让每一次值得被记住的出现，都有属于自己的位置。
-
         </p>
 
 
+        <!-- BASIC INFORMATION -->
 
         <div class="info-title">
 
@@ -1462,9 +1008,7 @@
 
         </div>
 
-
         <div class="basic-info">
-
 
             <div class="info-item">
 
@@ -1478,7 +1022,6 @@
 
             </div>
 
-
             <div class="info-item">
 
                 <span class="info-label">
@@ -1490,7 +1033,6 @@
                 </span>
 
             </div>
-
 
             <div class="info-item">
 
@@ -1504,7 +1046,6 @@
 
             </div>
 
-
             <div class="info-item">
 
                 <span class="info-label">
@@ -1517,7 +1058,6 @@
 
             </div>
 
-
             <div class="info-item">
 
                 <span class="info-label">
@@ -1529,7 +1069,6 @@
                 </span>
 
             </div>
-
 
             <div class="info-item">
 
@@ -1546,13 +1085,13 @@
         </div>
 
 
+        <!-- KEYWORDS -->
 
         <div class="keywords">
 
             <div class="keywords-title">
                 KEYWORDS
             </div>
-
 
             <div class="keyword-list">
 
@@ -1589,7 +1128,6 @@
 </main>
 
 
-
 <!-- =========================
      TRAITS
 ========================= -->
@@ -1598,9 +1136,7 @@
 
     <div class="traits-inner">
 
-
         <div class="section-header">
-
 
             <div class="section-header-left">
 
@@ -1614,20 +1150,15 @@
 
             </div>
 
-
             <p class="section-description">
-
                 不同的舞台、不同的时期，
                 也让大家看见了他身上越来越丰富的一面。
-
             </p>
 
         </div>
 
 
-
         <div class="traits-grid">
-
 
             <div class="trait-card">
 
@@ -1736,13 +1267,11 @@
 
             </div>
 
-
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1751,20 +1280,16 @@
 
 <section class="explore">
 
-
     <div class="explore-label">
         CONTINUE EXPLORING
     </div>
-
 
     <h2 class="explore-title">
         继续探索
     </h2>
 
 
-
     <div class="explore-grid">
-
 
         <a
             href="journey.html"
@@ -1774,7 +1299,6 @@
             <div class="explore-number">
                 01
             </div>
-
 
             <div>
 
@@ -1788,14 +1312,12 @@
 
             </div>
 
-
-            <span
-                class="arrow-icon"
-                aria-hidden="true"
-            ></span>
+            <!-- SAME ARROW AS INDEX -->
+            <span class="stage-arrow">
+                ↗︎
+            </span>
 
         </a>
-
 
 
         <a
@@ -1806,7 +1328,6 @@
             <div class="explore-number">
                 02
             </div>
-
 
             <div>
 
@@ -1820,14 +1341,12 @@
 
             </div>
 
-
-            <span
-                class="arrow-icon"
-                aria-hidden="true"
-            ></span>
+            <!-- SAME ARROW AS INDEX -->
+            <span class="stage-arrow">
+                ↗︎
+            </span>
 
         </a>
-
 
 
         <a
@@ -1838,7 +1357,6 @@
             <div class="explore-number">
                 03
             </div>
-
 
             <div>
 
@@ -1852,19 +1370,16 @@
 
             </div>
 
-
-            <span
-                class="arrow-icon"
-                aria-hidden="true"
-            ></span>
+            <!-- SAME ARROW AS INDEX -->
+            <span class="stage-arrow">
+                ↗︎
+            </span>
 
         </a>
-
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1892,7 +1407,6 @@
 </footer>
 
 
-
 <!-- =========================
      JAVASCRIPT
 ========================= -->
@@ -1901,7 +1415,6 @@
 
     const menuBtn =
         document.getElementById("menuBtn");
-
 
     const navLinks =
         document.getElementById("navLinks");
@@ -1926,7 +1439,9 @@
                     "click",
                     function () {
 
-                        navLinks.classList.remove("show");
+                        navLinks.classList.remove(
+                            "show"
+                        );
 
                     }
                 );
@@ -1934,24 +1449,7 @@
             }
         );
 
-
-    navLinks.addEventListener(
-        "wheel",
-        function (event) {
-
-            if (window.innerWidth <= 850) {
-
-                event.preventDefault();
-
-                navLinks.scrollLeft += event.deltaY;
-
-            }
-
-        }
-    );
-
 </script>
-
 
 </body>
 </html>
