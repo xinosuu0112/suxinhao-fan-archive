@@ -1,3011 +1,1478 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>舞台｜苏新皓档案馆</title>
-
-    <style>
-        :root {
-            --pink: #F19483;
-            --red: #EE3F4D;
-            --dark-red: #D93645;
-
-            --cream: #FFF9F5;
-            --white: #FFFFFF;
-
-            --dark: #5F4A46;
-            --gray: #756D6B;
-
-            --border: #E8D9D4;
-            --soft: #F9E9E5;
-            --pale: #FCEDEA;
-            --medium-pink: #F6C1B8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                "Microsoft YaHei",
-                "PingFang SC",
-                sans-serif;
-
-            background: var(--cream);
-            color: var(--dark);
-            line-height: 1.7;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            width: 100%;
-
-            background: rgba(255, 249, 245, .96);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            max-width: 1400px;
-            margin: auto;
-
-            padding: 16px 35px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            color: var(--red);
-
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 1px;
-
-            white-space: nowrap;
-        }
-
-        .logo-mark {
-            width: 35px;
-            height: 35px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: var(--pink);
-            color: var(--white);
-
-            font-size: 17px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .nav-links a {
-            padding: 8px 12px;
-
-            border-radius: 20px;
-
-            color: var(--gray);
-
-            font-size: 13px;
-
-            transition: .25s ease;
-        }
-
-        .nav-links a:hover {
-            background: var(--pale);
-            color: var(--red);
-        }
-
-        .nav-links a.active {
-            background: var(--red);
-            color: var(--white);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            max-width: 1400px;
-            margin: auto;
-
-            padding: 100px 35px 80px;
-
-            display: grid;
-            grid-template-columns: 1fr .7fr;
-
-            gap: 80px;
-
-            align-items: end;
-        }
-
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            color: var(--red);
-
-            font-size: 12px;
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 22px;
-        }
-
-        .hero-label::before {
-            content: "";
-
-            width: 30px;
-            height: 2px;
-
-            background: var(--pink);
-        }
-
-        .hero h1 {
-            font-size: clamp(60px, 9vw, 130px);
-
-            line-height: .95;
-
-            letter-spacing: -5px;
-
-            color: var(--dark);
-
-            margin-bottom: 30px;
-        }
-
-        .hero-description {
-            max-width: 650px;
-
-            color: var(--gray);
-
-            font-size: 16px;
-
-            line-height: 2;
-        }
-
-        .hero-side {
-            padding-bottom: 10px;
-        }
-
-        .hero-side-number {
-            font-size: 90px;
-
-            line-height: 1;
-
-            font-weight: 800;
-
-            color: var(--pale);
-
-            -webkit-text-stroke: 1px var(--medium-pink);
-        }
-
-        .hero-side-text {
-            margin-top: -10px;
-
-            color: var(--gray);
-
-            font-size: 13px;
-
-            letter-spacing: 2px;
-        }
-
-        /* =========================
-           MAIN
-        ========================= */
-
-        .main {
-            max-width: 1400px;
-            margin: auto;
-
-            padding: 0 35px 100px;
-        }
-
-        /* =========================
-           INTRO
-        ========================= */
-
-        .intro {
-            padding: 35px 0 70px;
-
-            border-top: 1px solid var(--border);
-
-            display: grid;
-
-            grid-template-columns: .5fr 1fr;
-
-            gap: 80px;
-        }
-
-        .section-label {
-            color: var(--red);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-        }
-
-        .intro h2 {
-            font-size: clamp(35px, 5vw, 60px);
-
-            line-height: 1.15;
-
-            margin-bottom: 20px;
-
-            color: var(--dark);
-        }
-
-        .intro p {
-            max-width: 700px;
-
-            color: var(--gray);
-
-            line-height: 2;
-        }
-
-        /* =========================
-           STAGE SECTION
-        ========================= */
-
-        .stage-section {
-            margin-top: 30px;
-
-            padding-top: 70px;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .stage-section:first-of-type {
-            border-top: none;
-            padding-top: 0;
-        }
-
-        .stage-heading {
-            margin-bottom: 35px;
-        }
-
-        .stage-heading .section-label {
-            display: block;
-
-            margin-bottom: 10px;
-        }
-
-        .stage-heading h2 {
-            font-size: clamp(30px, 4vw, 48px);
-
-            line-height: 1.2;
-
-            margin-bottom: 8px;
-        }
-
-        .stage-heading p {
-            color: var(--gray);
-
-            font-size: 14px;
-        }
-
-        /* =========================
-           STAGE CARDS
-        ========================= */
-
-        .stage-list {
-            display: grid;
-
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-
-            gap: 30px;
-        }
-
-        .stage-card {
-            background: var(--white);
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            transition: .3s ease;
-
-            position: relative;
-        }
-
-        .stage-card:hover {
-            transform: translateY(-5px);
-
-            border-color: var(--medium-pink);
-
-            box-shadow:
-                0 15px 35px rgba(95, 74, 70, .10);
-        }
-
-        /* =========================
-           STAGE COVER
-           CHANGE IMAGE HERE
-        ========================= */
-
-        .stage-cover {
-            width: 100%;
-
-            height: 400px;
-
-            overflow: hidden;
-
-            background: var(--pale);
-        }
-
-        .stage-cover img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            display: block;
-
-            transition: .4s ease;
-        }
-
-        .stage-card:hover .stage-cover img {
-            transform: scale(1.04);
-        }
-
-        .stage-content {
-            padding: 25px 28px 28px;
-        }
-
-        .stage-number {
-            font-size: 12px;
-
-            color: var(--gray);
-
-            letter-spacing: 1px;
-        }
-
-        .stage-title {
-            font-size: clamp(22px, 3vw, 30px);
-
-            font-weight: 700;
-
-            line-height: 1.3;
-
-            margin: 14px 0 20px;
-        }
-
-        .stage-bottom {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 15px;
-        }
-
-        .stage-tag {
-            display: inline-flex;
-
-            align-items: center;
-
-            padding: 6px 12px;
-
-            border-radius: 20px;
-
-            background: var(--pale);
-
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            letter-spacing: 1px;
-        }
-
-        .stage-arrow {
-            width: 42px;
-            height: 42px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--medium-pink);
-
-            color: var(--red);
-
-            font-size: 20px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            transition: .25s ease;
-        }
-
-        .stage-arrow:hover {
-            background: var(--pink);
-
-            color: var(--white);
-
-            transform: translate(3px, -3px);
-        }
-
-        /* =========================
-           NEXT SECTION
-        ========================= */
-
-        .next-section {
-            margin-top: 100px;
-
-            padding: 65px;
-
-            border-radius: 25px;
-
-            background: var(--soft);
-
-            color: var(--dark);
-
-            border: 1px solid var(--border);
-        }
-
-        .next-label {
-            color: var(--red);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 15px;
-        }
-
-        .next-section h2 {
-            font-size: clamp(35px, 5vw, 58px);
-
-            line-height: 1.15;
-
-            margin-bottom: 15px;
-        }
-
-        .next-section p {
-            max-width: 650px;
-
-            color: var(--gray);
-
-            margin-bottom: 30px;
-        }
-
-        .next-links {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 12px;
-        }
-
-        .next-link {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 11px 18px;
-
-            border-radius: 30px;
-
-            background: var(--white);
-
-            color: var(--red);
-
-            border: 1px solid var(--border);
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            transition: .25s ease;
-        }
-
-        .next-link:hover {
-            background: var(--red);
-
-            color: var(--white);
-        }
-
-        /* =========================
-           MODAL
-        ========================= */
-
-        .modal {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 2000;
-
-            background: rgba(36, 30, 30, .68);
-
-            display: none;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 25px;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-box {
-            width: min(1000px, 100%);
-
-            max-height: 92vh;
-
-            background: var(--white);
-
-            border-radius: 22px;
-
-            overflow: hidden;
-
-            position: relative;
-
-            box-shadow:
-                0 30px 80px rgba(36, 30, 30, .25);
-
-            animation: modalIn .3s ease;
-        }
-
-        @keyframes modalIn {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(20px)
-                    scale(.98);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-
-        }
-
-        /* VIDEO PART */
-
-        .modal-video {
-            background: #111111;
-
-            min-height: 570px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            position: relative;
-        }
-
-        .modal-video video {
-            width: 100%;
-
-            height: 100%;
-
-            min-height: 570px;
-
-            object-fit: contain;
-
-            background: #111111;
-        }
-
-        .video-placeholder {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color: rgba(255, 255, 255, .7);
-
-            text-align: center;
-
-            padding: 30px;
-        }
-
-        .video-placeholder-icon {
-            width: 60px;
-            height: 60px;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background: rgba(241, 148, 131, .2);
-
-            color: var(--pink);
-
-            font-size: 24px;
-
-            margin-bottom: 15px;
-        }
-
-        .video-placeholder p {
-            font-size: 13px;
-        }
-
-        .modal-content {
-            padding: 30px 35px 35px;
-        }
-
-        .modal-title {
-            font-size: 32px;
-
-            line-height: 1.3;
-
-            margin-bottom: 12px;
-        }
-
-        .modal-tags {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-bottom: 18px;
-        }
-
-        .modal-tag {
-            padding: 5px 11px;
-
-            border-radius: 20px;
-
-            background: var(--pale);
-
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 700;
-        }
-
-        .modal-description {
-            color: var(--gray);
-
-            line-height: 1.9;
-
-            margin-bottom: 20px;
-        }
-
-        .modal-link {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            color: var(--red);
-
-            font-size: 13px;
-
-            font-weight: 700;
-        }
-
-        .modal-link:hover {
-            color: var(--dark-red);
-        }
-
-        .modal-close {
-            position: absolute;
-
-            top: 15px;
-            right: 15px;
-
-            z-index: 5;
-
-            width: 42px;
-            height: 42px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--pink);
-
-            color: var(--red);
-
-            font-size: 22px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            transition: .25s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--red);
-
-            color: var(--white);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 55px 35px;
-
-            background: var(--pink);
-
-            color: rgba(95, 74, 70, .7);
-        }
-
-        .footer-inner {
-            max-width: 1400px;
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 25px;
-        }
-
-        .footer-title {
-            color: var(--dark);
-
-            font-weight: 800;
-
-            font-size: 17px;
-        }
-
-        .footer-text {
-            font-size: 12px;
-
-            margin-top: 5px;
-        }
-
-        .footer-right {
-            font-size: 12px;
-
-            text-align: right;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 1100px) {
-
-            .nav-inner {
-                align-items: flex-start;
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .nav-links {
-                width: 100%;
-
-                justify-content: flex-start;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-
-                padding-top: 70px;
-            }
-
-            .hero-side-number {
-                font-size: 65px;
-            }
-
-            .intro {
-                grid-template-columns: 1fr;
-
-                gap: 25px;
-            }
-
-        }
-
-        @media (max-width: 750px) {
-
-            .nav-inner {
-                padding: 13px 20px;
-            }
-
-            .nav-links {
-                overflow-x: auto;
-
-                flex-wrap: nowrap;
-
-                width: 100%;
-
-                padding-bottom: 3px;
-
-                scrollbar-width: none;
-            }
-
-            .nav-links::-webkit-scrollbar {
-                display: none;
-            }
-
-            .nav-links a {
-                flex-shrink: 0;
-
-                font-size: 12px;
-
-                padding: 7px 11px;
-            }
-
-            .hero {
-                padding: 65px 20px 60px;
-            }
-
-            .hero h1 {
-                font-size: clamp(55px, 18vw, 90px);
-
-                letter-spacing: -3px;
-            }
-
-            .hero-description {
-                font-size: 14px;
-            }
-
-            .main {
-                padding: 0 20px 70px;
-            }
-
-            .stage-list {
-                grid-template-columns: 1fr;
-            }
-
-            .stage-cover {
-                height: 330px;
-            }
-
-            .next-section {
-                margin-top: 70px;
-
-                padding: 40px 25px;
-            }
-
-            .modal {
-                padding: 12px;
-            }
-
-            .modal-box {
-                max-height: 95vh;
-
-                border-radius: 16px;
-            }
-
-            .modal-video {
-                min-height: 300px;
-            }
-
-            .modal-video video {
-                min-height: 300px;
-            }
-
-            .modal-content {
-                padding: 25px 22px 28px;
-            }
-
-            .modal-title {
-                font-size: 26px;
-            }
-
-            footer {
-                padding: 40px 20px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .footer-right {
-                text-align: left;
-            }
-
-        }
-
-        @media (max-width: 500px) {
-
-            .logo {
-                font-size: 16px;
-            }
-
-            .logo-mark {
-                width: 31px;
-                height: 31px;
-            }
-
-            .hero-side-number {
-                font-size: 50px;
-            }
-
-            .stage-cover {
-                height: 300px;
-            }
-
-            .stage-content {
-                padding: 22px;
-            }
-
-            .stage-title {
-                font-size: 24px;
-            }
-
-            .next-links {
-                flex-direction: column;
-            }
-
-            .next-link {
-                justify-content: center;
-            }
-
-            .modal-close {
-                width: 38px;
-                height: 38px;
-
-                top: 10px;
-                right: 10px;
-            }
-
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>舞台｜苏新皓档案馆</title>
+
+<style>
+:root{
+    --pink:#F19483;
+    --red:#EE3F4D;
+    --dark-red:#D93645;
+    --cream:#FFF9F5;
+    --white:#FFFFFF;
+    --dark:#241E1E;
+    --gray:#756D6B;
+    --border:#E8D9D4;
+    --soft:#F9E9E5;
+    --pale:#FCEDEA;
+    --medium-pink:#F6C1B8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--cream);
+    color:var(--dark);
+    font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;
+    line-height:1.6;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    width:100%;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(12px);
+}
+
+.nav-inner{
+    width:min(1400px,100%);
+    min-height:74px;
+    margin:auto;
+    padding:0 42px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo{
+    white-space:nowrap;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-links a{
+    position:relative;
+    padding:9px 12px 13px;
+    color:var(--gray);
+    font-size:13px;
+    font-weight:800;
+    white-space:nowrap;
+    transition:.25s ease;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:3px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--red);
+    transform:translateX(-50%) scale(0);
+    transition:.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--red);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    transform:translateX(-50%) scale(1);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    width:min(1400px,100%);
+    margin:auto;
+    padding:80px 42px 55px;
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:60px;
+    align-items:end;
+}
+
+.hero-small{
+    margin-bottom:14px;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.hero h1{
+    margin-bottom:25px;
+    font-size:clamp(62px,9vw,120px);
+    line-height:.88;
+    letter-spacing:-5px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:var(--red);
+}
+
+.hero-description{
+    max-width:580px;
+    color:var(--gray);
+    font-size:14px;
+    line-height:1.9;
+    font-weight:500;
+}
+
+.hero-stat{
+    padding:25px 0 10px 25px;
+    border-left:3px solid var(--red);
+}
+
+.hero-stat-number{
+    font-size:clamp(58px,7vw,78px);
+    line-height:.9;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.hero-stat-label{
+    margin-top:12px;
+    color:var(--gray);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-wrapper{
+    width:min(1400px,100%);
+    margin:auto;
+    padding:0 42px 50px;
+}
+
+.category-bar{
+    display:flex;
+    gap:7px;
+    padding:7px;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.category-bar::-webkit-scrollbar{
+    display:none;
+}
+
+.category-bar a{
+    flex:0 0 auto;
+    padding:10px 21px;
+    border-radius:12px;
+    color:var(--gray);
+    font-size:12px;
+    font-weight:800;
+    transition:.25s ease;
+}
+
+.category-bar a:hover{
+    background:var(--soft);
+    color:var(--red);
+}
+
+.category-bar a:first-child{
+    background:var(--red);
+    color:var(--white);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.stage-section{
+    width:min(1400px,100%);
+    margin:auto;
+    padding:65px 42px 85px;
+    scroll-margin-top:100px;
+}
+
+.stage-section + .stage-section{
+    border-top:1px solid var(--border);
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    margin-bottom:32px;
+}
+
+.section-number{
+    margin-bottom:7px;
+    color:var(--red);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2.5px;
+}
+
+.section-title{
+    font-size:clamp(38px,5vw,58px);
+    line-height:1;
+    letter-spacing:-2px;
+    font-weight:900;
+}
+
+.section-description{
+    max-width:440px;
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.8;
+    text-align:right;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.stage-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.stage-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.stage-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--medium-pink);
+    box-shadow:0 15px 35px rgba(80,40,35,.08);
+}
+
+.stage-image{
+    position:relative;
+    width:100%;
+    height:270px;
+    overflow:hidden;
+    background:var(--soft);
+}
+
+.stage-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.stage-card:hover .stage-image img{
+    transform:scale(1.035);
+}
+
+.stage-arrow{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:var(--red);
+    color:var(--white);
+    font-size:19px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.stage-arrow:hover{
+    background:var(--dark-red);
+    transform:translateX(4px);
+}
+
+.stage-info{
+    padding:19px 20px 21px;
+}
+
+.stage-category{
+    margin-bottom:6px;
+    color:var(--red);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.stage-name{
+    margin-bottom:14px;
+    font-size:20px;
+    line-height:1.3;
+    font-weight:900;
+}
+
+.stage-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.stage-tag{
+    padding:5px 9px;
+    border-radius:6px;
+    background:var(--pale);
+    color:var(--red);
+    font-size:9px;
+    font-weight:800;
+}
+
+.stage-view{
+    color:var(--gray);
+    font-size:10px;
+    font-weight:800;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.stage-modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:35px;
+    background:rgba(36,30,30,.72);
+    backdrop-filter:blur(9px);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease,visibility .3s ease;
+}
+
+.stage-modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    position:relative;
+    width:min(1120px,100%);
+    max-height:90vh;
+    display:grid;
+    grid-template-columns:1.12fr .88fr;
+    overflow:hidden;
+    border-radius:18px;
+    box-shadow:0 30px 80px rgba(0,0,0,.3);
+    transform:translateY(20px) scale(.98);
+    transition:transform .3s ease;
+}
+
+.stage-modal.show .modal-box{
+    transform:translateY(0) scale(1);
+}
+
+/* VIDEO */
+
+.modal-video{
+    position:relative;
+    min-height:570px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-video video{
+    width:100%;
+    height:100%;
+    min-height:570px;
+    display:none;
+    object-fit:contain;
+    background:#111;
+}
+
+.video-placeholder{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    background:radial-gradient(
+        circle at center,
+        #282323 0%,
+        #111 70%
+    );
+    color:rgba(255,255,255,.7);
+}
+
+.video-icon{
+    width:68px;
+    height:68px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.video-placeholder p{
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+/* INFO */
+
+.modal-info{
+    position:relative;
+    min-height:570px;
+    padding:80px 50px 50px;
+    background:var(--pale);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.modal-category{
+    margin-bottom:16px;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.modal-title{
+    margin-bottom:22px;
+    color:var(--dark);
+    font-size:clamp(40px,4vw,62px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    font-weight:900;
+}
+
+.modal-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:28px;
+}
+
+.modal-tag{
+    padding:7px 11px;
+    border-radius:6px;
+    background:rgba(255,255,255,.68);
+    color:var(--red);
+    font-size:9px;
+    font-weight:900;
+}
+
+.modal-description{
+    max-width:420px;
+    margin-bottom:32px;
+    color:var(--gray);
+    font-size:13px;
+    line-height:1.9;
+}
+
+.modal-link{
+    width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--red);
+    font-size:13px;
+    font-weight:900;
+    transition:.25s ease;
+}
+
+.modal-link:hover{
+    gap:16px;
+    color:var(--dark-red);
+}
+
+.modal-link span{
+    font-size:21px;
+}
+
+.modal-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:20;
+    width:46px;
+    height:46px;
+    border:0;
+    border-radius:50%;
+    background:#5A5858;
+    color:white;
+    font-size:27px;
+    font-weight:300;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.modal-close:hover{
+    background:var(--red);
+    transform:rotate(90deg);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:0;
+    padding:52px 42px;
+    background:var(--red);
+    color:var(--white);
+}
+
+.footer-inner{
+    width:min(1400px,100%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-title{
+    font-size:21px;
+    font-weight:900;
+}
+
+.footer-text{
+    margin-top:5px;
+    font-size:11px;
+    opacity:.82;
+}
+
+.footer-right{
+    font-size:10px;
+    opacity:.8;
+    text-align:right;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-inner{
+        padding:12px 25px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:7px;
+    }
+
+    .nav-links{
+        width:100%;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding:60px 25px 40px;
+        gap:35px;
+    }
+
+    .hero-stat{
+        border-left:0;
+        border-top:2px solid var(--red);
+        padding:20px 0 0;
+    }
+
+    .category-wrapper{
+        padding:0 25px 35px;
+    }
+
+    .stage-section{
+        padding:55px 25px 70px;
+    }
+
+    .stage-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-heading{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .section-description{
+        text-align:left;
+    }
+
+    .modal-box{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .modal-video,
+    .modal-video video,
+    .modal-info{
+        min-height:480px;
+    }
+
+    .modal-info{
+        padding:65px 35px 35px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .nav-inner{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .nav-links a{
+        padding:8px 9px 12px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:45px 18px 30px;
+    }
+
+    .hero h1{
+        font-size:65px;
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .hero-stat-number{
+        font-size:55px;
+    }
+
+    .category-wrapper{
+        padding:0 18px 30px;
+    }
+
+    .category-bar{
+        border-radius:16px;
+    }
+
+    .category-bar a{
+        padding:9px 15px;
+        font-size:12px;
+    }
+
+    .stage-section{
+        padding:45px 18px 60px;
+    }
+
+    .stage-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .stage-image{
+        height:245px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .section-description{
+        font-size:13px;
+    }
+
+    /* MODAL */
+
+    .stage-modal{
+        padding:10px;
+    }
+
+    .modal-box{
+        width:100%;
+        max-height:95vh;
+        display:flex;
+        flex-direction:column;
+        overflow-y:auto;
+        border-radius:15px;
+    }
+
+    .modal-video{
+        height:250px;
+        min-height:250px;
+        flex-shrink:0;
+    }
+
+    .modal-video video{
+        height:250px;
+        min-height:250px;
+    }
+
+    .modal-info{
+        min-height:330px;
+        padding:45px 25px 30px;
+    }
+
+    .modal-category{
+        font-size:10px;
+        margin-bottom:12px;
+    }
+
+    .modal-title{
+        font-size:38px;
+        margin-bottom:18px;
+    }
+
+    .modal-description{
+        font-size:13px;
+        margin-bottom:25px;
+    }
+
+    .modal-close{
+        width:42px;
+        height:42px;
+        top:10px;
+        right:10px;
+        font-size:24px;
+    }
+
+    .footer{
+        padding:40px 18px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-right{
+        text-align:left;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-    <nav class="navbar">
+<nav class="navbar">
+    <div class="nav-inner">
 
-        <div class="nav-inner">
+        <a href="index.html" class="logo">
+            苏新皓<span>档案馆</span>
+        </a>
 
-            <a href="index.html" class="logo">
-                <span class="logo-mark">苏</span>
-                苏新皓档案馆
-            </a>
-
-            <div class="nav-links">
-
-                <a href="index.html">首页</a>
-
-                <a href="profile.html">个人档案</a>
-
-                <a href="journey.html">成长经历</a>
-
-                <a href="moments.html">瞬间</a>
-
-                <a href="works.html">作品</a>
-
-                <a href="stage.html" class="active">舞台</a>
-
-                <a href="fan-edits.html">粉丝剪辑</a>
-
-                <a href="comments.html">留言</a>
-
-                <a href="beads.html">拼豆</a>
-
-                <a href="archive.html">资料</a>
-
-            </div>
-
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人档案</a>
+            <a href="journey.html">成长经历</a>
+            <a href="moments.html">瞬间</a>
+            <a href="works.html">作品</a>
+            <a href="stage.html" class="active">舞台</a>
+            <a href="fan-edits.html">粉丝剪辑</a>
+            <a href="comments.html">留言</a>
+            <a href="arts.html">美工</a>
+            <a href="archive.html">资料</a>
         </div>
 
-    </nav>
+    </div>
+</nav>
 
+<!-- =========================
+     HERO
+========================= -->
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<header class="hero">
 
-    <header class="hero">
+    <div>
+        <div class="hero-small">
+            05 · STAGE ARCHIVE
+        </div>
+
+        <h1>
+            舞台<span>。</span>
+        </h1>
+
+        <p class="hero-description">
+            从纯唱到纯舞，从唱跳到翻唱，
+            记录每一个不同状态下的苏新皓。
+            舞台不只是表演，也是成长留下来的痕迹。
+        </p>
+    </div>
+
+    <div class="hero-stat">
+        <div class="hero-stat-number">66</div>
+
+        <div class="hero-stat-label">
+            STAGE RECORDS · 舞台记录
+        </div>
+    </div>
+
+</header>
+
+<!-- =========================
+     CATEGORY
+========================= -->
+
+<div class="category-wrapper">
+    <div class="category-bar">
+        <a href="stage.html">全部</a>
+        <a href="#vocal">纯唱</a>
+        <a href="#dance">纯舞</a>
+        <a href="#sing-dance">唱跳</a>
+        <a href="#covers">翻唱</a>
+    </div>
+</div>
+
+<!-- =========================
+     VOCAL
+========================= -->
+
+<section class="stage-section" id="vocal">
+
+    <div class="section-heading">
 
         <div>
+            <div class="section-number">VOCAL</div>
 
-            <div class="hero-label">
-                05 · 舞台档案
-            </div>
-
-            <h1>舞台</h1>
-
-            <p class="hero-description">
-                每一次站上舞台，都是一次新的表达。
-                从纯唱到纯舞，再到唱跳结合，
-                这里记录苏新皓不同类型的舞台表现，
-                收藏那些值得反复观看的瞬间。
-            </p>
-
-        </div>
-
-        <div class="hero-side">
-
-            <div class="hero-side-number">
-                05
-            </div>
-
-            <div class="hero-side-text">
-                STAGE ARCHIVE
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
-    <main class="main">
-
-        <!-- INTRO -->
-
-        <section class="intro">
-
-            <div>
-
-                <div class="section-label">
-                    STAGE ARCHIVE
-                </div>
-
-            </div>
-
-            <div>
-
-                <h2>
-                    不同舞台，
-                    不同表达。
-                </h2>
-
-                <p>
-                    这里按照表演形式整理舞台记录，
-                    从纯声乐、纯舞蹈到唱跳舞台，
-                    也收录特别企划与翻唱作品。
-                    每一场表演，都留下属于他的舞台痕迹。
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             02 VOCAL
-        ================================================== -->
-
-        <section class="stage-section">
-
-            <div class="stage-heading">
-
-                <span class="section-label">
-                    🎤 02｜纯唱 · VOCAL
-                </span>
-
-                <h2>
-                    纯唱舞台
-                </h2>
-
-                <p>
-                    这里放展现唱功、气息和情感的纯声乐表演。
-                </p>
-
-            </div>
-
-
-            <div class="stage-list">
-
-                <!-- 愿与愁 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-
-                        <!-- CHANGE IMAGE HERE -->
-                        <img
-                            src="images/stage/yuan-yu-chou.jpg"
-                            alt="《愿与愁》">
-
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            02 · 01
-                        </div>
-
-                        <div class="stage-title">
-                            《愿与愁》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                VOCAL
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('愿与愁', 'VOCAL')"
-                                aria-label="查看《愿与愁》">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Letting Go -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <!-- CHANGE IMAGE HERE -->
-                        <img
-                            src="images/stage/letting-go.jpg"
-                            alt="Letting Go">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 02</div>
-
-                        <div class="stage-title">
-                            《Letting Go》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Letting Go', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 只看着我 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/zhi-kan-zhe-wo.jpg"
-                            alt="《只看着我》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 03</div>
-
-                        <div class="stage-title">
-                            《只看着我》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('只看着我', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 日日夜夜 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/ri-ri-ye-ye.jpg"
-                            alt="《日日夜夜》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 04</div>
-
-                        <div class="stage-title">
-                            《日日夜夜》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('日日夜夜', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Chandelier -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/chandelier.jpg"
-                            alt="《Chandelier》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 05</div>
-
-                        <div class="stage-title">
-                            《Chandelier》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Chandelier', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 烟火里的尘埃 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/yan-huo-li-de-chen-ai.jpg"
-                            alt="《烟火里的尘埃》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 06</div>
-
-                        <div class="stage-title">
-                            《烟火里的尘埃》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('烟火里的尘埃', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 感情线 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/gan-qing-xian.jpg"
-                            alt="《感情线》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 07</div>
-
-                        <div class="stage-title">
-                            《感情线》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('感情线', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- We Don't Talk Anymore -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/we-dont-talk-anymore.jpg"
-                            alt="We Don't Talk Anymore">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 08</div>
-
-                        <div class="stage-title">
-                            《We Don't Talk Anymore》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('We Don’t Talk Anymore', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Eyes Nose Lips -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/eyes-nose-lips.jpg"
-                            alt="Eyes, Nose, Lips">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 09</div>
-
-                        <div class="stage-title">
-                            《Eyes, Nose, Lips》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Eyes, Nose, Lips', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- If I Ain't Got You -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/if-i-aint-got-you.jpg"
-                            alt="If I Ain't Got You">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 10</div>
-
-                        <div class="stage-title">
-                            《If I Ain’t Got You》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('If I Ain’t Got You', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 身骑白马 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/shen-qi-bai-ma.jpg"
-                            alt="《身骑白马》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 11</div>
-
-                        <div class="stage-title">
-                            《身骑白马》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('身骑白马', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Stuck With You -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/stuck-with-you.jpg"
-                            alt="Stuck With You">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 12</div>
-
-                        <div class="stage-title">
-                            《Stuck With You》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Stuck With You', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 老派约会之必要 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/lao-pai-yue-hui.jpg"
-                            alt="《老派约会之必要》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 13</div>
-
-                        <div class="stage-title">
-                            《老派约会之必要》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('老派约会之必要', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Seven -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/seven.jpg"
-                            alt="Seven">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 14</div>
-
-                        <div class="stage-title">
-                            《Seven》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Seven', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Dynamite -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/dynamite.jpg"
-                            alt="Dynamite">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 15</div>
-
-                        <div class="stage-title">
-                            《Dynamite》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">COVER</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Dynamite', 'COVER · 翻唱')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 你的微笑 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/ni-de-wei-xiao.jpg"
-                            alt="《你的微笑》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 16</div>
-
-                        <div class="stage-title">
-                            《你的微笑》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('你的微笑', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 罗生门 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/luo-sheng-men.jpg"
-                            alt="《罗生门》">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">02 · 17</div>
-
-                        <div class="stage-title">
-                            《罗生门》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">VOCAL</span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('罗生门', 'VOCAL')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             03 DANCE
-        ================================================== -->
-
-        <section class="stage-section">
-
-            <div class="stage-heading">
-
-                <span class="section-label">
-                    🕺 03｜纯舞 · DANCE
-                </span>
-
-                <h2>
-                    纯舞舞台
-                </h2>
-
-                <p>
-                    这里放展现肢体控制、舞蹈实力的纯舞蹈翻跳。
-                </p>
-
-            </div>
-
-
-            <div class="stage-list">
-
-                <!-- Hey Mama -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/hey-mama.jpg" alt="Hey Mama">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 01</div>
-                        <div class="stage-title">《Hey Mama》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Hey Mama', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Rude Boy -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/rude-boy.jpg" alt="Rude Boy">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 02</div>
-                        <div class="stage-title">《Rude Boy》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Rude Boy', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Bad -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/bad.jpg" alt="Bad">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 03</div>
-                        <div class="stage-title">《Bad》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Bad', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Guilty -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/guilty.jpg" alt="Guilty">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 04</div>
-                        <div class="stage-title">《Guilty》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Guilty', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Survivors 白版 -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/survivors-white.jpg" alt="Survivors 白版">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 05</div>
-                        <div class="stage-title">《Survivors（白版）》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Survivors（白版）', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Survivors 黑版 -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/survivors-black.jpg" alt="Survivors 黑版">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 06</div>
-                        <div class="stage-title">《Survivors（黑版）》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Survivors（黑版）', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Bad Guy -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/bad-guy.jpg" alt="Bad Guy">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 07</div>
-                        <div class="stage-title">《Bad Guy》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Bad Guy', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 16 Shots -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/16-shots.jpg" alt="16 Shots">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 08</div>
-                        <div class="stage-title">《16 Shots》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('16 Shots', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Lalala -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/lalala.jpg" alt="Lalala">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 09</div>
-                        <div class="stage-title">《Lalala》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Lalala', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Dangerous -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/dangerous.jpg" alt="Dangerous">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 10</div>
-                        <div class="stage-title">《Dangerous》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Dangerous', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Whisper -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/whisper.jpg" alt="Whisper">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 11</div>
-                        <div class="stage-title">《Whisper》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Whisper', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Smoothie -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/smoothie.jpg" alt="Smoothie">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 12</div>
-                        <div class="stage-title">《Smoothie》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Smoothie', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Playground -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/playground.jpg" alt="Playground">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 13</div>
-                        <div class="stage-title">《Playground》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Playground', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Shine -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/shine.jpg" alt="Shine">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 14</div>
-                        <div class="stage-title">《Shine》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Shine', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Ring Ring Ring -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/ring-ring-ring.jpg" alt="Ring Ring Ring">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 15</div>
-                        <div class="stage-title">《Ring Ring Ring》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Ring Ring Ring', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Wiki Wiki -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/wiki-wiki.jpg" alt="Wiki Wiki">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 16</div>
-                        <div class="stage-title">《Wiki Wiki》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Wiki Wiki', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 蝴蝶少女 -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/hu-die-shao-nv.jpg" alt="《蝴蝶少女》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 17</div>
-                        <div class="stage-title">《蝴蝶少女》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('蝴蝶少女', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Bout You -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/bout-you.jpg" alt="Bout You">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 18</div>
-                        <div class="stage-title">《Bout You》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Bout You', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Gee -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/gee.jpg" alt="Gee">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 19</div>
-                        <div class="stage-title">《Gee》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Gee', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 新音随舞 -->
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/xin-yin-sui-wu.jpg" alt="《新音随舞》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">03 · 20</div>
-                        <div class="stage-title">《新音随舞》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('新音随舞', 'DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             04 SING & DANCE
-        ================================================== -->
-
-        <section class="stage-section">
-
-            <div class="stage-heading">
-
-                <span class="section-label">
-                    🔥 04｜唱跳 · SING &amp; DANCE
-                </span>
-
-                <h2>
-                    唱跳舞台
-                </h2>
-
-                <p>
-                    这里放唱跳结合、展现全能 ACE 实力的舞台。
-                </p>
-
-            </div>
-
-
-            <div class="stage-list">
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/talk-worthy-talk-dirty.jpg" alt="Talk Worthy / Talk Dirty">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 01</div>
-                        <div class="stage-title">《Talk Worthy / Talk Dirty》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Talk Worthy / Talk Dirty', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/on.jpg" alt="ON">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 02</div>
-                        <div class="stage-title">《ON》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('ON', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/mei-du-sha.jpg" alt="《美杜莎》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 03</div>
-                        <div class="stage-title">《美杜莎》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('美杜莎', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/worth-it.jpg" alt="Worth It">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 04</div>
-                        <div class="stage-title">《Worth It》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Worth It', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/echo.jpg" alt="Echo">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 05</div>
-                        <div class="stage-title">《Echo》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Echo', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/gan-kuai-li-kai.jpg" alt="《赶快离开》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 06</div>
-                        <div class="stage-title">《赶快离开》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('赶快离开', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/more.jpg" alt="More">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 07</div>
-                        <div class="stage-title">《More》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE · 出道战</span>
-                            <button class="stage-arrow" onclick="openStage('More', 'SING & DANCE · 出道战')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/kiss-me-more.jpg" alt="Kiss Me More">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 08</div>
-                        <div class="stage-title">《Kiss Me More》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Kiss Me More', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/baggy-jeans.jpg" alt="Baggy Jeans">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 09</div>
-                        <div class="stage-title">《Baggy Jeans》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Baggy Jeans', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/paranoia.jpg" alt="Paranoia">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 10</div>
-                        <div class="stage-title">《Paranoia》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Paranoia', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/yummy.jpg" alt="Yummy">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 11</div>
-                        <div class="stage-title">《Yummy》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Yummy', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/deng-ni-de-hui-da.jpg" alt="《等你的回答》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 12</div>
-                        <div class="stage-title">《等你的回答》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('等你的回答', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/gai-shi-ying-xiong.jpg" alt="《盖世英雄》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 13</div>
-                        <div class="stage-title">《盖世英雄》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('盖世英雄', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/jiang-jun-ling.jpg" alt="《将军令》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 14</div>
-                        <div class="stage-title">《将军令》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('将军令', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/ying-xiong.jpg" alt="《英雄》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 15</div>
-                        <div class="stage-title">《英雄》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('英雄', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/its-the-way-you-are.jpg" alt="It's The Way You Are">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 16</div>
-                        <div class="stage-title">《It’s The Way You Are》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('It’s The Way You Are', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/wei-xian-pai-dui.jpg" alt="《危险派对》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 17</div>
-                        <div class="stage-title">《危险派对》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('危险派对', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/vibe.jpg" alt="Vibe">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 18</div>
-                        <div class="stage-title">《Vibe》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Vibe', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/bo-si-mao.jpg" alt="《波斯猫》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 19</div>
-                        <div class="stage-title">《波斯猫》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('波斯猫', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/di-yi-ci-gao-bai.jpg" alt="《第一次告白》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 20</div>
-                        <div class="stage-title">《第一次告白》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('第一次告白', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/young-blood.jpg" alt="Young Blood">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 21</div>
-                        <div class="stage-title">《Young Blood》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('Young Blood', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/mao-bu-qing-qiao.jpg" alt="《猫步轻俏》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 22</div>
-                        <div class="stage-title">《猫步轻俏》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('猫步轻俏', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="stage-card">
-                    <div class="stage-cover">
-                        <img src="images/stage/ba-yin-he.jpg" alt="《舞台版八音盒》">
-                    </div>
-                    <div class="stage-content">
-                        <div class="stage-number">04 · 23</div>
-                        <div class="stage-title">《舞台版八音盒》</div>
-                        <div class="stage-bottom">
-                            <span class="stage-tag">SING &amp; DANCE</span>
-                            <button class="stage-arrow" onclick="openStage('舞台版八音盒', 'SING & DANCE')">↗</button>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             05 COVERS
-        ================================================== -->
-
-        <section class="stage-section">
-
-            <div class="stage-heading">
-
-                <span class="section-label">
-                    🎬 05｜翻唱 · COVERS
-                </span>
-
-                <h2>
-                    翻唱
-                </h2>
-
-                <p>
-                    这里放他自导自演或带有特殊企划性质的翻唱 MV / 视频。
-                </p>
-
-            </div>
-
-
-            <div class="stage-list">
-
-                <!-- Make A Wish -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/make-a-wish.jpg"
-                            alt="Make A Wish">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 01
-                        </div>
-
-                        <div class="stage-title">
-                            《Make A Wish》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Make A Wish', 'COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Stay -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/stay.jpg"
-                            alt="Stay">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 02
-                        </div>
-
-                        <div class="stage-title">
-                            《Stay》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Stay', 'COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- Standing Next To You -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/standing-next-to-you.jpg"
-                            alt="Standing Next To You">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 03
-                        </div>
-
-                        <div class="stage-title">
-                            《Standing Next To You》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('Standing Next To You', 'COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 18岁生日企划 -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/18-birthday-cover.jpg"
-                            alt="18岁生日企划 Cover">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 04
-                        </div>
-
-                        <div class="stage-title">
-                            《18岁生日企划 Cover》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                BIRTHDAY COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('18岁生日企划 Cover', 'BIRTHDAY COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 抖音 Cover -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/douyin-cover.jpg"
-                            alt="抖音 Cover">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 05
-                        </div>
-
-                        <div class="stage-title">
-                            《抖音 Cover》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('抖音 Cover', 'COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 生日见面会 Cover -->
-
-                <article class="stage-card">
-
-                    <div class="stage-cover">
-                        <img
-                            src="images/stage/birthday-meet-cover.jpg"
-                            alt="生日见面会 Cover">
-                    </div>
-
-                    <div class="stage-content">
-
-                        <div class="stage-number">
-                            05 · 06
-                        </div>
-
-                        <div class="stage-title">
-                            《生日见面会 Cover》
-                        </div>
-
-                        <div class="stage-bottom">
-
-                            <span class="stage-tag">
-                                COVER
-                            </span>
-
-                            <button
-                                class="stage-arrow"
-                                onclick="openStage('生日见面会 Cover', 'COVER')">
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             NEXT
-        ========================= -->
-
-        <section class="next-section">
-
-            <div class="next-label">
-                CONTINUE EXPLORING
-            </div>
-
-            <h2>
-                继续了解<br>
-                苏新皓。
+            <h2 class="section-title">
+                纯唱舞台
             </h2>
+        </div>
 
-            <p>
-                看完舞台记录，也可以继续探索他的原创作品、
-                成长经历、瞬间记录，以及更多档案内容。
-            </p>
+        <p class="section-description">
+            没有复杂编舞，只留下声音、情绪与舞台上的表达。
+        </p>
 
-            <div class="next-links">
+    </div>
 
-                <a href="works.html" class="next-link">
-                    原创作品 ↗
-                </a>
+    <div class="stage-grid" id="vocal-grid"></div>
 
-                <a href="journey.html" class="next-link">
-                    成长经历 ↗
-                </a>
+</section>
 
-                <a href="moments.html" class="next-link">
-                    瞬间记录 ↗
-                </a>
+<!-- =========================
+     DANCE
+========================= -->
 
-                <a href="archive.html" class="next-link">
-                    资料档案 ↗
-                </a>
+<section class="stage-section" id="dance">
 
+    <div class="section-heading">
+
+        <div>
+            <div class="section-number">DANCE</div>
+
+            <h2 class="section-title">
+                纯舞舞台
+            </h2>
+        </div>
+
+        <p class="section-description">
+            音乐、动作与身体控制，每一个舞步都是舞台表达的一部分。
+        </p>
+
+    </div>
+
+    <div class="stage-grid" id="dance-grid"></div>
+
+</section>
+
+<!-- =========================
+     SING & DANCE
+========================= -->
+
+<section class="stage-section" id="sing-dance">
+
+    <div class="section-heading">
+
+        <div>
+            <div class="section-number">SING & DANCE</div>
+
+            <h2 class="section-title">
+                唱跳舞台
+            </h2>
+        </div>
+
+        <p class="section-description">
+            歌声与舞蹈同时发生，是力量、节奏与舞台感染力的结合。
+        </p>
+
+    </div>
+
+    <div class="stage-grid" id="sing-dance-grid"></div>
+
+</section>
+
+<!-- =========================
+     COVERS
+========================= -->
+
+<section class="stage-section" id="covers">
+
+    <div class="section-heading">
+
+        <div>
+            <div class="section-number">COVERS</div>
+
+            <h2 class="section-title">
+                翻唱
+            </h2>
+        </div>
+
+        <p class="section-description">
+            不同歌曲、不同风格，留下属于自己的声音与诠释。
+        </p>
+
+    </div>
+
+    <div class="stage-grid" id="covers-grid"></div>
+
+</section>
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="stage-modal"
+    id="stage-modal"
+    onclick="closeModalOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-video">
+
+            <video
+                id="stage-video"
+                controls
+                preload="metadata"
+            >
+                <source
+                    id="stage-video-source"
+                    src=""
+                    type="video/mp4"
+                >
+            </video>
+
+            <div
+                class="video-placeholder"
+                id="video-placeholder"
+            >
+                <div class="video-icon">▶</div>
+
+                <p>
+                    舞台视频将在这里播放
+                </p>
             </div>
 
-        </section>
+        </div>
 
-    </main>
-
-
-    <!-- =========================
-         STAGE MODAL
-    ========================= -->
-
-    <div
-        class="modal"
-        id="stage-modal"
-        onclick="closeModalOutside(event)">
-
-        <div class="modal-box">
+        <div class="modal-info">
 
             <button
                 class="modal-close"
                 onclick="closeStageModal()"
-                aria-label="关闭">
+                aria-label="关闭"
+            >
                 ×
             </button>
 
-            <div class="modal-video">
+            <div
+                class="modal-category"
+                id="modal-stage-category"
+            >
+                VOCAL
+            </div>
 
-                <video
-                    id="stage-video"
-                    controls>
+            <h2
+                class="modal-title"
+                id="modal-stage-title"
+            >
+                Letting Go
+            </h2>
 
-                    <source
-                        id="stage-video-source"
-                        src=""
-                        type="video/mp4">
+            <div class="modal-tags">
 
-                    您的浏览器不支持视频播放。
+                <span
+                    class="modal-tag"
+                    id="modal-stage-tag"
+                >
+                    纯唱
+                </span>
 
-                </video>
-
-                <div
-                    class="video-placeholder"
-                    id="video-placeholder">
-
-                    <div class="video-placeholder-icon">
-                        ▶
-                    </div>
-
-                    <p>
-                        添加视频后即可在这里播放
-                    </p>
-
-                </div>
+                <span class="modal-tag">
+                    舞台记录
+                </span>
 
             </div>
 
+            <p
+                class="modal-description"
+                id="modal-stage-description"
+            >
+                这里可以放置舞台简介、表演记录以及个人观后记录。
+            </p>
 
-            <div class="modal-content">
-
-                <h2
-                    class="modal-title"
-                    id="modal-stage-title">
-                    舞台名称
-                </h2>
-
-                <div class="modal-tags">
-
-                    <span
-                        class="modal-tag"
-                        id="modal-stage-tag">
-                        STAGE
-                    </span>
-
-                    <span class="modal-tag">
-                        舞台记录
-                    </span>
-
-                </div>
-
-                <p
-                    class="modal-description"
-                    id="modal-stage-description">
-                    记录这个舞台的相关视频与资料。
-                </p>
-
-            </div>
+            <a
+                href="#"
+                class="modal-link"
+                id="modal-stage-link"
+                onclick="return false;"
+            >
+                查看完整舞台
+                <span>→</span>
+            </a>
 
         </div>
 
     </div>
 
+</div>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
-    <footer>
+<footer class="footer">
 
-        <div class="footer-inner">
+    <div class="footer-inner">
 
-            <div>
-
-                <div class="footer-title">
-                    苏新皓档案馆
-                </div>
-
-                <div class="footer-text">
-                    A fan-made archive dedicated to Su Xinhao.
-                </div>
-
+        <div>
+            <div class="footer-title">
+                苏新皓档案馆
             </div>
 
-            <div class="footer-right">
-                记录每一个值得被记住的瞬间。
+            <div class="footer-text">
+                记录每一个舞台，也记录一路成长。
             </div>
+        </div>
+
+        <div class="footer-right">
+            FAN ARCHIVE · STAGE
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =========================
+   STAGE DATA
+========================= */
+
+const vocalStages = [
+    ["yuan-yu-chou.jpg","愿与愁","纯唱"],
+    ["letting-go.jpg","Letting Go","纯唱"],
+    ["zhi-kan-zhe-wo.jpg","只看着我","纯唱"],
+    ["ri-ri-ye-ye.jpg","日日夜夜","纯唱"],
+    ["chandelier.jpg","Chandelier","COVER"],
+    ["yan-huo-li-de-chen-ai.jpg","烟火里的尘埃","纯唱"],
+    ["gan-qing-xian.jpg","感情线","纯唱"],
+    ["we-dont-talk-anymore.jpg","We Don't Talk Anymore","COVER"],
+    ["eyes-nose-lips.jpg","Eyes, Nose, Lips","COVER"],
+    ["if-i-aint-got-you.jpg","If I Ain’t Got You","COVER"],
+    ["shen-qi-bai-ma.jpg","身骑白马","纯唱"],
+    ["stuck-with-you.jpg","Stuck With You","COVER"],
+    ["lao-pai-yue-hui.jpg","老派约会之必要","纯唱"],
+    ["seven.jpg","Seven","COVER"],
+    ["dynamite.jpg","Dynamite","COVER"],
+    ["ni-de-wei-xiao.jpg","你的微笑","纯唱"],
+    ["luo-sheng-men.jpg","罗生门","纯唱"]
+];
+
+const danceStages = [
+    ["hey-mama.jpg","Hey Mama"],
+    ["rude-boy.jpg","Rude Boy"],
+    ["bad.jpg","Bad"],
+    ["guilty.jpg","Guilty"],
+    ["survivors-white.jpg","Survivors（白版）"],
+    ["survivors-black.jpg","Survivors（黑版）"],
+    ["bad-guy.jpg","Bad Guy"],
+    ["16-shots.jpg","16 Shots"],
+    ["lalala.jpg","Lalala"],
+    ["dangerous.jpg","Dangerous"],
+    ["whisper.jpg","Whisper"],
+    ["smoothie.jpg","Smoothie"],
+    ["playground.jpg","Playground"],
+    ["shine.jpg","Shine"],
+    ["ring-ring-ring.jpg","Ring Ring Ring"],
+    ["wiki-wiki.jpg","Wiki Wiki"],
+    ["hu-die-shao-nv.jpg","蝴蝶少女"],
+    ["bout-you.jpg","Bout You"],
+    ["gee.jpg","Gee"],
+    ["xin-yin-sui-wu.jpg","新音随舞"]
+];
+
+const singDanceStages = [
+    ["talk-worthy-talk-dirty.jpg","Talk Worthy / Talk Dirty"],
+    ["on.jpg","ON"],
+    ["mei-du-sha.jpg","美杜莎"],
+    ["worth-it.jpg","Worth It"],
+    ["echo.jpg","Echo"],
+    ["gan-kuai-li-kai.jpg","赶快离开"],
+    ["more.jpg","More","SING & DANCE · 出道战"],
+    ["kiss-me-more.jpg","Kiss Me More"],
+    ["baggy-jeans.jpg","Baggy Jeans"],
+    ["paranoia.jpg","Paranoia"],
+    ["yummy.jpg","Yummy"],
+    ["deng-ni-de-hui-da.jpg","等你的回答"],
+    ["gai-shi-ying-xiong.jpg","盖世英雄"],
+    ["jiang-jun-ling.jpg","将军令"],
+    ["ying-xiong.jpg","英雄"],
+    ["its-the-way-you-are.jpg","It’s The Way You Are"],
+    ["wei-xian-pai-dui.jpg","危险派对"],
+    ["vibe.jpg","Vibe"],
+    ["bo-si-mao.jpg","波斯猫"],
+    ["di-yi-ci-gao-bai.jpg","第一次告白"],
+    ["young-blood.jpg","Young Blood"],
+    ["mao-bu-qing-qiao.jpg","猫步轻俏"],
+    ["ba-yin-he.jpg","舞台版八音盒"]
+];
+
+const coverStages = [
+    ["make-a-wish.jpg","Make A Wish"],
+    ["stay.jpg","Stay"],
+    ["standing-next-to-you.jpg","Standing Next To You"],
+    ["18-birthday-cover.jpg","18岁生日企划 Cover","BIRTHDAY COVER"],
+    ["douyin-cover.jpg","抖音 Cover"],
+    ["birthday-meet-cover.jpg","生日见面会 Cover"]
+];
+
+/* =========================
+   ESCAPE TITLE
+========================= */
+
+function escapeHTML(value){
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+/* =========================
+   CREATE CARD
+========================= */
+
+function createStageCard(image,title,category,type){
+
+    const article = document.createElement("article");
+    article.className = "stage-card";
+
+    let tag = category;
+
+    if(type === "dance"){
+        tag = "纯舞";
+    }
+
+    if(type === "covers" && !category){
+        tag = "翻唱";
+    }
+
+    let modalCategory = "";
+
+    if(type === "vocal"){
+        modalCategory = "纯唱 · VOCAL";
+    }else if(type === "dance"){
+        modalCategory = "纯舞 · DANCE";
+    }else if(type === "sing-dance"){
+        modalCategory = "唱跳 · SING & DANCE";
+    }else{
+        modalCategory = "翻唱 · COVERS";
+    }
+
+    const safeTitle = escapeHTML(title);
+    const safeImage = escapeHTML(image);
+    const safeCategory = escapeHTML(modalCategory);
+    const safeTag = escapeHTML(tag);
+
+    article.innerHTML = `
+        <div class="stage-image">
+
+            <img
+                src="images/stage/${safeImage}"
+                alt="${safeTitle}"
+                loading="lazy"
+            >
+
+            <button
+                class="stage-arrow"
+                aria-label="查看 ${safeTitle}"
+                onclick="openStage('${safeTitle}','${safeCategory}','${safeTag}')"
+            >
+                →
+            </button>
 
         </div>
 
-    </footer>
+        <div class="stage-info">
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
-    <script>
-
-        function openStage(title, category) {
-
-            const modal = document.getElementById("stage-modal");
-
-            const titleElement =
-                document.getElementById("modal-stage-title");
-
-            const tagElement =
-                document.getElementById("modal-stage-tag");
-
-            const descriptionElement =
-                document.getElementById("modal-stage-description");
-
-            const video =
-                document.getElementById("stage-video");
-
-            const videoSource =
-                document.getElementById("stage-video-source");
-
-            const placeholder =
-                document.getElementById("video-placeholder");
-
-
-            titleElement.textContent = title;
-
-            tagElement.textContent = category;
-
-            descriptionElement.textContent =
-                "这里可以放置《" +
-                title +
-                "》的舞台视频、表演记录以及相关内容。";
-
-
-            /*
-             * 如果以后要给每个舞台加入视频，
-             * 可以在这里根据 title 设置不同的视频路径。
-             *
-             * 例如：
-             *
-             * if (title === "愿与愁") {
-             *     videoSource.src = "videos/stage/yuan-yu-chou.mp4";
-             * }
-             *
-             */
-
-
-            videoSource.src = "";
-
-            video.load();
-
-            placeholder.style.display = "flex";
-
-
-            modal.classList.add("show");
-
-            document.body.style.overflow = "hidden";
-
-        }
-
-
-        function closeStageModal() {
-
-            const modal =
-                document.getElementById("stage-modal");
-
-            const video =
-                document.getElementById("stage-video");
-
-            modal.classList.remove("show");
-
-            document.body.style.overflow = "";
-
-            video.pause();
-
-            video.currentTime = 0;
-
-        }
-
-
-        function closeModalOutside(event) {
-
-            if (event.target.id === "stage-modal") {
-
-                closeStageModal();
-
-            }
-
-        }
-
-
-        document.addEventListener("keydown", function(event) {
-
-            if (event.key === "Escape") {
-
-                const modal =
-                    document.getElementById("stage-modal");
-
-                if (modal.classList.contains("show")) {
-
-                    closeStageModal();
-
+            <div class="stage-category">
+                ${
+                    type === "vocal"
+                    ? "VOCAL"
+                    : type === "dance"
+                    ? "DANCE"
+                    : type === "sing-dance"
+                    ? "SING & DANCE"
+                    : "COVERS"
                 }
+            </div>
 
-            }
+            <h3 class="stage-name">
+                《${safeTitle}》
+            </h3>
 
-        });
+            <div class="stage-meta">
 
-    </script>
+                <span class="stage-tag">
+                    ${safeTag}
+                </span>
+
+                <span class="stage-view">
+                    查看舞台 →
+                </span>
+
+            </div>
+
+        </div>
+    `;
+
+    return article;
+}
+
+/* =========================
+   LOAD STAGES
+========================= */
+
+function loadStages(){
+
+    const vocalGrid = document.getElementById("vocal-grid");
+
+    vocalStages.forEach(stage=>{
+        vocalGrid.appendChild(
+            createStageCard(
+                stage[0],
+                stage[1],
+                stage[2],
+                "vocal"
+            )
+        );
+    });
+
+    const danceGrid = document.getElementById("dance-grid");
+
+    danceStages.forEach(stage=>{
+        danceGrid.appendChild(
+            createStageCard(
+                stage[0],
+                stage[1],
+                "纯舞",
+                "dance"
+            )
+        );
+    });
+
+    const singDanceGrid = document.getElementById("sing-dance-grid");
+
+    singDanceStages.forEach(stage=>{
+        singDanceGrid.appendChild(
+            createStageCard(
+                stage[0],
+                stage[1],
+                stage[2] || "唱跳",
+                "sing-dance"
+            )
+        );
+    });
+
+    const coversGrid = document.getElementById("covers-grid");
+
+    coverStages.forEach(stage=>{
+        coversGrid.appendChild(
+            createStageCard(
+                stage[0],
+                stage[1],
+                stage[2] || "翻唱",
+                "covers"
+            )
+        );
+    });
+}
+
+/* =========================
+   OPEN MODAL
+========================= */
+
+function openStage(title,category,tag){
+
+    const modal = document.getElementById("stage-modal");
+    const titleElement = document.getElementById("modal-stage-title");
+    const categoryElement = document.getElementById("modal-stage-category");
+    const tagElement = document.getElementById("modal-stage-tag");
+    const descriptionElement = document.getElementById("modal-stage-description");
+
+    const video = document.getElementById("stage-video");
+    const videoSource = document.getElementById("stage-video-source");
+    const placeholder = document.getElementById("video-placeholder");
+
+    titleElement.textContent = title;
+    categoryElement.textContent = category;
+    tagElement.textContent = tag;
+
+    descriptionElement.textContent =
+        "这里可以放置《" +
+        title +
+        "》的舞台简介、表演记录以及个人观后记录。";
+
+    video.pause();
+    videoSource.src = "";
+    video.load();
+
+    video.style.display = "none";
+    placeholder.style.display = "flex";
+
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+}
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeStageModal(){
+
+    const modal = document.getElementById("stage-modal");
+    const video = document.getElementById("stage-video");
+
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+
+    video.pause();
+    video.currentTime = 0;
+}
+
+/* =========================
+   OUTSIDE CLICK
+========================= */
+
+function closeModalOutside(event){
+
+    if(event.target === document.getElementById("stage-modal")){
+        closeStageModal();
+    }
+}
+
+/* =========================
+   ESCAPE
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        const modal = document.getElementById("stage-modal");
+
+        if(modal.classList.contains("show")){
+            closeStageModal();
+        }
+    }
+});
+
+/* =========================
+   START
+========================= */
+
+loadStages();
+
+</script>
 
 </body>
 </html>
