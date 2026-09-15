@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏新皓｜个人档案</title>
+
+    <style>
+        :root {
+            --粉红: #F19483;
+            --红色: #EE3F4D;
+            --深红: #D93645;
+            --奶油: #FFF9F5;
+            --白色: #FFFFFF;
+            --深色: #241E1E;
+            --灰色: #756D6B;
+            --边框: #E8D9D4;
+            --浅粉: #F9E9E5;
+            --淡粉: #FCEDEA;
+            --中粉: #F6C1B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+            background: var(--奶油);
+            color: var(--深色);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 72px;
+            background: rgba(255, 249, 245, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--边框);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--红色);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            position: relative;
+            font-size: 14px;
+            color: var(--灰色);
+            transition: 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--红色);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 5px;
+            height: 5px;
+            background: var(--红色);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--红色);
+            color: var(--白色);
+            padding: 100px 28px 90px;
+        }
+
+        .hero::after {
+            content: "PROFILE";
+            position: absolute;
+            right: -30px;
+            bottom: -55px;
+            font-size: 180px;
+            font-weight: 800;
+            letter-spacing: -8px;
+            color: rgba(255,255,255,0.07);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            margin-bottom: 18px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 28px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 16px;
+            line-height: 2;
+            color: rgba(255,255,255,0.88);
+        }
+
+        .hero-note {
+            margin-top: 42px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            max-width: 420px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* =========================
+           MAIN PROFILE
+        ========================= */
+
+        .profile-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 28px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .profile-image-wrap {
+            position: sticky;
+            top: 110px;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            background: var(--浅粉);
+        }
+
+        .profile-image-caption {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--灰色);
+            font-size: 12px;
+        }
+
+        .profile-image-caption span:first-child {
+            color: var(--红色);
+            font-weight: 600;
+        }
+
+        .section-label {
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .about-text {
+            color: var(--灰色);
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 42px;
+        }
+
+        /* =========================
+           BASIC INFO
+        ========================= */
+
+        .basic-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .info-item {
+            padding: 20px;
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 14px;
+            transition: 0.25s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--中粉);
+            background: var(--淡粉);
+        }
+
+        .info-label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--灰色);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           KEYWORDS
+        ========================= */
+
+        .keyword-list {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .keyword {
+            padding: 7px 15px;
+            border: 1px solid var(--边框);
+            border-radius: 999px;
+            color: var(--灰色);
+            background: var(--白色);
+            font-size: 12px;
+        }
+
+        .keyword:first-child {
+            color: var(--红色);
+            border-color: var(--中粉);
+            background: var(--淡粉);
+        }
+
+        /* =========================
+           TRAITS
+        ========================= */
+
+        .traits {
+            background: var(--白色);
+            padding: 100px 28px;
+            border-top: 1px solid var(--边框);
+            border-bottom: 1px solid var(--边框);
+        }
+
+        .traits-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .section-description {
+            max-width: 360px;
+            color: var(--灰色);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .trait-card {
+            min-height: 190px;
+            padding: 28px;
+            border: 1px solid var(--边框);
+            border-radius: 16px;
+            background: var(--奶油);
+            transition: 0.25s ease;
+        }
+
+        .trait-card:hover {
+            transform: translateY(-5px);
+            background: var(--淡粉);
+            border-color: var(--中粉);
+            box-shadow: 0 14px 30px rgba(36,30,30,0.06);
+        }
+
+        .trait-number {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+        }
+
+        .trait-card h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .trait-card p {
+            color: var(--灰色);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           NEXT PAGES
+        ========================= */
+
+        .next-pages {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 28px;
+        }
+
+        .next-label {
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .next-title {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.2;
+            margin-bottom: 45px;
+        }
+
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            position: relative;
+            min-height: 210px;
+            padding: 28px;
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.25s ease;
+            overflow: hidden;
+        }
+
+        .next-card::after {
+            content: "→";
+            position: absolute;
+            right: 25px;
+            bottom: 22px;
+            color: var(--红色);
+            font-size: 22px;
+            transition: 0.25s ease;
+        }
+
+        .next-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--中粉);
+            background: var(--淡粉);
+            box-shadow: 0 14px 30px rgba(36,30,30,0.06);
+        }
+
+        .next-card:hover::after {
+            transform: translateX(6px);
+        }
+
+        .next-card-number {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .next-card h3 {
+            font-size: 22px;
+            margin-top: auto;
+            margin-bottom: 5px;
+        }
+
+        .next-card p {
+            color: var(--灰色);
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--粉红);
+            color: var(--白色);
+            padding: 45px 28px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-text {
+            margin-top: 5px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1050px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .profile-main {
+                grid-template-columns: 0.8fr 1.2fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            nav {
+                height: auto;
+            }
+
+            .nav-inner {
+                padding: 18px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 3px;
+                gap: 18px;
+            }
+
+            .nav-links a {
+                flex-shrink: 0;
+            }
+
+            .hero {
+                padding: 75px 22px 70px;
+            }
+
+            .hero::after {
+                font-size: 100px;
+            }
+
+            .profile-main {
+                grid-template-columns: 1fr;
+                padding: 70px 22px;
+                gap: 55px;
+            }
+
+            .profile-image-wrap {
+                position: static;
+                max-width: 550px;
+            }
+
+            .traits {
+                padding: 70px 22px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .traits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .next-pages {
+                padding: 70px 22px;
+            }
+
+            .next-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .basic-info {
+                grid-template-columns: 1fr;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trait-card {
+                min-height: 160px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="nav-inner">
+
+            <a href="index.html" class="logo">
+                苏新皓｜档案馆
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="profile.html" class="active">个人档案</a>
+                <a href="journey.html">成长经历</a>
+                <a href="moments.html">瞬间</a>
+                <a href="works.html">作品</a>
+                <a href="stage.html">舞台</a>
+                <a href="fan-edits.html">粉丝剪辑</a>
+                <a href="comments.html">留言</a>
+                <a href="beads.html">拼豆</a>
+                <a href="archive.html">资料</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-label">
+                01 · 个人档案
+            </div>
+
+            <h1>
+                认识<br>
+                苏新皓
+            </h1>
+
+            <p class="hero-description">
+                从重庆出发，到站上更大的舞台。
+                这里记录他的基本资料、成长变化，以及粉丝眼中的那些细节。
+            </p>
+
+            <div class="hero-note">
+                FAN ARCHIVE · PERSONAL PROFILE
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PROFILE MAIN
+    ========================= -->
+
+    <main class="profile-main">
+
+        <!-- LEFT IMAGE -->
+
+        <div class="profile-image-wrap">
+
+            <!-- CHANGE IMAGE HERE:
+                 把 PROFILE.jpg 换成你想使用的苏新皓照片
+            -->
+            <img
+                src="IMAGES/PROFILE.jpg"
+                alt="苏新皓个人照片"
+                class="profile-image"
+            >
+
+            <div class="profile-image-caption">
+                <span>PROFILE</span>
+                <span>苏新皓</span>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT CONTENT -->
+
+        <div class="profile-content">
+
+            <div class="section-label">
+                基本资料
+            </div>
+
+            <h2 class="section-title">
+                关于他
+            </h2>
+
+            <p class="about-text">
+                苏新皓，2007年1月12日出生于重庆。
+                从小时候接触街舞，到逐渐站上更大的舞台，
+                舞蹈、音乐和舞台表演一直贯穿着他的成长。
+                这里以粉丝视角整理关于他的基础资料与成长印记，
+                希望让每一次值得被记住的出现，都有属于自己的位置。
+            </p>
+
+
+            <!-- BASIC INFORMATION -->
+
+            <div class="basic-info">
+
+                <div class="info-item">
+                    <span class="info-label">姓名</span>
+                    <span class="info-value">苏新皓</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">出生日期</span>
+                    <span class="info-value">2007年1月12日</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">出生地</span>
+                    <span class="info-value">重庆</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">所属组合</span>
+                    <span class="info-value">TOP登陆少年</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">粉丝称呼</span>
+                    <span class="info-value">信号灯</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">主要领域</span>
+                    <span class="info-value">歌唱 · 舞蹈 · 舞台</span>
+                </div>
+
+            </div>
+
+
+            <!-- KEYWORD TAGS -->
+
+            <div class="keyword-list">
+
+                <span class="keyword">舞台</span>
+                <span class="keyword">歌唱</span>
+                <span class="keyword">舞蹈</span>
+                <span class="keyword">成长</span>
+                <span class="keyword">少年感</span>
+                <span class="keyword">坚持</span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TRAITS
+    ========================= -->
+
+    <section class="traits">
+
+        <div class="traits-inner">
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        02 · 个人特点
+                    </div>
+
+                    <h2 class="section-title">
+                        粉丝眼中的他
+                    </h2>
+
+                </div>
+
+                <p class="section-description">
+                    不同的舞台、不同的时期，
+                    也让大家看见了他身上越来越丰富的一面。
+                </p>
+
+            </div>
+
+
+            <div class="traits-grid">
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        01
+                    </div>
+
+                    <h3>
+                        自律
+                    </h3>
+
+                    <p>
+                        对舞蹈、舞台和自己的要求，
+                        一点一点累积成现在的样子。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        02
+                    </div>
+
+                    <h3>
+                        努力刻苦
+                    </h3>
+
+                    <p>
+                        每一次舞台表现的背后，
+                        都有长时间的练习和准备。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        03
+                    </div>
+
+                    <h3>
+                        热爱舞台
+                    </h3>
+
+                    <p>
+                        舞台是表达自己的地方，
+                        也是不断挑战自己的地方。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        04
+                    </div>
+
+                    <h3>
+                        萌萌的
+                    </h3>
+
+                    <p>
+                        舞台之外，也有自然、可爱和
+                        让粉丝觉得很有趣的一面。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        05
+                    </div>
+
+                    <h3>
+                        多面
+                    </h3>
+
+                    <p>
+                        舞者、歌手、舞台表演者，
+                        不同身份都有属于自己的表达。
+                    </p>
+
+                </div>
+
+
+                <div class="trait-card">
+
+                    <div class="trait-number">
+                        06
+                    </div>
+
+                    <h3>
+                        成长
+                    </h3>
+
+                    <p>
+                        从少年时期到现在，
+                        时间留下了清晰可见的变化。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEXT PAGES
+    ========================= -->
+
+    <section class="next-pages">
+
+        <div class="next-label">
+            CONTINUE EXPLORING
+        </div>
+
+        <h2 class="next-title">
+            继续探索
+        </h2>
+
+
+        <div class="next-grid">
+
+            <a href="journey.html" class="next-card">
+
+                <div class="next-card-number">
+                    01
+                </div>
+
+                <div>
+                    <h3>成长经历</h3>
+                    <p>从重庆少年到更大的舞台</p>
+                </div>
+
+            </a>
+
+
+            <a href="stage.html" class="next-card">
+
+                <div class="next-card-number">
+                    02
+                </div>
+
+                <div>
+                    <h3>舞台档案</h3>
+                    <p>记录那些值得回看的舞台</p>
+                </div>
+
+            </a>
+
+
+            <a href="moments.html" class="next-card">
+
+                <div class="next-card-number">
+                    03
+                </div>
+
+                <div>
+                    <h3>精彩瞬间</h3>
+                    <p>收藏那些值得记住的时刻</p>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+                <div class="footer-title">
+                    苏新皓 · FAN ARCHIVE
+                </div>
+
+                <div class="footer-text">
+                    A fan-made archive · For appreciation & memories
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MOBILE NAVIGATION
+    ========================= -->
+
+    <script>
+        const navLinks = document.querySelector(".nav-links");
+
+        navLinks.addEventListener("wheel", function (event) {
+            if (window.innerWidth <= 850) {
+                event.preventDefault();
+                navLinks.scrollLeft += event.deltaY;
+            }
+        });
+    </script>
+
+</body>
+</html>

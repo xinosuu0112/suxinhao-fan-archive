@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏新皓｜精彩瞬间</title>
+
+    <style>
+        :root {
+            --粉红: #F19483;
+            --红色: #EE3F4D;
+            --深红: #D93645;
+            --奶油: #FFF9F5;
+            --白色: #FFFFFF;
+            --深色: #241E1E;
+            --灰色: #756D6B;
+            --边框: #E8D9D4;
+            --浅粉: #F9E9E5;
+            --淡粉: #FCEDEA;
+            --中粉: #F6C1B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+            background: var(--奶油);
+            color: var(--深色);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 72px;
+            background: rgba(255, 249, 245, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--边框);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--红色);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            position: relative;
+            font-size: 14px;
+            color: var(--灰色);
+            transition: 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--红色);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 5px;
+            height: 5px;
+            background: var(--红色);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--红色);
+            color: var(--白色);
+            padding: 100px 28px 90px;
+        }
+
+        .hero::after {
+            content: "MOMENTS";
+            position: absolute;
+            right: -35px;
+            bottom: -55px;
+            font-size: 170px;
+            font-weight: 800;
+            letter-spacing: -8px;
+            color: rgba(255,255,255,0.07);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            margin-bottom: 18px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 28px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 16px;
+            line-height: 2;
+            color: rgba(255,255,255,0.88);
+        }
+
+        .hero-note {
+            margin-top: 42px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            max-width: 420px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 90px 28px 55px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 50px;
+        }
+
+        .intro-label {
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .intro h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .intro-text {
+            max-width: 390px;
+            color: var(--灰色);
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        /* =========================
+           FEATURE MOMENT
+        ========================= */
+
+        .featured {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px 70px;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            min-height: 500px;
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            object-fit: cover;
+            display: block;
+            background: var(--浅粉);
+        }
+
+        .featured-content {
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-number {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .featured-content h3 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .featured-content p {
+            color: var(--灰色);
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .featured-tag {
+            width: fit-content;
+            padding: 7px 15px;
+            border-radius: 999px;
+            background: var(--淡粉);
+            color: var(--红色);
+            font-size: 12px;
+        }
+
+        /* =========================
+           MOMENTS GRID
+        ========================= */
+
+        .moments-section {
+            background: var(--白色);
+            border-top: 1px solid var(--边框);
+            padding: 90px 28px;
+        }
+
+        .moments-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 50px);
+            line-height: 1.2;
+        }
+
+        .section-description {
+            max-width: 360px;
+            color: var(--灰色);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .moment-card {
+            background: var(--奶油);
+            border: 1px solid var(--边框);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .moment-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--中粉);
+            box-shadow: 0 15px 32px rgba(36,30,30,0.07);
+        }
+
+        .moment-image-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            background: var(--浅粉);
+        }
+
+        .moment-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.4s ease;
+        }
+
+        .moment-card:hover .moment-image {
+            transform: scale(1.03);
+        }
+
+        .moment-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 999px;
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .moment-content {
+            padding: 25px;
+        }
+
+        .moment-date {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .moment-content h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .moment-content p {
+            color: var(--灰色);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           MEMORY QUOTE
+        ========================= */
+
+        .memory {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 28px;
+        }
+
+        .memory-box {
+            position: relative;
+            padding: 65px;
+            border-radius: 22px;
+            background: var(--淡粉);
+            overflow: hidden;
+        }
+
+        .memory-box::after {
+            content: "“";
+            position: absolute;
+            right: 45px;
+            top: -30px;
+            font-size: 190px;
+            line-height: 1;
+            color: rgba(238,63,77,0.08);
+            font-family: Georgia, serif;
+        }
+
+        .memory-label {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .memory-box blockquote {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            font-size: clamp(24px, 4vw, 40px);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .memory-box p {
+            position: relative;
+            z-index: 2;
+            margin-top: 25px;
+            color: var(--灰色);
+            font-size: 13px;
+        }
+
+        /* =========================
+           NEXT PAGES
+        ========================= */
+
+        .next-pages {
+            background: var(--白色);
+            border-top: 1px solid var(--边框);
+            padding: 90px 28px;
+        }
+
+        .next-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .next-label {
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .next-title {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.2;
+            margin-bottom: 45px;
+        }
+
+        .next-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .next-card {
+            position: relative;
+            min-height: 190px;
+            padding: 28px;
+            background: var(--奶油);
+            border: 1px solid var(--边框);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .next-card::after {
+            content: "→";
+            position: absolute;
+            right: 25px;
+            bottom: 22px;
+            color: var(--红色);
+            font-size: 22px;
+            transition: 0.25s ease;
+        }
+
+        .next-card:hover {
+            transform: translateY(-5px);
+            background: var(--淡粉);
+            border-color: var(--中粉);
+            box-shadow: 0 14px 30px rgba(36,30,30,0.06);
+        }
+
+        .next-card:hover::after {
+            transform: translateX(6px);
+        }
+
+        .next-card-number {
+            color: var(--红色);
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .next-card h3 {
+            font-size: 21px;
+            margin-bottom: 4px;
+        }
+
+        .next-card p {
+            color: var(--灰色);
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--粉红);
+            color: var(--白色);
+            padding: 45px 28px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-text {
+            margin-top: 5px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 850px) {
+
+            nav {
+                height: auto;
+            }
+
+            .nav-inner {
+                padding: 18px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 3px;
+                gap: 18px;
+            }
+
+            .nav-links a {
+                flex-shrink: 0;
+            }
+
+            .hero {
+                padding: 75px 22px 70px;
+            }
+
+            .hero::after {
+                font-size: 100px;
+            }
+
+            .intro {
+                padding: 70px 22px 45px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .featured {
+                padding: 0 22px 60px;
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 420px;
+            }
+
+            .featured-content {
+                padding: 40px;
+            }
+
+            .moments-section {
+                padding: 70px 22px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .moments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memory {
+                padding: 70px 22px;
+            }
+
+            .memory-box {
+                padding: 45px 30px;
+            }
+
+            .next-pages {
+                padding: 70px 22px;
+            }
+
+            .next-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 40px 22px;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .featured-image {
+                min-height: 330px;
+            }
+
+            .featured-content {
+                padding: 30px;
+            }
+
+            .moment-content {
+                padding: 20px;
+            }
+
+            .memory-box {
+                padding: 38px 25px;
+            }
+
+            .memory-box::after {
+                right: 15px;
+                font-size: 120px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="nav-inner">
+
+            <a href="index.html" class="logo">
+                苏新皓｜档案馆
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="profile.html">个人档案</a>
+                <a href="journey.html">成长经历</a>
+                <a href="moments.html" class="active">瞬间</a>
+                <a href="works.html">作品</a>
+                <a href="stage.html">舞台</a>
+                <a href="fan-edits.html">粉丝剪辑</a>
+                <a href="comments.html">留言</a>
+                <a href="beads.html">拼豆</a>
+                <a href="archive.html">资料</a>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-label">
+                03 · 精彩瞬间
+            </div>
+
+            <h1>
+                值得记住的<br>
+                每一个瞬间
+            </h1>
+
+            <p class="hero-description">
+                有些时刻不一定轰轰烈烈，
+                但回头看的时候，
+                总会发现它们已经成为成长故事里很重要的一部分。
+            </p>
+
+            <div class="hero-note">
+                MOMENTS · MEMORIES · ARCHIVE
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro">
+
+        <div>
+
+            <div class="intro-label">
+                SELECTED MOMENTS
+            </div>
+
+            <h2>
+                把喜欢的瞬间<br>
+                好好收藏起来。
+            </h2>
+
+        </div>
+
+        <p class="intro-text">
+            从舞台上的高光，到舞台之外自然流露的小表情，
+            每一个瞬间都有自己的意义。
+            这里不只是照片，也是一份属于粉丝的记忆收藏。
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURED MOMENT
+    ========================= -->
+
+    <section class="featured">
+
+        <div class="featured-card">
+
+            <div>
+
+                <!-- CHANGE IMAGE HERE:
+                     把 MOMENTS1.png 换成你想放在精选瞬间的大图
+                -->
+                <img
+                    src="IMAGES/MOMENTS1.png"
+                    alt="苏新皓精选瞬间"
+                    class="featured-image"
+                >
+
+            </div>
+
+            <div class="featured-content">
+
+                <div class="featured-number">
+                    FEATURED · 01
+                </div>
+
+                <h3>
+                    舞台上的<br>
+                    那一刻
+                </h3>
+
+                <p>
+                    灯光亮起、音乐响起，
+                    所有准备最终都在这一刻汇聚。
+                    舞台上的每一次认真，都值得被记录下来。
+                </p>
+
+                <span class="featured-tag">
+                    舞台记录
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOMENTS
+    ========================= -->
+
+    <section class="moments-section">
+
+        <div class="moments-inner">
+
+            <div class="section-header">
+
+                <div>
+
+                    <div class="section-label">
+                        01 · 精选记录
+                    </div>
+
+                    <h2 class="section-title">
+                        一些值得回看的瞬间
+                    </h2>
+
+                </div>
+
+                <p class="section-description">
+                    不同时间、不同场景，
+                    但都留下了属于苏新皓的独特记忆。
+                </p>
+
+            </div>
+
+
+            <div class="moments-grid">
+
+                <!-- MOMENT 01 -->
+
+                <article class="moment-card">
+
+                    <div class="moment-image-wrap">
+
+                        <!-- CHANGE IMAGE HERE:
+                             把 MOMENTS1.png 换成这一张瞬间的照片
+                        -->
+                        <img
+                            src="IMAGES/MOMENTS1.png"
+                            alt="苏新皓瞬间 01"
+                            class="moment-image"
+                        >
+
+                        <div class="moment-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <div class="moment-content">
+
+                        <div class="moment-date">
+                            MOMENT 01
+                        </div>
+
+                        <h3>
+                            舞台灯光亮起
+                        </h3>
+
+                        <p>
+                            当熟悉的音乐响起，
+                            舞台也成为记录成长最直接的地方。
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOMENT 02 -->
+
+                <article class="moment-card">
+
+                    <div class="moment-image-wrap">
+
+                        <!-- CHANGE IMAGE HERE:
+                             把 MOMENTS2.png 换成这一张瞬间的照片
+                        -->
+                        <img
+                            src="IMAGES/MOMENTS2.png"
+                            alt="苏新皓瞬间 02"
+                            class="moment-image"
+                        >
+
+                        <div class="moment-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <div class="moment-content">
+
+                        <div class="moment-date">
+                            MOMENT 02
+                        </div>
+
+                        <h3>
+                            舞台之外
+                        </h3>
+
+                        <p>
+                            离开聚光灯之后，
+                            也有许多自然又真实的瞬间值得收藏。
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOMENT 03 -->
+
+                <article class="moment-card">
+
+                    <div class="moment-image-wrap">
+
+                        <!-- CHANGE IMAGE HERE:
+                             把 MOMENTS3.png 换成这一张瞬间的照片
+                        -->
+                        <img
+                            src="IMAGES/MOMENTS3.png"
+                            alt="苏新皓瞬间 03"
+                            class="moment-image"
+                        >
+
+                        <div class="moment-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <div class="moment-content">
+
+                        <div class="moment-date">
+                            MOMENT 03
+                        </div>
+
+                        <h3>
+                            认真看向镜头
+                        </h3>
+
+                        <p>
+                            有时候一个眼神、
+                            一个表情，就足以让一个瞬间被记住。
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MOMENT 04 -->
+
+                <article class="moment-card">
+
+                    <div class="moment-image-wrap">
+
+                        <!-- CHANGE IMAGE HERE:
+                             把 MOMENTS4.png 换成这一张瞬间的照片
+                        -->
+                        <img
+                            src="IMAGES/MOMENTS4.png"
+                            alt="苏新皓瞬间 04"
+                            class="moment-image"
+                        >
+
+                        <div class="moment-number">
+                            04
+                        </div>
+
+                    </div>
+
+                    <div class="moment-content">
+
+                        <div class="moment-date">
+                            MOMENT 04
+                        </div>
+
+                        <h3>
+                            少年感
+                        </h3>
+
+                        <p>
+                            不同阶段都有不同的模样，
+                            而这些细小变化也是成长的一部分。
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MEMORY QUOTE
+    ========================= -->
+
+    <section class="memory">
+
+        <div class="memory-box">
+
+            <div class="memory-label">
+                A MEMORY TO KEEP
+            </div>
+
+            <blockquote>
+                “不是每一个瞬间都需要盛大，
+                但每一个被记住的瞬间，
+                都值得好好珍藏。”
+            </blockquote>
+
+            <p>
+                —— 苏新皓 FAN ARCHIVE
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEXT PAGES
+    ========================= -->
+
+    <section class="next-pages">
+
+        <div class="next-inner">
+
+            <div class="next-label">
+                CONTINUE EXPLORING
+            </div>
+
+            <h2 class="next-title">
+                继续了解苏新皓
+            </h2>
+
+
+            <div class="next-grid">
+
+                <a href="journey.html" class="next-card">
+
+                    <div class="next-card-number">
+                        01
+                    </div>
+
+                    <div>
+                        <h3>成长经历</h3>
+                        <p>从少年时期一路走来的故事</p>
+                    </div>
+
+                </a>
+
+
+                <a href="works.html" class="next-card">
+
+                    <div class="next-card-number">
+                        02
+                    </div>
+
+                    <div>
+                        <h3>作品档案</h3>
+                        <p>音乐与作品的记录</p>
+                    </div>
+
+                </a>
+
+
+                <a href="stage.html" class="next-card">
+
+                    <div class="next-card-number">
+                        03
+                    </div>
+
+                    <div>
+                        <h3>舞台档案</h3>
+                        <p>回看那些值得收藏的舞台</p>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-title">
+                    苏新皓 · FAN ARCHIVE
+                </div>
+
+                <div class="footer-text">
+                    A fan-made archive · For appreciation & memories
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MOBILE NAVIGATION
+    ========================= -->
+
+    <script>
+
+        const navLinks = document.querySelector(".nav-links");
+
+        navLinks.addEventListener("wheel", function(event) {
+
+            if (window.innerWidth <= 850) {
+                event.preventDefault();
+                navLinks.scrollLeft += event.deltaY;
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

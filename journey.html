@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长经历 · 苏新皓粉丝档案</title>
+
+    <style>
+        :root {
+            --粉红: #F19483;
+            --红色: #EE3F4D;
+            --深红: #D93645;
+            --奶油: #FFF9F5;
+            --白色: #FFFFFF;
+            --深色: #241E1E;
+            --灰色: #756D6B;
+            --边框: #E8D9D4;
+            --浅粉: #F9E9E5;
+            --淡粉: #FCEDEA;
+            --中粉: #F6C1B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            background: var(--奶油);
+            color: var(--深色);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255, 249, 245, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--边框);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--红色);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--灰色);
+            transition: 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--红色);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--红色);
+            color: var(--白色);
+            padding: 95px 30px 90px;
+        }
+
+        .hero::after {
+            content: "JOURNEY";
+            position: absolute;
+            right: -20px;
+            bottom: -55px;
+            font-size: clamp(90px, 18vw, 240px);
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.07);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-small {
+            margin-bottom: 15px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.85;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 80px);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 580px;
+            font-size: 16px;
+            line-height: 1.9;
+            opacity: 0.92;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px;
+        }
+
+        .section-heading {
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--红色);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            color: var(--灰色);
+            font-size: 15px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            position: relative;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--中粉);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 55px 70px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--红色);
+            border: 3px solid var(--奶油);
+            box-shadow: 0 0 0 2px var(--红色);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -7px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -7px;
+        }
+
+        .timeline-card {
+            display: inline-block;
+            width: 100%;
+            max-width: 480px;
+            padding: 28px 30px;
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 18px;
+            text-align: left;
+            transition: 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-card {
+            text-align: left;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--中粉);
+            box-shadow: 0 15px 35px rgba(36, 30, 30, 0.07);
+        }
+
+        .timeline-date {
+            margin-bottom: 9px;
+            color: var(--红色);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .timeline-card h3 {
+            margin-bottom: 9px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .timeline-card p {
+            color: var(--灰色);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           GROWTH KEYWORDS
+        ========================= */
+
+        .growth-section {
+            background: var(--淡粉);
+        }
+
+        .growth-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px;
+        }
+
+        .growth-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .growth-card {
+            min-height: 190px;
+            padding: 30px;
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 18px;
+            transition: 0.3s ease;
+        }
+
+        .growth-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--中粉);
+            box-shadow: 0 15px 30px rgba(36, 30, 30, 0.06);
+        }
+
+        .growth-number {
+            margin-bottom: 35px;
+            color: var(--红色);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .growth-card h3 {
+            margin-bottom: 8px;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .growth-card p {
+            color: var(--灰色);
+            font-size: 14px;
+        }
+
+        /* =========================
+           STORY SECTION
+        ========================= */
+
+        .story {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .story-image {
+            overflow: hidden;
+            border-radius: 22px;
+            background: var(--浅粉);
+            aspect-ratio: 4 / 5;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .story-content .section-label {
+            margin-bottom: 15px;
+        }
+
+        .story-content h2 {
+            margin-bottom: 25px;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.25;
+        }
+
+        .story-content p {
+            margin-bottom: 18px;
+            color: var(--灰色);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .quote {
+            margin-top: 30px;
+            padding: 25px 28px;
+            background: var(--淡粉);
+            border-left: 4px solid var(--红色);
+            border-radius: 0 15px 15px 0;
+            color: var(--深色);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           NEXT SECTION
+        ========================= */
+
+        .next-section {
+            background: var(--深色);
+            color: var(--白色);
+            padding: 90px 30px;
+        }
+
+        .next-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .next-text span {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--粉红);
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .next-text h2 {
+            font-size: clamp(28px, 4vw, 45px);
+            line-height: 1.3;
+        }
+
+        .next-button {
+            flex-shrink: 0;
+            padding: 14px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            color: var(--白色);
+            font-size: 14px;
+            transition: 0.25s ease;
+        }
+
+        .next-button:hover {
+            background: var(--粉红);
+            border-color: var(--粉红);
+            color: var(--深色);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+            background: var(--粉红);
+            color: var(--白色);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+            .nav-inner {
+                padding: 16px 20px;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: 12px 18px;
+            }
+
+            .hero {
+                padding: 75px 25px 75px;
+            }
+
+            .section {
+                padding: 75px 25px;
+            }
+
+            .growth-inner {
+                padding: 75px 25px;
+            }
+
+            .timeline-item {
+                padding-left: 45px;
+                padding-right: 20px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                text-align: left;
+            }
+
+            .timeline::before {
+                left: 6px;
+                transform: none;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 0;
+                right: auto;
+            }
+
+            .timeline-card,
+            .timeline-item:nth-child(odd) .timeline-card {
+                text-align: left;
+                max-width: none;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .story-image {
+                max-width: 600px;
+            }
+
+            .next-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 3px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 20px 65px;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .growth-inner {
+                padding: 65px 20px;
+            }
+
+            .section-heading {
+                margin-bottom: 50px;
+            }
+
+            .growth-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .growth-card {
+                min-height: auto;
+            }
+
+            .timeline-item {
+                padding-bottom: 45px;
+                padding-left: 35px;
+                padding-right: 0;
+            }
+
+            .timeline-card {
+                padding: 22px;
+                border-radius: 15px;
+            }
+
+            .timeline-card h3 {
+                font-size: 18px;
+            }
+
+            .timeline-card p {
+                font-size: 13px;
+            }
+
+            .story-image {
+                aspect-ratio: 1 / 1.15;
+            }
+
+            .next-section {
+                padding: 65px 20px;
+            }
+
+            footer {
+                padding: 25px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="nav-inner">
+
+            <a href="index.html" class="logo">苏新皓 · FAN ARCHIVE</a>
+
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="profile.html">档案</a>
+                <a href="journey.html" class="active">成长</a>
+                <a href="moments.html">瞬间</a>
+                <a href="works.html">作品</a>
+                <a href="stage.html">舞台</a>
+                <a href="fan-edits.html">剪辑</a>
+                <a href="comments.html">留言</a>
+                <a href="beads.html">拼豆</a>
+                <a href="archive.html">资料</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+        <div class="hero-inner">
+
+            <div class="hero-small">SU XINHAO · JOURNEY</div>
+
+            <h1>成长经历</h1>
+
+            <p>
+                从重庆少年到舞台上的苏新皓，
+                每一次出现、每一次尝试，
+                都成为故事里不可替代的一部分。
+            </p>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <main>
+
+        <section class="section">
+
+            <div class="section-heading">
+                <div class="section-label">TIMELINE</div>
+
+                <h2>一路走来的每一步</h2>
+
+                <p>
+                    从学习街舞，到进入公众视野，再到站上更大的舞台，
+                    这些时间节点记录着苏新皓一路以来的成长。
+                </p>
+            </div>
+
+
+            <div class="timeline">
+
+                <!-- 2007 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2007 · 01 月</div>
+                        <h3>出生 · 重庆</h3>
+                        <p>
+                            苏新皓出生于重庆。
+                            后来的舞台故事，也从这里慢慢开始。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 约5岁 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">约 5 岁</div>
+                        <h3>开始学习街舞</h3>
+                        <p>
+                            年幼时期开始接触街舞，
+                            舞蹈逐渐成为成长过程中重要的一部分。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2018-08 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2018 · 08 月</div>
+                        <h3>首次公开亮相</h3>
+                        <p>
+                            在 TF 家族练习生暑期汇演中首次公开亮相，
+                            开始被更多人认识。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2018-11 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2018 · 11 月</div>
+                        <h3>《秋日幻想曲》</h3>
+                        <p>
+                            参加《TF少年进化论——秋日幻想曲》，
+                            在持续的舞台实践中积累经验。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2019 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2019 年</div>
+                        <h3>持续公开演出</h3>
+                        <p>
+                            参与《第25小时》《单向放映厅》等内容，
+                            继续在舞台与镜头前成长。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2020-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2020 · 01 月</div>
+                        <h3>《大圣》</h3>
+                        <p>
+                            在 TF 家族新年音乐会中带来《大圣》舞台，
+                            舞台表现力进一步受到关注。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2020-06 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2020 · 06 月</div>
+                        <h3>TF家族夏日运动会</h3>
+                        <p>
+                            参与 TF 家族夏日运动会，
+                            在舞台之外展现更加活泼自然的一面。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2020-09 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2020 · 09 月</div>
+                        <h3>《少年ONFIRE》</h3>
+                        <p>
+                            参与《少年ONFIRE》，
+                            在音乐与舞台表演中继续探索自己的可能性。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2020-11 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2020 · 11 月</div>
+                        <h3>《圈》</h3>
+                        <p>
+                            参与《圈》相关舞台与内容，
+                            不断积累表演经验。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2021-04 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2021 · 04 月</div>
+                        <h3>《向上吧少年》</h3>
+                        <p>
+                            参与《向上吧少年》，
+                            在更多镜头与舞台中展现成长后的状态。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2021-08 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2021 · 08 月</div>
+                        <h3>《快乐大本营》</h3>
+                        <p>
+                            登上《快乐大本营》，
+                            让更多观众认识到舞台之外的苏新皓。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2021-12 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2021 · 12 月</div>
+                        <h3>《长大》</h3>
+                        <p>
+                            带来《长大》，
+                            作品也开始更多地记录少年时期的成长与变化。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2022-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2022 · 01 月</div>
+                        <h3>《笨小孩的道歉信》</h3>
+                        <p>
+                            参与《笨小孩的道歉信》，
+                            继续尝试不同风格的音乐与表达。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2022-03 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2022 · 03 月</div>
+                        <h3>《旅行》</h3>
+                        <p>
+                            与左航合作《旅行》，
+                            在音乐作品中留下少年时期的共同记忆。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2022-08 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2022 · 08 月</div>
+                        <h3>合作作品持续增加</h3>
+                        <p>
+                            参与《将军话》《Better Now》等合作作品，
+                            在不同音乐风格之间不断尝试。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2023-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2023 · 01 月</div>
+                        <h3>《一天一天 (Severus)》</h3>
+                        <p>
+                            发布《一天一天 (Severus)》，
+                            音乐作品线继续向前延伸。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2023-04 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2023 · 04 月</div>
+                        <h3>《登陆计划》 · 蝴蝶效应</h3>
+                        <p>
+                            开启《登陆计划》相关舞台，
+                            《蝴蝶效应》成为这一阶段的重要舞台记录。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2024-06 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024 · 06 月</div>
+                        <h3>《登陆日》纪录片</h3>
+                        <p>
+                            《登陆日》纪录片上线，
+                            记录这一阶段的成长与准备过程，
+                            主题曲为《等你的回答》。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2024-08 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024 · 08 月</div>
+                        <h3>正式成为 TOP登陆少年 成员</h3>
+                        <p>
+                            在吉隆坡出道演唱会上正式亮相，
+                            并公布成为 TOP登陆少年 成员，
+                            开启新的团体阶段。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2024-11 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024 · 11 月</div>
+                        <h3>《LØVE IS DANGEROUS!》</h3>
+                        <p>
+                            参与《LØVE IS DANGEROUS!》，
+                            进入新的音乐与团体活动阶段。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2025-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2025 · 01 月</div>
+                        <h3>《耶 (Yeah)》</h3>
+                        <p>
+                            带来《耶 (Yeah)》，
+                            延续团体阶段的音乐与舞台活动。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2026-01 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026 · 01 月</div>
+                        <h3>19岁生日纪录片《与生俱来》</h3>
+                        <p>
+                            19岁生日推出纪录片《与生俱来 (Birthday Suit)》，
+                            记录新的年龄与新的阶段。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2026-02 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026 · 02 月</div>
+                        <h3>「1分12秒共创」活动</h3>
+                        <p>
+                            参与「1分12秒共创」活动，
+                            与粉丝共同留下新的创作记录。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2026-05 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026 · 05 月</div>
+                        <h3>《Dawn in my soul》</h3>
+                        <p>
+                            参与《Dawn in my soul》，
+                            继续探索音乐与舞台表达。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2026-07 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026 · 07 月</div>
+                        <h3>《Power》舞台</h3>
+                        <p>
+                            带来《Power》相关舞台，
+                            继续留下属于这一阶段的舞台记录。
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- 2026 至今 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026 · 至今</div>
+                        <h3>故事仍在继续</h3>
+                        <p>
+                            从少年时期一路走到今天，
+                            每一次舞台、每一份作品，
+                            都成为成长故事的一部分。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             GROWTH KEYWORDS
+        ========================= -->
+
+        <section class="growth-section">
+
+            <div class="growth-inner">
+
+                <div class="section-heading">
+                    <div class="section-label">GROWTH</div>
+
+                    <h2>成长的关键词</h2>
+
+                    <p>
+                        如果把一路以来的经历浓缩成几个关键词，
+                        它们或许就是这段旅程最简单的注脚。
+                    </p>
+                </div>
+
+
+                <div class="growth-grid">
+
+                    <div class="growth-card">
+                        <div class="growth-number">01</div>
+                        <h3>舞蹈</h3>
+                        <p>从年幼时期开始，舞蹈成为最早接触的舞台语言。</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <div class="growth-number">02</div>
+                        <h3>舞台</h3>
+                        <p>一次次登台，在实践中不断积累经验与自信。</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <div class="growth-number">03</div>
+                        <h3>音乐</h3>
+                        <p>从翻唱、合作到原创与团体作品，探索更多表达方式。</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <div class="growth-number">04</div>
+                        <h3>坚持</h3>
+                        <p>成长并不是一瞬间发生的，而是由无数次练习组成。</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <div class="growth-number">05</div>
+                        <h3>少年</h3>
+                        <p>少年时期的经历，成为一路成长中珍贵的记忆。</p>
+                    </div>
+
+                    <div class="growth-card">
+                        <div class="growth-number">06</div>
+                        <h3>未来</h3>
+                        <p>故事还没有结束，新的舞台也仍然在等待。</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             STORY
+        ========================= -->
+
+        <section class="section">
+
+            <div class="story">
+
+                <div class="story-image">
+
+                    <!-- CHANGE IMAGE HERE:
+                         把 PROFILE.jpg 换成你想使用的成长照片
+                    -->
+                    <img src="IMAGES/PROFILE.jpg" alt="苏新皓成长记录">
+
+                </div>
+
+
+                <div class="story-content">
+
+                    <div class="section-label">THE STORY</div>
+
+                    <h2>从少年到舞台，<br>每一步都是成长。</h2>
+
+                    <p>
+                        从小时候接触街舞开始，舞蹈逐渐成为苏新皓成长过程中
+                        很重要的一部分。
+                    </p>
+
+                    <p>
+                        2018年开始进入公众视野后，他经历了持续的舞台、
+                        音乐与镜头记录，也在一次次尝试中慢慢找到自己的表达方式。
+                    </p>
+
+                    <p>
+                        到2024年正式成为 TOP登陆少年 成员，
+                        身份与舞台都进入了新的阶段。
+                        而到了2026年，这个故事仍然在继续。
+                    </p>
+
+                    <div class="quote">
+                        “成长不是抵达某一个终点，
+                        而是在一次次新的舞台上继续向前。”
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NEXT
+        ========================= -->
+
+        <section class="next-section">
+
+            <div class="next-inner">
+
+                <div class="next-text">
+                    <span>KEEP EXPLORING</span>
+                    <h2>继续了解苏新皓</h2>
+                </div>
+
+                <a href="moments.html" class="next-button">
+                    浏览更多瞬间 →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-logo">
+                苏新皓 · FAN ARCHIVE
+            </div>
+
+            <div class="footer-text">
+                A fan-made archive · For appreciation & memories
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

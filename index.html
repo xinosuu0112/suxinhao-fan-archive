@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>首页｜苏新皓档案馆</title>
+
+    <style>
+        :root {
+            --pink: #F19483;
+            --red: #EE3F4D;
+            --dark-red: #D93645;
+
+            --cream: #FFF9F5;
+            --white: #FFFFFF;
+
+            --dark: #241E1E;
+            --gray: #756D6B;
+
+            --border: #E8D9D4;
+            --soft: #F9E9E5;
+            --pale: #FCEDEA;
+            --medium-pink: #F6C1B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1240px, calc(100% - 48px));
+            height: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--red);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            color: var(--gray);
+            transition: .25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--red);
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 110px max(24px, calc((100vw - 1240px) / 2));
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            color: var(--red);
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(35px, 5vw, 62px);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .section-description {
+            max-width: 380px;
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            align-items: center;
+            gap: 80px;
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(241, 148, 131, .18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(238, 63, 77, .08),
+                    transparent 28%
+                ),
+                var(--cream);
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--red);
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 9vw, 120px);
+            line-height: .9;
+            letter-spacing: -6px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 480px;
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 22px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-red);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--pink);
+            color: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            background: var(--medium-pink);
+            right: -10%;
+            top: -8%;
+            z-index: 0;
+            opacity: .45;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 480px;
+            margin-left: auto;
+            position: relative;
+            z-index: 1;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        .about-content h3 {
+            font-size: clamp(25px, 3vw, 40px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-content > p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .info-item {
+            padding: 20px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 10px;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+
+        .info-item strong {
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOMENTS
+        ========================= */
+
+        .moments {
+            background: var(--pale);
+        }
+
+        .moments-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .moments-track {
+            display: flex;
+            transition: transform .6s ease;
+        }
+
+        .moment-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .moment-slide img {
+            width: 100%;
+            height: 470px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .moment-slide img:first-child {
+            grid-row: span 2;
+            height: 954px;
+        }
+
+        .moment-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 25px;
+        }
+
+        .moment-dot {
+            width: 7px;
+            height: 7px;
+            border: none;
+            border-radius: 50%;
+            background: var(--medium-pink);
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .moment-dot.active {
+            width: 24px;
+            border-radius: 10px;
+            background: var(--red);
+        }
+
+        /* =========================
+           STAGE ARCHIVE
+        ========================= */
+
+        .stage {
+            background: var(--cream);
+        }
+
+        .stage .section-label {
+            color: var(--red);
+        }
+
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .stage-card {
+            min-height: 390px;
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: .3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card::before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: var(--pale);
+            top: -55px;
+            right: -35px;
+            transition: .3s ease;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--medium-pink);
+            box-shadow: 0 18px 40px rgba(36, 30, 30, .08);
+        }
+
+        .stage-card:hover::before {
+            width: 140px;
+            height: 140px;
+        }
+
+        .stage-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stage-number {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--red);
+            letter-spacing: 1px;
+        }
+
+        .stage-tag {
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: var(--pale);
+            color: var(--red);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .stage-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stage-card-content h3 {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+
+        .stage-card-content p {
+            max-width: 300px;
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .stage-card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        .stage-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--medium-pink);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: .25s ease;
+        }
+
+        .stage-card:hover .stage-arrow {
+            background: var(--red);
+            color: var(--white);
+            transform: translate(3px, -3px);
+        }
+
+        /* =========================
+           COMMUNITY
+        ========================= */
+
+        .community {
+            background: var(--white);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .community-card {
+            min-height: 300px;
+            padding: 35px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: .3s ease;
+        }
+
+        .community-card:hover {
+            background: var(--pale);
+            transform: translateY(-4px);
+        }
+
+        .community-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--pale);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 70px;
+        }
+
+        .community-card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .community-card p {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .text-link {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--red);
+        }
+
+        /* =========================
+           ARCHIVE
+        ========================= */
+
+        .archive {
+            background: var(--pale);
+        }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .archive-item {
+            min-height: 160px;
+            padding: 25px;
+            background: var(--white);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: .25s ease;
+        }
+
+        .archive-item:hover {
+            background: var(--soft);
+            transform: translateY(-3px);
+        }
+
+        .archive-item span {
+            display: block;
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .archive-item h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .archive-item p {
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--red);
+            color: var(--white);
+            padding: 60px max(24px, calc((100vw - 1240px) / 2));
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            padding-bottom: 45px;
+            border-bottom: 1px solid rgba(255,255,255,.3);
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-description {
+            max-width: 350px;
+            font-size: 12px;
+            line-height: 1.8;
+            opacity: .8;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 18px;
+            max-width: 500px;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            opacity: .8;
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 10px;
+            opacity: .65;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                padding: 20px 24px;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                min-height: auto;
+            }
+
+            .hero-image img {
+                margin: auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .about-image img {
+                margin: auto;
+            }
+
+            .stage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .nav-inner {
+                width: calc(100% - 40px);
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 62px;
+                letter-spacing: -4px;
+            }
+
+            .moment-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .moment-slide img,
+            .moment-slide img:first-child {
+                height: 300px;
+                grid-row: auto;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stage-card {
+                min-height: 330px;
+                padding: 25px;
+            }
+
+            .community-card {
+                min-height: 260px;
+            }
+
+            .community-icon {
+                margin-bottom: 50px;
+            }
+
+            .archive-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+    <div class="nav-inner">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">苏</span>
+            <span>苏新皓｜档案馆</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">首页</a>
+            <a href="profile.html">个人档案</a>
+            <a href="journey.html">成长经历</a>
+            <a href="moments.html">瞬间</a>
+            <a href="works.html">作品</a>
+            <a href="stage.html">舞台</a>
+            <a href="fan-edits.html">粉丝剪辑</a>
+            <a href="comments.html">留言</a>
+            <a href="arts.html">美图</a>
+            <a href="archive.html">资料</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            SU XINHAO ARCHIVE
+        </div>
+
+        <h1>
+            苏新皓<br>
+            <span>档案馆</span>
+        </h1>
+
+        <p class="hero-description">
+            一个属于苏新皓，也属于每一位喜欢他的人的线上档案馆。
+            从成长轨迹、舞台作品，到粉丝记录与二创，
+            把那些值得被记住的瞬间，一一收藏。
+        </p>
+
+        <div class="hero-buttons">
+            <a href="profile.html" class="btn btn-primary">
+                进入档案
+            </a>
+
+            <a href="stage.html" class="btn btn-outline">
+                查看舞台 →
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+        <img src="IMAGES/profile.png" alt="苏新皓">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">01 · PROFILE</div>
+            <h2 class="section-title">关于他</h2>
+        </div>
+
+        <p class="section-description">
+            不只是一个名字，而是一段持续成长、
+            不断突破自己的少年轨迹。
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-image">
+            <img src="IMAGES/ABOUT.jpg" alt="苏新皓">
+        </div>
+
+
+        <div class="about-content">
+
+            <h3>
+                少年向前，<br>
+                舞台留下答案。
+            </h3>
+
+            <p>
+                从练习室到聚光灯下，从少年时期一路成长至今，
+                每一次舞台、每一次尝试，都成为这份档案的一部分。
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span>姓名</span>
+                    <strong>苏新皓</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>英文名</span>
+                    <strong>Su Xinhao</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>身份</span>
+                    <strong>歌手 · 舞者 · 演艺者</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>关键词</span>
+                    <strong>Vocal · Dance · Stage</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MOMENTS
+========================= -->
+
+<section class="moments">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">02 · MOMENTS</div>
+            <h2 class="section-title">瞬间</h2>
+        </div>
+
+        <p class="section-description">
+            有些画面不需要太多文字。
+            一张照片，也足以留下一个值得回看的瞬间。
+        </p>
+
+    </div>
+
+
+    <div class="moments-slider">
+
+        <div class="moments-track" id="momentsTrack">
+
+            <div class="moment-slide">
+                <img src="IMAGES/MOMENTS1.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS2.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS3.png" alt="苏新皓瞬间">
+            </div>
+
+            <div class="moment-slide">
+                <img src="IMAGES/MOMENTS2.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS3.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS4.png" alt="苏新皓瞬间">
+            </div>
+
+            <div class="moment-slide">
+                <img src="IMAGES/MOMENTS3.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS4.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS1.png" alt="苏新皓瞬间">
+            </div>
+
+            <div class="moment-slide">
+                <img src="IMAGES/MOMENTS4.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS1.png" alt="苏新皓瞬间">
+                <img src="IMAGES/MOMENTS2.png" alt="苏新皓瞬间">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="moment-dots">
+
+        <button class="moment-dot active" data-index="0"></button>
+        <button class="moment-dot" data-index="1"></button>
+        <button class="moment-dot" data-index="2"></button>
+        <button class="moment-dot" data-index="3"></button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STAGE ARCHIVE
+========================= -->
+
+<section class="stage">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">03 · 舞台</div>
+            <h2 class="section-title">舞台档案</h2>
+        </div>
+
+        <p class="section-description">
+            从纯唱、纯舞到完整唱跳，
+            每一次站上舞台，都是成长留下的记录。
+        </p>
+
+    </div>
+
+
+    <div class="stage-grid">
+
+        <!-- VOCAL -->
+
+        <a href="stage.html" class="stage-card">
+
+            <div class="stage-card-top">
+
+                <span class="stage-number">
+                    01
+                </span>
+
+                <span class="stage-tag">
+                    VOCAL
+                </span>
+
+            </div>
+
+
+            <div class="stage-card-content">
+
+                <h3>纯唱</h3>
+
+                <p>
+                    展现唱功、气息与情感表达，
+                    收藏每一个声音里的情绪。
+                </p>
+
+            </div>
+
+
+            <div class="stage-card-bottom">
+
+                <span>
+                    歌唱舞台
+                </span>
+
+                <span class="stage-arrow">
+                    ↗
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- DANCE -->
+
+        <a href="stage.html" class="stage-card">
+
+            <div class="stage-card-top">
+
+                <span class="stage-number">
+                    02
+                </span>
+
+                <span class="stage-tag">
+                    DANCE
+                </span>
+
+            </div>
+
+
+            <div class="stage-card-content">
+
+                <h3>纯舞</h3>
+
+                <p>
+                    记录肢体控制、动作细节
+                    与舞台上的每一次爆发。
+                </p>
+
+            </div>
+
+
+            <div class="stage-card-bottom">
+
+                <span>
+                    舞蹈舞台
+                </span>
+
+                <span class="stage-arrow">
+                    ↗
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- SING & DANCE -->
+
+        <a href="stage.html" class="stage-card">
+
+            <div class="stage-card-top">
+
+                <span class="stage-number">
+                    03
+                </span>
+
+                <span class="stage-tag">
+                    SING & DANCE
+                </span>
+
+            </div>
+
+
+            <div class="stage-card-content">
+
+                <h3>唱跳</h3>
+
+                <p>
+                    唱歌与舞蹈结合，
+                    展现完整的舞台表现力。
+                </p>
+
+            </div>
+
+
+            <div class="stage-card-bottom">
+
+                <span>
+                    唱跳舞台
+                </span>
+
+                <span class="stage-arrow">
+                    ↗
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMMUNITY
+========================= -->
+
+<section class="community">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">06 · COMMUNITY</div>
+            <h2 class="section-title">粉丝空间</h2>
+        </div>
+
+        <p class="section-description">
+            档案不只由一个人完成。
+            每一位粉丝留下的记录，也值得被收藏。
+        </p>
+
+    </div>
+
+
+    <div class="community-grid">
+
+        <!-- FAN EDITS -->
+
+        <div class="community-card">
+
+            <div class="community-icon">
+                ▶
+            </div>
+
+            <h3>粉丝剪辑</h3>
+
+            <p>
+                收藏粉丝制作的舞台混剪、
+                成长线、氛围剪辑与特别企划。
+            </p>
+
+            <a href="fan-edits.html" class="text-link">
+                查看粉丝剪辑 →
+            </a>
+
+        </div>
+
+
+        <!-- COMMENTS -->
+
+        <div class="community-card">
+
+            <div class="community-icon">
+                ♡
+            </div>
+
+            <h3>留言空间</h3>
+
+            <p>
+                写下想对他说的话，
+                让喜欢与支持也成为档案的一部分。
+            </p>
+
+            <a href="comments.html" class="text-link">
+                留下一句话 →
+            </a>
+
+        </div>
+
+
+        <!-- ARTS -->
+
+        <div class="community-card">
+
+            <div class="community-icon">
+                ◇
+            </div>
+
+            <h3>美图</h3>
+
+            <p>
+                收藏粉丝制作的二创海报、
+                应援图与各种原创视觉作品。
+            </p>
+
+            <a href="arts.html" class="text-link">
+                查看粉丝美图 →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUICK ARCHIVE
+========================= -->
+
+<section class="archive">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">ARCHIVE INDEX</div>
+            <h2 class="section-title">快速浏览</h2>
+        </div>
+
+        <p class="section-description">
+            从个人资料到粉丝创作，
+            快速进入你想查看的档案。
+        </p>
+
+    </div>
+
+
+    <div class="archive-grid">
+
+        <a href="profile.html" class="archive-item">
+
+            <span>01</span>
+
+            <h3>个人档案</h3>
+
+            <p>
+                基本资料与个人介绍
+            </p>
+
+        </a>
+
+
+        <a href="journey.html" class="archive-item">
+
+            <span>02</span>
+
+            <h3>成长经历</h3>
+
+            <p>
+                成长轨迹与重要时间线
+            </p>
+
+        </a>
+
+
+        <a href="moments.html" class="archive-item">
+
+            <span>03</span>
+
+            <h3>瞬间</h3>
+
+            <p>
+                值得收藏的照片与画面
+            </p>
+
+        </a>
+
+
+        <a href="works.html" class="archive-item">
+
+            <span>04</span>
+
+            <h3>作品</h3>
+
+            <p>
+                音乐与原创作品记录
+            </p>
+
+        </a>
+
+
+        <a href="stage.html" class="archive-item">
+
+            <span>05</span>
+
+            <h3>舞台</h3>
+
+            <p>
+                Vocal · Dance · 唱跳
+            </p>
+
+        </a>
+
+
+        <a href="fan-edits.html" class="archive-item">
+
+            <span>06</span>
+
+            <h3>粉丝剪辑</h3>
+
+            <p>
+                粉丝原创视频与混剪
+            </p>
+
+        </a>
+
+
+        <a href="comments.html" class="archive-item">
+
+            <span>07</span>
+
+            <h3>留言</h3>
+
+            <p>
+                粉丝留言与祝福
+            </p>
+
+        </a>
+
+
+        <a href="arts.html" class="archive-item">
+
+            <span>08</span>
+
+            <h3>美图</h3>
+
+            <p>
+                粉丝二创海报与原创视觉作品
+            </p>
+
+        </a>
+
+
+        <a href="archive.html" class="archive-item">
+
+            <span>09</span>
+
+            <h3>资料</h3>
+
+            <p>
+                资料整理与档案索引
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div>
+
+            <div class="footer-logo">
+                苏新皓｜档案馆
+            </div>
+
+            <p class="footer-description">
+                记录成长、收藏舞台，
+                也收藏每一份来自粉丝的喜欢。
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">首页</a>
+
+            <a href="profile.html">个人档案</a>
+
+            <a href="journey.html">成长经历</a>
+
+            <a href="moments.html">瞬间</a>
+
+            <a href="works.html">作品</a>
+
+            <a href="stage.html">舞台</a>
+
+            <a href="fan-edits.html">粉丝剪辑</a>
+
+            <a href="comments.html">留言</a>
+
+            <a href="arts.html">美图</a>
+
+            <a href="archive.html">资料</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 苏新皓档案馆 · Fan Archive
+        </span>
+
+        <span>
+            Made with love ♡
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /* MOBILE NAV */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+
+    /* CLOSE MOBILE NAV AFTER CLICK */
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("show");
+        });
+
+    });
+
+
+    /* MOMENTS CAROUSEL */
+
+    const track = document.getElementById("momentsTrack");
+    const dots = document.querySelectorAll(".moment-dot");
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+
+        currentSlide = index;
+
+        track.style.transform =
+            `translateX(-${index * 100}%)`;
+
+        dots.forEach(function (dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+
+    }
+
+
+    dots.forEach(function (dot) {
+
+        dot.addEventListener("click", function () {
+
+            showSlide(
+                Number(dot.dataset.index)
+            );
+
+        });
+
+    });
+
+
+    /* AUTO PLAY */
+
+    setInterval(function () {
+
+        currentSlide++;
+
+        if (currentSlide >= dots.length) {
+            currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
+
+    }, 4000);
+
+</script>
+
+</body>
+</html>

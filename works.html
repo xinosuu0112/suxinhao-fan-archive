@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>作品｜苏新皓档案馆</title>
+
+    <style>
+        :root {
+            --pink: #F19483;
+            --red: #EE3F4D;
+            --dark-red: #D93645;
+
+            --cream: #FFF9F5;
+            --white: #FFFFFF;
+
+            --dark: #5F4A46;
+            --gray: #756D6B;
+
+            --border: #E8D9D4;
+            --soft: #F9E9E5;
+            --pale: #FCEDEA;
+            --medium-pink: #F6C1B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "Microsoft YaHei",
+                "PingFang SC",
+                sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(255, 249, 245, .96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: auto;
+            padding: 16px 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--red);
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo-mark {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--pink);
+            color: var(--white);
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .nav-links a {
+            padding: 8px 12px;
+            border-radius: 20px;
+
+            color: var(--gray);
+            font-size: 13px;
+            transition: .25s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--pale);
+            color: var(--red);
+        }
+
+        .nav-links a.active {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1400px;
+            margin: auto;
+            padding: 100px 35px 80px;
+
+            display: grid;
+            grid-template-columns: 1fr .7fr;
+            gap: 80px;
+            align-items: end;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+
+            margin-bottom: 22px;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: var(--pink);
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 9vw, 130px);
+            line-height: .95;
+            letter-spacing: -5px;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .hero-side {
+            padding-bottom: 10px;
+        }
+
+        .hero-side-number {
+            font-size: 90px;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--pale);
+            -webkit-text-stroke: 1px var(--medium-pink);
+        }
+
+        .hero-side-text {
+            margin-top: -10px;
+            color: var(--gray);
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 35px 100px;
+        }
+
+        .intro {
+            padding: 35px 0 70px;
+            border-top: 1px solid var(--border);
+
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            gap: 80px;
+        }
+
+        .section-label {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .intro h2 {
+            font-size: clamp(35px, 5vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .intro p {
+            max-width: 700px;
+            color: var(--gray);
+            line-height: 2;
+        }
+
+        /* =========================
+           ORIGINAL WORKS
+        ========================= */
+
+        .works-section {
+            margin-top: 20px;
+        }
+
+        .works-heading {
+            margin-bottom: 35px;
+        }
+
+        .works-heading .section-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .works-heading h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            margin-bottom: 8px;
+        }
+
+        .works-heading p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .works-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        /* =========================
+           WORK CARD
+        ========================= */
+
+        .work-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: .3s ease;
+            position: relative;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--medium-pink);
+            box-shadow: 0 15px 35px rgba(95, 74, 70, .10);
+        }
+
+        /* =========================
+           COVER IMAGE
+           CHANGE IMAGE HERE
+        ========================= */
+
+        .work-cover {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: var(--pale);
+        }
+
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: .4s ease;
+        }
+
+        .work-card:hover .work-cover img {
+            transform: scale(1.04);
+        }
+
+        .work-content {
+            padding: 25px 28px 28px;
+        }
+
+        .work-number {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+
+        .work-title {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            margin: 14px 0 20px;
+        }
+
+        .work-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .work-tag {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            background: var(--pale);
+            color: var(--red);
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .work-arrow {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: var(--medium-pink);
+            color: var(--red);
+
+            font-size: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: .25s ease;
+        }
+
+        .work-arrow:hover {
+            background: var(--pink);
+            color: var(--white);
+            transform: translate(3px, -3px);
+        }
+
+        /* =========================
+           NEXT SECTION
+        ========================= */
+
+        .next-section {
+            margin-top: 100px;
+            padding: 65px;
+
+            border-radius: 25px;
+            background: var(--soft);
+            color: var(--dark);
+
+            border: 1px solid var(--border);
+        }
+
+        .next-label {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .next-section h2 {
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .next-section p {
+            max-width: 650px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .next-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .next-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 11px 18px;
+            border-radius: 30px;
+
+            background: var(--white);
+            color: var(--red);
+
+            border: 1px solid var(--border);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        .next-link:hover {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+
+            background: rgba(36, 30, 30, .68);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-box {
+            width: min(1000px, 100%);
+            max-height: 92vh;
+
+            background: var(--white);
+            border-radius: 22px;
+
+            overflow: hidden;
+            position: relative;
+
+            box-shadow: 0 30px 80px rgba(36, 30, 30, .25);
+
+            animation: modalIn .3s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        /* VIDEO PART REMAINS THE SAME */
+
+        .modal-video {
+            background: #111111;
+            min-height: 570px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .modal-video video {
+            width: 100%;
+            height: 100%;
+            min-height: 570px;
+
+            object-fit: contain;
+            background: #111111;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: rgba(255, 255, 255, .7);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .video-placeholder-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(241, 148, 131, .2);
+            color: var(--pink);
+
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .video-placeholder p {
+            font-size: 13px;
+        }
+
+        .modal-content {
+            padding: 30px 35px 35px;
+        }
+
+        .modal-title {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .modal-tag {
+            padding: 5px 11px;
+            border-radius: 20px;
+
+            background: var(--pale);
+            color: var(--red);
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .modal-description {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--red);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .modal-link:hover {
+            color: var(--dark-red);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 5;
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: var(--pink);
+            color: var(--red);
+
+            font-size: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: .25s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 55px 35px;
+            background: var(--pink);
+            color: rgba(95, 74, 70, .7);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .footer-title {
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .footer-right {
+            font-size: 12px;
+            text-align: right;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1100px) {
+
+            .nav-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding-top: 70px;
+            }
+
+            .hero-side-number {
+                font-size: 65px;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .nav-inner {
+                padding: 13px 20px;
+            }
+
+            .nav-links {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                width: 100%;
+                padding-bottom: 3px;
+                scrollbar-width: none;
+            }
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav-links a {
+                flex-shrink: 0;
+                font-size: 12px;
+                padding: 7px 11px;
+            }
+
+            .hero {
+                padding: 65px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: clamp(55px, 18vw, 90px);
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .main {
+                padding: 0 20px 70px;
+            }
+
+            .works-list {
+                grid-template-columns: 1fr;
+            }
+
+            .work-cover {
+                height: 330px;
+            }
+
+            .next-section {
+                margin-top: 70px;
+                padding: 40px 25px;
+            }
+
+            .modal {
+                padding: 12px;
+            }
+
+            .modal-box {
+                max-height: 95vh;
+                border-radius: 16px;
+            }
+
+            .modal-video {
+                min-height: 300px;
+            }
+
+            .modal-video video {
+                min-height: 300px;
+            }
+
+            .modal-content {
+                padding: 25px 22px 28px;
+            }
+
+            .modal-title {
+                font-size: 26px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .logo-mark {
+                width: 31px;
+                height: 31px;
+            }
+
+            .hero-side-number {
+                font-size: 50px;
+            }
+
+            .work-cover {
+                height: 300px;
+            }
+
+            .work-content {
+                padding: 22px;
+            }
+
+            .work-title {
+                font-size: 25px;
+            }
+
+            .next-links {
+                flex-direction: column;
+            }
+
+            .next-link {
+                justify-content: center;
+            }
+
+            .modal-close {
+                width: 38px;
+                height: 38px;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-mark">苏</span>
+                苏新皓档案馆
+            </a>
+
+            <div class="nav-links">
+
+                <a href="index.html">首页</a>
+
+                <a href="profile.html">个人档案</a>
+
+                <a href="journey.html">成长经历</a>
+
+                <a href="moments.html">瞬间</a>
+
+                <a href="works.html" class="active">作品</a>
+
+                <a href="stage.html">舞台</a>
+
+                <a href="fan-edits.html">粉丝剪辑</a>
+
+                <a href="comments.html">留言</a>
+
+                <a href="beads.html">拼豆</a>
+
+                <a href="archive.html">资料</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div>
+
+            <div class="hero-label">
+                04 · 作品档案
+            </div>
+
+            <h1>作品</h1>
+
+            <p class="hero-description">
+                从舞台上的表达，到真正属于自己的作品。
+                这里记录苏新皓在音乐创作上的尝试，
+                收藏每一次声音、文字与想法留下的痕迹。
+            </p>
+
+        </div>
+
+        <div class="hero-side">
+
+            <div class="hero-side-number">
+                02
+            </div>
+
+            <div class="hero-side-text">
+                ORIGINAL WORKS
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="main">
+
+        <section class="intro">
+
+            <div>
+                <div class="section-label">
+                    WORK ARCHIVE
+                </div>
+            </div>
+
+            <div>
+
+                <h2>
+                    从舞台上的表达，
+                    到真正属于自己的作品。
+                </h2>
+
+                <p>
+                    音乐不只是舞台上的一次演出，
+                    也可以是一段旋律、一句歌词，
+                    或是一份真正属于自己的表达。
+                    这里专门整理苏新皓参与创作的原创作品，
+                    留下属于他的音乐记录。
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ORIGINAL WORKS
+        ========================= -->
+
+        <section class="works-section">
+
+            <div class="works-heading">
+
+                <span class="section-label">
+                    🎵 01｜作品 · ORIGINALS
+                </span>
+
+                <h2>
+                    原创音乐
+                </h2>
+
+                <p>
+                    这里专门放他参与词曲创作的原创心血之作。
+                </p>
+
+            </div>
+
+
+            <div class="works-list">
+
+                <!-- WORK 01 -->
+
+                <article class="work-card">
+
+                    <div class="work-cover">
+
+                        <!-- CHANGE COVER IMAGE HERE -->
+                        <img
+                            src="IMAGES/ytyt.png"
+                            alt="《一天一天》封面">
+
+                    </div>
+
+                    <div class="work-content">
+
+                        <div class="work-number">
+                            01
+                        </div>
+
+                        <div class="work-title">
+                            《一天一天》
+                        </div>
+
+                        <div class="work-bottom">
+
+                            <span class="work-tag">
+                                ORIGINAL
+                            </span>
+
+                            <button
+                                class="work-arrow"
+                                onclick="openModal('modal-yitian')"
+                                aria-label="查看一天一天">
+                                ↗
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- WORK 02 -->
+
+                <article class="work-card">
+
+                    <div class="work-cover">
+
+                        <!-- CHANGE COVER IMAGE HERE -->
+                        <img
+                            src="IMAGES/dawn-in-my-soul.png"
+                            alt="Dawn in my soul 封面">
+
+                    </div>
+
+                    <div class="work-content">
+
+                        <div class="work-number">
+                            02
+                        </div>
+
+                        <div class="work-title">
+                            《Dawn in my soul》
+                        </div>
+
+                        <div class="work-bottom">
+
+                            <span class="work-tag">
+                                ORIGINAL
+                            </span>
+
+                            <button
+                                class="work-arrow"
+                                onclick="openModal('modal-dawn')"
+                                aria-label="查看 Dawn in my soul">
+                                ↗
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTINUE EXPLORING
+        ========================= -->
+
+        <section class="next-section">
+
+            <div class="next-label">
+                CONTINUE EXPLORING
+            </div>
+
+            <h2>
+                继续了解<br>
+                苏新皓。
+            </h2>
+
+            <p>
+                从作品继续往前走，
+                还可以看看他的成长经历、舞台瞬间，
+                或进入资料档案，慢慢认识更多关于他的故事。
+            </p>
+
+            <div class="next-links">
+
+                <a href="journey.html" class="next-link">
+                    成长经历 ↗
+                </a>
+
+                <a href="moments.html" class="next-link">
+                    瞬间记录 ↗
+                </a>
+
+                <a href="stage.html" class="next-link">
+                    舞台档案 ↗
+                </a>
+
+                <a href="archive.html" class="next-link">
+                    资料档案 ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL — 一天一天
+    ========================= -->
+
+    <div
+        class="modal"
+        id="modal-yitian"
+        onclick="closeModalOutside(event, 'modal-yitian')">
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                onclick="closeModal('modal-yitian')"
+                aria-label="关闭">
+                ×
+            </button>
+
+            <div class="modal-video">
+
+                <video controls>
+
+                    <source src="" type="video/mp4">
+
+                    您的浏览器不支持视频播放。
+
+                </video>
+
+                <div class="video-placeholder">
+
+                    <div class="video-placeholder-icon">
+                        ▶
+                    </div>
+
+                    <p>
+                        添加视频后即可在这里播放
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="modal-content">
+
+                <h2 class="modal-title">
+                    《一天一天》
+                </h2>
+
+                <div class="modal-tags">
+
+                    <span class="modal-tag">
+                        ORIGINAL
+                    </span>
+
+                    <span class="modal-tag">
+                        作品记录
+                    </span>
+
+                </div>
+
+                <p class="modal-description">
+                    记录《一天一天》的作品信息与相关内容。
+                    可以在这里补充歌曲创作背景、歌词、舞台演绎
+                    或其他想收藏的作品资料。
+                </p>
+
+                <a href="stage.html" class="modal-link">
+                    查看相关舞台 →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MODAL — Dawn in my soul
+    ========================= -->
+
+    <div
+        class="modal"
+        id="modal-dawn"
+        onclick="closeModalOutside(event, 'modal-dawn')">
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                onclick="closeModal('modal-dawn')"
+                aria-label="关闭">
+                ×
+            </button>
+
+            <div class="modal-video">
+
+                <video controls>
+
+                    <source src="" type="video/mp4">
+
+                    您的浏览器不支持视频播放。
+
+                </video>
+
+                <div class="video-placeholder">
+
+                    <div class="video-placeholder-icon">
+                        ▶
+                    </div>
+
+                    <p>
+                        添加视频后即可在这里播放
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="modal-content">
+
+                <h2 class="modal-title">
+                    《Dawn in my soul》
+                </h2>
+
+                <div class="modal-tags">
+
+                    <span class="modal-tag">
+                        ORIGINAL
+                    </span>
+
+                    <span class="modal-tag">
+                        作品记录
+                    </span>
+
+                </div>
+
+                <p class="modal-description">
+                    记录《Dawn in my soul》的作品信息与相关内容。
+                    可以在这里补充歌曲创作背景、歌词、舞台演绎
+                    或其他想收藏的作品资料。
+                </p>
+
+                <a href="stage.html" class="modal-link">
+                    查看相关舞台 →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-title">
+                    苏新皓档案馆
+                </div>
+
+                <div class="footer-text">
+                    A fan-made archive dedicated to Su Xinhao.
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+                记录每一个值得被记住的瞬间。
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function openModal(id) {
+
+            const modal = document.getElementById(id);
+
+            if (!modal) return;
+
+            modal.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function closeModal(id) {
+
+            const modal = document.getElementById(id);
+
+            if (!modal) return;
+
+            modal.classList.remove("show");
+
+            document.body.style.overflow = "";
+
+            const video = modal.querySelector("video");
+
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+
+        }
+
+
+        function closeModalOutside(event, id) {
+
+            if (event.target.id === id) {
+                closeModal(id);
+            }
+
+        }
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                document.querySelectorAll(".modal.show").forEach(function(modal) {
+                    closeModal(modal.id);
+                });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
