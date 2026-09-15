@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>留言｜苏新皓档案馆</title>
 
     <style>
@@ -43,83 +43,81 @@
             text-decoration: none;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         /* =========================
            NAVIGATION
         ========================= */
 
-        .navbar {
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 72px;
-            background: rgba(255, 249, 245, 0.95);
+            background: rgba(255, 249, 245, 0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--边框);
             z-index: 1000;
         }
 
-        .nav-container {
-            max-width: 1200px;
+        .nav-inner {
+            max-width: 1280px;
             height: 100%;
             margin: auto;
-            padding: 0 24px;
-
+            padding: 0 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
 
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--红色);
+            color: var(--白色);
             display: flex;
             align-items: center;
             justify-content: center;
-
-            background: var(--红色);
-            color: var(--白色);
-
-            font-size: 20px;
-            font-weight: 800;
-
-            flex-shrink: 0;
+            font-size: 14px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .nav-links a {
             position: relative;
-
-            padding: 8px 12px;
-
-            color: var(--深色);
-            font-size: 14px;
-            font-weight: 600;
-
+            padding: 9px 13px;
+            color: var(--灰色);
+            font-size: 13px;
             transition: color 0.25s ease;
         }
 
         .nav-links a::after {
             content: "";
-
             position: absolute;
             left: 50%;
-            bottom: 2px;
-
+            bottom: 3px;
             width: 0;
             height: 2px;
-
-            background: var(--红色);
             border-radius: 10px;
-
+            background: var(--红色);
             transform: translateX(-50%);
             transition: width 0.25s ease;
         }
@@ -131,19 +129,7 @@
 
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 60%;
-        }
-
-        .menu-button {
-            display: none;
-
-            border: none;
-            background: none;
-
-            font-size: 26px;
-            color: var(--深色);
-
-            cursor: pointer;
+            width: 22px;
         }
 
         /* =========================
@@ -151,46 +137,47 @@
         ========================= */
 
         .hero {
-            margin-top: 72px;
-            min-height: 400px;
-
-            display: flex;
+            min-height: 650px;
+            padding: 150px 7% 90px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
             align-items: center;
+            gap: 80px;
 
             background:
                 radial-gradient(
-                    circle at 15% 30%,
-                    rgba(241, 148, 131, 0.22),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 70%,
-                    rgba(238, 63, 77, 0.12),
-                    transparent 30%
+                    circle at 80% 20%,
+                    rgba(241, 148, 131, 0.13),
+                    transparent 32%
                 ),
                 var(--奶油白);
         }
 
-        .hero-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 80px 24px;
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            color: var(--红色);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .hero-small {
-            color: var(--红色);
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 18px;
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--红色);
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 88px);
-            line-height: 1;
+            margin-bottom: 30px;
+            font-size: clamp(52px, 7vw, 92px);
+            line-height: 0.98;
             letter-spacing: -4px;
-            margin-bottom: 24px;
+            font-weight: 800;
         }
 
         .hero h1 span {
@@ -198,234 +185,368 @@
         }
 
         .hero-description {
-            max-width: 600px;
-
+            max-width: 560px;
             color: var(--灰色);
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.9;
         }
 
+        .hero-label {
+            margin-top: 35px;
+            color: var(--深色);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            width: 82%;
+            height: 82%;
+            border-radius: 50%;
+            background: var(--浅粉);
+            z-index: 0;
+        }
+
+        .hero-image img {
+            position: relative;
+            z-index: 1;
+            width: min(430px, 100%);
+            max-height: 500px;
+            object-fit: contain;
+            filter:
+                drop-shadow(
+                    0 20px 35px rgba(36, 30, 30, 0.12)
+                );
+        }
+
         /* =========================
-           MAIN
+           SECTION
         ========================= */
 
-        main {
-            max-width: 1200px;
+        .section {
+            max-width: 1280px;
             margin: auto;
-            padding: 80px 24px 100px;
+            padding: 100px 7%;
         }
 
-        .section-header {
-            margin-bottom: 40px;
+        .section-heading {
+            margin-bottom: 50px;
         }
 
-        .section-label {
+        .section-number {
+            margin-bottom: 12px;
             color: var(--红色);
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 8px;
         }
 
-        .section-title {
-            font-size: 32px;
-            line-height: 1.2;
+        .section-heading h2 {
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        .section-heading p {
+            margin-top: 15px;
+            color: var(--灰色);
+            font-size: 14px;
+        }
+
+        .count-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 28px;
+            padding: 0 10px;
+            margin-left: 8px;
+            border-radius: 30px;
+            background: var(--红色);
+            color: white;
+            font-size: 12px;
+            vertical-align: middle;
         }
 
         /* =========================
-           COMMENT LAYOUT
+           COMMENTS LAYOUT
         ========================= */
 
-        .comment-layout {
+        .comments-layout {
             display: grid;
-            grid-template-columns: 1.4fr 0.8fr;
-            gap: 40px;
+            grid-template-columns:
+                minmax(0, 1fr) 350px;
+            gap: 55px;
             align-items: start;
         }
 
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
         /* =========================
-           COMMENT WALL
+           TICKET CARD
         ========================= */
 
-        .comments-box {
-            background: var(--白色);
-            border: 1px solid var(--边框);
-            border-radius: 20px;
-            padding: 28px;
+        .comment-card {
+            position: relative;
+            width: 100%;
+            height: 205px;
+            min-height: 205px;
+            padding: 18px 28px 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.98),
+                    rgba(249, 233, 229, 0.82)
+                );
+
+            border: 1px solid var(--中粉);
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 6px 20px rgba(36, 30, 30, 0.045);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
-        .comments-top {
+        .comment-card:nth-child(even) {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 249, 245, 0.98),
+                    rgba(252, 237, 234, 0.92)
+                );
+        }
+
+        .comment-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 28px rgba(36, 30, 30, 0.08);
+        }
+
+        /* =========================
+           TICKET CUT-OUTS
+        ========================= */
+
+        .comment-card::before,
+        .comment-card::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 18px;
+            height: 18px;
+            background: var(--奶油白);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+        }
+
+        .comment-card::before {
+            left: -10px;
+        }
+
+        .comment-card::after {
+            right: -10px;
+        }
+
+        /* =========================
+           TICKET TOP
+        ========================= */
+
+        .ticket-top {
+            position: relative;
+            z-index: 3;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 20px;
 
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 10px;
 
-            border-bottom: 1px solid var(--边框);
+            border-bottom:
+                1px dashed var(--中粉);
         }
 
-        .comments-top h3 {
-            font-size: 20px;
-        }
-
-        .comment-count {
-            padding: 6px 12px;
-
-            border-radius: 20px;
-
-            background: var(--浅粉);
+        .ticket-brand {
             color: var(--红色);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
 
+        .ticket-number {
+            color: var(--灰色);
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           USER + CATEGORY
+        ========================= */
+
+        .ticket-info {
+            position: relative;
+            z-index: 3;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding-top: 9px;
+        }
+
+        .comment-user {
+            color: var(--深色);
             font-size: 13px;
             font-weight: 700;
         }
 
-        .comment-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        .comment-category {
+            flex-shrink: 0;
+
+            padding: 4px 10px;
+            border-radius: 20px;
+
+            background: var(--红色);
+            color: white;
+
+            font-size: 9px;
+            font-weight: 700;
         }
 
-        .comment-card {
-            padding: 20px;
+        /* ==================================================
+           MESSAGE — TRUE CENTER OF THE ENTIRE TICKET
+        ================================================== */
 
-            background: var(--奶油白);
-            border: 1px solid var(--边框);
-            border-radius: 16px;
+        .comment-text {
+            position: absolute;
 
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-        }
+            left: 50%;
+            top: 50%;
 
-        .comment-card:hover {
-            transform: translateY(-2px);
+            transform: translate(-50%, -50%);
 
-            box-shadow:
-                0 8px 24px rgba(36, 30, 30, 0.06);
-        }
+            width: calc(100% - 100px);
 
-        .comment-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
+            margin: 0;
+            padding: 0;
 
-        .avatar {
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--中粉);
             color: var(--深色);
 
-            font-weight: 800;
-            font-size: 16px;
+            text-align: center;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
 
-            flex-shrink: 0;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+
+            z-index: 2;
+
+            max-height: 115px;
+            overflow: hidden;
         }
 
-        .comment-user {
-            flex: 1;
-        }
+        /* =========================
+           TICKET BOTTOM
+        ========================= */
 
-        .comment-name {
-            font-size: 15px;
-            font-weight: 800;
+        .ticket-bottom {
+            position: absolute;
+
+            left: 28px;
+            right: 28px;
+            bottom: 14px;
+
+            z-index: 3;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding-top: 9px;
+
+            border-top:
+                1px dashed var(--中粉);
         }
 
         .comment-date {
             color: var(--灰色);
-            font-size: 12px;
-            margin-top: 2px;
+            font-size: 9px;
+            letter-spacing: 1px;
         }
 
-        .comment-category {
-            display: inline-block;
+        .barcode {
+            width: 75px;
+            height: 18px;
 
-            padding: 4px 9px;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    var(--深色) 0px,
+                    var(--深色) 1px,
+                    transparent 1px,
+                    transparent 3px,
+                    var(--深色) 3px,
+                    var(--深色) 5px,
+                    transparent 5px,
+                    transparent 7px
+                );
 
-            border-radius: 20px;
-
-            background: var(--浅粉);
-            color: var(--红色);
-
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .comment-content {
-            color: var(--深色);
-            font-size: 15px;
-            line-height: 1.8;
-
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        .delete-button {
-            margin-top: 14px;
-
-            border: none;
-            background: transparent;
-
-            color: var(--灰色);
-
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .delete-button:hover {
-            color: var(--红色);
-        }
-
-        /* =========================
-           EMPTY
-        ========================= */
-
-        .empty-message {
-            padding: 60px 20px;
-
-            text-align: center;
-            color: var(--灰色);
-        }
-
-        .empty-icon {
-            font-size: 42px;
-            margin-bottom: 12px;
+            opacity: 0.5;
         }
 
         /* =========================
            FORM
         ========================= */
 
-        .form-box {
-            background: var(--白色);
-            border: 1px solid var(--边框);
-            border-radius: 20px;
-            padding: 28px;
-
+        .comment-form-card {
             position: sticky;
             top: 100px;
+
+            padding: 30px;
+            border-radius: 22px;
+
+            background: var(--浅粉);
+            border: 1px solid var(--边框);
         }
 
-        .form-box h3 {
-            font-size: 22px;
+        .form-heading {
+            margin-bottom: 28px;
+        }
+
+        .form-heading small {
+            display: block;
             margin-bottom: 8px;
+
+            color: var(--红色);
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
         }
 
-        .form-description {
-            color: var(--灰色);
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 26px;
+        .form-heading h3 {
+            font-size: 25px;
+            line-height: 1.2;
         }
 
         .form-group {
@@ -434,11 +555,10 @@
 
         .form-group label {
             display: block;
-
             margin-bottom: 8px;
 
-            font-size: 13px;
-            font-weight: 800;
+            font-size: 12px;
+            font-weight: 700;
         }
 
         .form-group input,
@@ -449,100 +569,211 @@
             border: 1px solid var(--边框);
             border-radius: 12px;
 
-            padding: 12px 14px;
+            padding: 13px 14px;
 
-            background: var(--奶油白);
+            background: rgba(255, 255, 255, 0.8);
             color: var(--深色);
 
             font-family: inherit;
-            font-size: 14px;
+            font-size: 13px;
 
             outline: none;
 
             transition:
                 border-color 0.2s ease,
-                box-shadow 0.2s ease;
+                background 0.2s ease;
+        }
+
+        .form-group textarea {
+            min-height: 135px;
+            resize: vertical;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: var(--主色);
-
-            box-shadow:
-                0 0 0 3px rgba(241, 148, 131, 0.15);
+            border-color: var(--红色);
+            background: white;
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .char-count {
-            margin-top: 6px;
-
-            text-align: right;
-
-            color: var(--灰色);
-            font-size: 11px;
-        }
-
-        .submit-button {
+        .submit-btn {
             width: 100%;
 
             border: none;
-            border-radius: 12px;
+            border-radius: 30px;
 
-            padding: 14px;
+            padding: 14px 20px;
 
             background: var(--红色);
-            color: var(--白色);
+            color: white;
 
             font-family: inherit;
-            font-size: 14px;
-            font-weight: 800;
+            font-size: 13px;
+            font-weight: 700;
 
             cursor: pointer;
 
             transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+                transform 0.2s ease,
+                background 0.2s ease;
         }
 
-        .submit-button:hover {
+        .submit-btn:hover {
             background: var(--深红);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
-        .submit-button:disabled {
+        .submit-btn:disabled {
             opacity: 0.6;
-            cursor: not-allowed;
+            cursor: wait;
             transform: none;
         }
 
+        .form-note {
+            margin-top: 15px;
+            color: var(--灰色);
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .empty-state {
+            padding: 60px 20px;
+            text-align: center;
+
+            border:
+                1px dashed var(--中粉);
+
+            border-radius: 18px;
+            color: var(--灰色);
+            font-size: 13px;
+        }
+
         /* =========================
-           SUCCESS MESSAGE
+           COMMUNITY
         ========================= */
 
-        .success-message {
-            display: none;
+        .community {
+            padding: 100px 7%;
+            background: var(--红色);
+            color: white;
+        }
 
-            margin-bottom: 20px;
-            padding: 12px 14px;
+        .community-inner {
+            max-width: 1100px;
+            margin: auto;
 
-            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
 
-            background: #f0f9f2;
-            border: 1px solid #cce8d0;
+            gap: 80px;
+            align-items: center;
+        }
 
-            color: #367542;
+        .community h2 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
 
-            font-size: 13px;
+        .community p {
+            max-width: 500px;
+            margin-top: 20px;
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .community-note {
+            padding: 30px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.35);
+
+            border-radius: 20px;
+        }
+
+        .community-note span {
+            display: block;
+            margin-bottom: 15px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .community-note strong {
+            font-size: 20px;
             line-height: 1.6;
         }
 
-        .success-message.show {
-            display: block;
+        /* =========================
+           EXPLORE
+        ========================= */
+
+        .explore {
+            max-width: 1280px;
+            margin: auto;
+            padding: 100px 7%;
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .explore-card {
+            min-height: 220px;
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            background: white;
+
+            border:
+                1px solid var(--边框);
+
+            border-radius: 20px;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--中粉);
+        }
+
+        .explore-number {
+            color: var(--红色);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .explore-card h3 {
+            margin-top: auto;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .explore-card p {
+            color: var(--灰色);
+            font-size: 12px;
+        }
+
+        .explore-arrow {
+            margin-top: 20px;
+            color: var(--红色);
+            font-size: 20px;
         }
 
         /* =========================
@@ -550,125 +781,283 @@
         ========================= */
 
         footer {
-            background: var(--深色);
-            color: var(--白色);
+            padding: 55px 7% 35px;
 
-            padding: 50px 24px;
+            background: var(--深色);
+            color: white;
         }
 
-        .footer-container {
-            max-width: 1200px;
+        .footer-inner {
+            max-width: 1280px;
             margin: auto;
 
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            gap: 40px;
 
-            gap: 30px;
+            padding-bottom: 35px;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.12);
         }
 
         .footer-brand {
-            font-size: 18px;
-            font-weight: 800;
+            font-size: 17px;
+            font-weight: 700;
         }
 
-        .footer-subtitle {
-            margin-top: 5px;
-            color: #c9c0bd;
-            font-size: 12px;
+        .footer-brand span {
+            display: block;
+            margin-top: 8px;
+
+            color:
+                rgba(255, 255, 255, 0.5);
+
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
-        .footer-right {
-            color: #c9c0bd;
-            font-size: 12px;
-            text-align: right;
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color:
+                rgba(255, 255, 255, 0.65);
+
+            font-size: 11px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--主色);
+        }
+
+        .copyright {
+            max-width: 1280px;
+            margin: 25px auto 0;
+
+            color:
+                rgba(255, 255, 255, 0.35);
+
+            font-size: 9px;
+            letter-spacing: 1px;
         }
 
         /* =========================
-           RESPONSIVE
+           TABLET
         ========================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
 
-            .nav-links {
-                display: none;
-
-                position: absolute;
-                top: 72px;
-                left: 0;
-
-                width: 100%;
-
-                padding: 15px 20px;
-
-                flex-direction: column;
-                align-items: stretch;
-
-                background: rgba(255, 249, 245, 0.98);
-                border-bottom: 1px solid var(--边框);
+            .nav-inner {
+                padding: 0 20px;
             }
 
-            .nav-links.show {
-                display: flex;
+            .nav-links {
+                gap: 0;
             }
 
             .nav-links a {
-                text-align: center;
-                padding: 13px;
+                padding: 8px 7px;
+                font-size: 11px;
             }
 
-            .menu-button {
-                display: block;
+            .hero {
+                grid-template-columns:
+                    1fr 0.8fr;
+
+                gap: 40px;
+
+                padding-left: 6%;
+                padding-right: 6%;
             }
 
-            .comment-layout {
+            .comments-layout {
                 grid-template-columns: 1fr;
             }
 
-            .form-box {
+            .comment-form-card {
                 position: static;
             }
         }
 
-        @media (max-width: 600px) {
+        /* =========================
+           MOBILE
+        ========================= */
 
-            .nav-container {
-                padding: 0 18px;
+        @media (max-width: 760px) {
+
+            nav {
+                height: auto;
+                min-height: 65px;
             }
 
-            .hero-container {
-                padding: 65px 20px;
+            .nav-inner {
+                padding: 12px 18px;
+
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+
+                justify-content: flex-start;
+                padding-bottom: 3px;
+            }
+
+            .nav-links a {
+                flex-shrink: 0;
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding: 150px 6% 70px;
+
+                grid-template-columns: 1fr;
+                gap: 45px;
             }
 
             .hero h1 {
-                letter-spacing: -2px;
+                font-size:
+                    clamp(48px, 14vw, 70px);
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                width: min(280px, 80%);
+                max-height: 350px;
+            }
+
+            .section,
+            .explore {
+                padding: 70px 6%;
+            }
+
+            .section-heading {
+                margin-bottom: 35px;
+            }
+
+            .comments-layout {
+                gap: 35px;
+            }
+
+            /* MOBILE TICKET */
+
+            .comment-card {
+                height: 195px;
+                min-height: 195px;
+                padding:
+                    16px 22px 13px;
+            }
+
+            .comment-text {
+                width: calc(100% - 70px);
+            }
+
+            .ticket-bottom {
+                left: 22px;
+                right: 22px;
+                bottom: 13px;
+            }
+
+            .comment-form-card {
+                padding: 25px;
+            }
+
+            .community {
+                padding: 70px 6%;
+            }
+
+            .community-inner {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .explore-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .explore-card {
+                min-height: 180px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                font-size: 12px;
+            }
+
+            .logo-mark {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 140px;
             }
 
             .hero-description {
-                font-size: 15px;
-            }
-
-            main {
-                padding: 60px 18px 80px;
-            }
-
-            .comments-box,
-            .form-box {
-                padding: 20px;
-                border-radius: 16px;
+                font-size: 14px;
             }
 
             .comment-card {
-                padding: 16px;
+                height: 185px;
+                min-height: 185px;
+
+                padding:
+                    14px 18px 11px;
             }
 
-            .footer-container {
-                flex-direction: column;
-                align-items: flex-start;
+            .ticket-brand,
+            .ticket-number {
+                font-size: 8px;
             }
 
-            .footer-right {
-                text-align: left;
+            .comment-user {
+                font-size: 12px;
+            }
+
+            .comment-category {
+                font-size: 8px;
+                padding:
+                    4px 8px;
+            }
+
+            .comment-text {
+                width: calc(100% - 55px);
+            }
+
+            .ticket-bottom {
+                left: 18px;
+                right: 18px;
+                bottom: 11px;
+            }
+
+            .barcode {
+                width: 60px;
+                height: 15px;
             }
         }
     </style>
@@ -680,35 +1069,69 @@
      NAVIGATION
 ========================= -->
 
-<nav class="navbar">
-    <div class="nav-container">
+<nav>
 
-        <a href="index.html" class="logo">苏</a>
+    <div class="nav-inner">
 
-        <div class="nav-links" id="navLinks">
+        <a href="index.html" class="logo">
 
-            <a href="index.html">首页</a>
-            <a href="profile.html">个人档案</a>
-            <a href="growth.html">成长经历</a>
-            <a href="moments.html">瞬间</a>
-            <a href="works.html">作品</a>
-            <a href="stage.html">舞台</a>
-            <a href="fan-edit.html">粉丝剪辑</a>
-            <a href="comments.html" class="active">留言</a>
-            <a href="perler.html">拼豆</a>
-            <a href="resources.html">资料</a>
+            <div class="logo-mark">
+                苏
+            </div>
+
+            <span>
+                苏新皓｜档案馆
+            </span>
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                首页
+            </a>
+
+            <a href="profile.html">
+                个人档案
+            </a>
+
+            <a href="journey.html">
+                成长经历
+            </a>
+
+            <a href="moments.html">
+                瞬间
+            </a>
+
+            <a href="works.html">
+                作品
+            </a>
+
+            <a href="stage.html">
+                舞台
+            </a>
+
+            <a href="fan-edits.html">
+                粉丝剪辑
+            </a>
+
+            <a href="comments.html" class="active">
+                留言
+            </a>
+
+            <!-- CHANGED: 拼豆 → 美工 -->
+            <a href="mei-gong.html">
+                美工
+            </a>
+
+            <a href="archive.html">
+                资料
+            </a>
 
         </div>
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="打开导航"
-        >
-            ☰
-        </button>
-
     </div>
+
 </nav>
 
 
@@ -716,152 +1139,140 @@
      HERO
 ========================= -->
 
-<section class="hero">
+<header class="hero">
 
-    <div class="hero-container">
+    <div class="hero-content">
 
-        <div class="hero-small">
-            SIGNAL LIGHT COMMUNITY
+        <div class="eyebrow">
+            苏新皓 · 粉丝档案馆
         </div>
 
         <h1>
-            留言 <span>/</span> 空间
+            留言<br>
+            <span>/ 空间</span>
         </h1>
 
         <p class="hero-description">
-            留下你想对苏新皓说的话。
-            可以分享喜欢的舞台、歌曲、作品，
-            也可以记录一路陪伴他的瞬间。
+            这里是属于信号灯的留言空间。
+            可以留下想对苏新皓说的话，也可以记录某个让你记住的瞬间。
+            每一份喜欢，都值得被好好保存。
+        </p>
+
+        <div class="hero-label">
+            SIGNAL LIGHT COMMUNITY
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img
+            src="IMAGES/profile.png"
+            alt="苏新皓"
+        >
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     COMMENTS
+========================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            01 · 留言墙
+        </div>
+
+        <h2>
+
+            信号灯的声音
+
+            <span
+                class="count-pill"
+                id="commentCount"
+            >
+                0
+            </span>
+
+        </h2>
+
+        <p>
+            每一条留言，都是档案馆里的一盏小小信号灯。
         </p>
 
     </div>
 
-</section>
 
+    <div class="comments-layout">
 
-<!-- =========================
-     MAIN
-========================= -->
+        <!-- COMMENT LIST -->
 
-<main>
+        <div
+            class="comments-list"
+            id="commentsList"
+        >
 
-    <div class="section-header">
+            <div class="empty-state">
+                正在读取留言……
+            </div>
 
-        <div class="section-label">
-            FAN COMMUNITY
         </div>
 
-        <h2 class="section-title">
-            一句话，也可以成为收藏。
-        </h2>
 
-    </div>
+        <!-- FORM -->
 
+        <div class="comment-form-card">
 
-    <div class="comment-layout">
+            <div class="form-heading">
 
-        <!-- =========================
-             COMMENTS
-        ========================= -->
+                <small>
+                    LEAVE A SIGNAL
+                </small>
 
-        <section class="comments-box">
+                <h3>
+                    留下你的话
+                </h3>
 
-            <div class="comments-top">
-
-                <h3>留言墙</h3>
-
-                <div class="comment-count">
-                    <span id="commentCount">0</span> 条留言
-                </div>
-
-            </div>
-
-
-            <div
-                class="comment-list"
-                id="commentList"
-            ></div>
-
-
-            <div
-                class="empty-message"
-                id="emptyMessage"
-                style="display:none;"
-            >
-                <div class="empty-icon">♡</div>
-
-                <p>
-                    这里还没有留言。
-                </p>
-
-                <p>
-                    成为第一个留下话语的人吧。
-                </p>
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FORM
-        ========================= -->
-
-        <section class="form-box">
-
-            <h3>留下你的话</h3>
-
-            <p class="form-description">
-                不需要很长，一句话也可以。
-                你的留言会出现在留言墙上。
-            </p>
-
-
-            <div
-                class="success-message"
-                id="successMessage"
-            >
-                留言发布成功！谢谢你的分享 ♡
             </div>
 
 
             <form id="commentForm">
 
-                <!-- NAME -->
-
                 <div class="form-group">
 
                     <label for="userID">
-                        你的 ID
+                        用户 ID
                     </label>
 
                     <input
                         type="text"
                         id="userID"
-                        name="userID"
-                        maxlength="20"
-                        placeholder="请输入你的ID"
+                        placeholder="例如：@铲铲爆米花"
+                        maxlength="30"
                         required
                     >
 
                 </div>
 
 
-                <!-- CATEGORY -->
-
                 <div class="form-group">
 
                     <label for="category">
-                        留言分类
+                        分类
                     </label>
 
                     <select
                         id="category"
-                        name="category"
                         required
                     >
 
                         <option value="">
-                            请选择分类
+                            选择一个分类
                         </option>
 
                         <option value="MESSAGE">
@@ -897,44 +1308,207 @@
                 </div>
 
 
-                <!-- MESSAGE -->
-
                 <div class="form-group">
 
                     <label for="message">
-                        留言内容
+                        留言
                     </label>
 
                     <textarea
                         id="message"
-                        name="message"
-                        maxlength="300"
                         placeholder="写下你想说的话……"
+                        maxlength="300"
                         required
                     ></textarea>
-
-                    <div class="char-count">
-                        <span id="charCount">0</span> / 300
-                    </div>
 
                 </div>
 
 
                 <button
                     type="submit"
-                    class="submit-button"
-                    id="submitButton"
+                    class="submit-btn"
+                    id="submitBtn"
                 >
-                    发布留言
+                    发送留言
                 </button>
+
+
+                <div class="form-note">
+                    留言会显示在公开留言墙中。
+                    请保持友善，也请不要填写私人信息。
+                </div>
 
             </form>
 
-        </section>
+        </div>
 
     </div>
 
-</main>
+</section>
+
+
+<!-- =========================
+     COMMUNITY
+========================= -->
+
+<section class="community">
+
+    <div class="community-inner">
+
+        <div>
+
+            <div
+                class="eyebrow"
+                style="color:white;"
+            >
+                SIGNAL LIGHT
+            </div>
+
+            <h2>
+                因为喜欢，<br>
+                所以记录。
+            </h2>
+
+            <p>
+                从舞台上的光，到生活里的细节，
+                每一次成长都值得被记住。
+                这里不只是一个留言墙，也是信号灯们共同留下的记录。
+            </p>
+
+        </div>
+
+
+        <div class="community-note">
+
+            <span>
+                COMMUNITY NOTE
+            </span>
+
+            <strong>
+                “希望每一次回头，
+                都能看到有人一直在这里。”
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPLORE
+========================= -->
+
+<section class="explore">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            02 · 继续探索
+        </div>
+
+        <h2>
+            继续探索档案馆
+        </h2>
+
+    </div>
+
+
+    <div class="explore-grid">
+
+        <!-- 01 FAN EDITS -->
+
+        <a
+            href="fan-edits.html"
+            class="explore-card"
+        >
+
+            <div class="explore-number">
+                01 · FAN EDITS
+            </div>
+
+            <div>
+
+                <h3>
+                    粉丝剪辑
+                </h3>
+
+                <p>
+                    看看信号灯们留下的二创与喜欢。
+                </p>
+
+            </div>
+
+            <div class="explore-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- 02 DESIGN / 美工 -->
+
+        <a
+            href="mei-gong.html"
+            class="explore-card"
+        >
+
+            <div class="explore-number">
+                02 · DESIGN
+            </div>
+
+            <div>
+
+                <h3>
+                    美工
+                </h3>
+
+                <p>
+                    浏览信号灯们创作的视觉作品与设计。
+                </p>
+
+            </div>
+
+            <div class="explore-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- 03 ARCHIVE -->
+
+        <a
+            href="archive.html"
+            class="explore-card"
+        >
+
+            <div class="explore-number">
+                03 · ARCHIVE
+            </div>
+
+            <div>
+
+                <h3>
+                    资料
+                </h3>
+
+                <p>
+                    浏览整理好的相关资料与记录。
+                </p>
+
+            </div>
+
+            <div class="explore-arrow">
+                →
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
 
 
 <!-- =========================
@@ -943,24 +1517,52 @@
 
 <footer>
 
-    <div class="footer-container">
+    <div class="footer-inner">
 
-        <div>
+        <div class="footer-brand">
 
-            <div class="footer-brand">
-                苏新皓档案馆
-            </div>
+            苏新皓｜档案馆
 
-            <div class="footer-subtitle">
-                A FAN ARCHIVE FOR SU XINHAO
-            </div>
+            <span>
+                A FAN-MADE ARCHIVE FOR SU XINHAO
+            </span>
 
         </div>
 
-        <div class="footer-right">
-            本网站为粉丝个人制作，仅用于非商业交流与记录。
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                首页
+            </a>
+
+            <a href="profile.html">
+                个人档案
+            </a>
+
+            <a href="journey.html">
+                成长经历
+            </a>
+
+            <a href="works.html">
+                作品
+            </a>
+
+            <a href="stage.html">
+                舞台
+            </a>
+
+            <a href="comments.html">
+                留言
+            </a>
+
         </div>
 
+    </div>
+
+
+    <div class="copyright">
+        © 2026 苏新皓粉丝档案馆 · Fan-made website
     </div>
 
 </footer>
@@ -968,9 +1570,9 @@
 
 <script>
 
-/* =========================================================
-   SUPABASE CONFIGURATION
-========================================================= */
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
     "https://vmtggymyccudfomthhiw.supabase.co";
@@ -979,74 +1581,28 @@ const SUPABASE_KEY =
     "sb_publishable_ttHmLpi1x2rYy-bZb11Aeg_hMowvNML";
 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+/* =========================
+   CATEGORY
+========================= */
 
-const commentForm =
-    document.getElementById("commentForm");
+const categoryNames = {
 
-const commentList =
-    document.getElementById("commentList");
+    MESSAGE: "想说的话",
+    STAGE: "舞台",
+    VOCAL: "唱歌",
+    DANCE: "舞蹈",
+    WORKS: "作品",
+    GROWTH: "成长",
+    LOVE: "喜欢与支持"
 
-const commentCount =
-    document.getElementById("commentCount");
-
-const emptyMessage =
-    document.getElementById("emptyMessage");
-
-const successMessage =
-    document.getElementById("successMessage");
-
-const submitButton =
-    document.getElementById("submitButton");
-
-const messageInput =
-    document.getElementById("message");
-
-const charCount =
-    document.getElementById("charCount");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-const menuButton =
-    document.getElementById("menuButton");
+};
 
 
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-menuButton.addEventListener("click", () => {
-
-    navLinks.classList.toggle("show");
-
-});
-
-
-/* =========================================================
-   CHARACTER COUNT
-========================================================= */
-
-messageInput.addEventListener("input", () => {
-
-    charCount.textContent =
-        messageInput.value.length;
-
-});
-
-
-/* =========================================================
+/* =========================
    ESCAPE HTML
-   Prevents user-entered HTML from being rendered
-========================================================= */
+========================= */
 
 function escapeHTML(text) {
-
-    if (text === null || text === undefined) {
-        return "";
-    }
 
     return String(text)
         .replace(/&/g, "&amp;")
@@ -1054,34 +1610,15 @@ function escapeHTML(text) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
 }
 
 
-/* =========================================================
-   AVATAR
-========================================================= */
-
-function getAvatar(name) {
-
-    if (!name) {
-        return "♡";
-    }
-
-    return escapeHTML(
-        name.trim().charAt(0).toUpperCase()
-    );
-}
-
-
-/* =========================================================
+/* =========================
    DATE
-========================================================= */
+========================= */
 
 function formatDate(dateString) {
-
-    if (!dateString) {
-        return "";
-    }
 
     const date =
         new Date(dateString);
@@ -1090,137 +1627,76 @@ function formatDate(dateString) {
         return "";
     }
 
-    return date.toLocaleString(
-        "zh-CN",
-        {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit"
-        }
-    );
-}
+    const year =
+        date.getFullYear();
 
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
 
-/* =========================================================
-   CATEGORY NAME
-========================================================= */
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2, "0");
 
-function getCategoryName(category) {
-
-    const categories = {
-
-        MESSAGE: "想说的话",
-
-        STAGE: "舞台",
-
-        VOCAL: "唱歌",
-
-        DANCE: "舞蹈",
-
-        WORKS: "作品",
-
-        GROWTH: "成长",
-
-        LOVE: "喜欢与支持"
-
-    };
-
-    return categories[category] || "留言";
+    return `${year}.${month}.${day}`;
 
 }
 
 
-/* =========================================================
-   UPDATE COUNT
-========================================================= */
+/* =========================
+   FONT SIZE
+========================= */
 
-function updateCommentCount(count) {
+function getCommentFontSize(text) {
 
-    commentCount.textContent =
-        count;
+    const length = text.length;
+
+    if (length <= 10) return 21;
+    if (length <= 18) return 19;
+    if (length <= 28) return 17;
+    if (length <= 42) return 16;
+    if (length <= 60) return 15;
+    if (length <= 85) return 14;
+    if (length <= 120) return 13;
+
+    return 12;
 
 }
 
 
-/* =========================================================
-   CREATE COMMENT CARD
-========================================================= */
+/* =========================
+   FONT WEIGHT
+========================= */
 
-function createComment(comment) {
+function getCommentFontWeight(text) {
 
-    const card =
-        document.createElement("article");
+    const length = text.length;
 
-    card.className =
-        "comment-card";
+    if (length <= 20) return 700;
+    if (length <= 50) return 650;
 
+    return 600;
 
-    const safeName =
-        escapeHTML(comment.name || "匿名用户");
-
-    const safeComment =
-        escapeHTML(comment.comment || "");
-
-    const categoryName =
-        getCategoryName(comment.category);
-
-    const avatar =
-        getAvatar(comment.name);
-
-
-    card.innerHTML = `
-
-        <div class="comment-header">
-
-            <div class="avatar">
-                ${avatar}
-            </div>
-
-            <div class="comment-user">
-
-                <div class="comment-name">
-                    ${safeName}
-                </div>
-
-                <div class="comment-date">
-                    ${formatDate(comment.created_at)}
-                </div>
-
-            </div>
-
-            <div class="comment-category">
-                ${categoryName}
-            </div>
-
-        </div>
-
-        <div class="comment-content">
-            ${safeComment}
-        </div>
-
-    `;
-
-
-    /*
-       Delete button is intentionally not shown
-       to normal visitors.
-
-       Your current RLS policy requires an authenticated
-       admin user before deletion can work.
-    */
-
-
-    return card;
 }
 
 
-/* =========================================================
+/* =========================
    LOAD COMMENTS
-========================================================= */
+========================= */
 
 async function loadComments() {
+
+    const commentsList =
+        document.getElementById(
+            "commentsList"
+        );
+
+    const commentCount =
+        document.getElementById(
+            "commentCount"
+        );
 
     try {
 
@@ -1231,9 +1707,13 @@ async function loadComments() {
                     method: "GET",
 
                     headers: {
-                        "apikey": SUPABASE_KEY,
+
+                        "apikey":
+                            SUPABASE_KEY,
+
                         "Authorization":
                             `Bearer ${SUPABASE_KEY}`
+
                     }
                 }
             );
@@ -1241,18 +1721,10 @@ async function loadComments() {
 
         if (!response.ok) {
 
-            const errorText =
-                await response.text();
-
-            console.error(
-                "Supabase LOAD Error:",
-                response.status,
-                errorText
-            );
-
             throw new Error(
-                `读取留言失败 (${response.status})`
+                `HTTP ${response.status}`
             );
+
         }
 
 
@@ -1260,64 +1732,177 @@ async function loadComments() {
             await response.json();
 
 
-        commentList.innerHTML = "";
+        commentCount.textContent =
+            comments.length;
 
 
-        updateCommentCount(
-            comments.length
-        );
+        if (!comments.length) {
 
-
-        if (comments.length === 0) {
-
-            emptyMessage.style.display =
-                "block";
+            commentsList.innerHTML = `
+                <div class="empty-state">
+                    还没有留言。<br>
+                    成为第一个留下信号的人吧。
+                </div>
+            `;
 
             return;
+
         }
 
 
-        emptyMessage.style.display =
-            "none";
+        commentsList.innerHTML =
+            comments.map(
+                (item, index) => {
+
+                    const userID =
+                        escapeHTML(
+                            item.name ||
+                            "匿名"
+                        );
 
 
-        comments.forEach(comment => {
+                    const message =
+                        escapeHTML(
+                            item.comment ||
+                            ""
+                        );
 
-            const card =
-                createComment(comment);
 
-            commentList.appendChild(card);
+                    const category =
+                        categoryNames[
+                            item.category
+                        ]
+                        ||
+                        item.category
+                        ||
+                        "留言";
 
-        });
 
-    }
+                    const date =
+                        formatDate(
+                            item.created_at
+                        );
 
-    catch (error) {
+
+                    const fontSize =
+                        getCommentFontSize(
+                            item.comment ||
+                            ""
+                        );
+
+
+                    const fontWeight =
+                        getCommentFontWeight(
+                            item.comment ||
+                            ""
+                        );
+
+
+                    return `
+
+                        <article
+                            class="comment-card"
+                        >
+
+                            <div
+                                class="ticket-top"
+                            >
+
+                                <span
+                                    class="ticket-brand"
+                                >
+                                    SU XINHAO · FAN ARCHIVE
+                                </span>
+
+                                <span
+                                    class="ticket-number"
+                                >
+                                    NO.
+                                    ${String(
+                                        index + 1
+                                    ).padStart(
+                                        3,
+                                        "0"
+                                    )}
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="ticket-info"
+                            >
+
+                                <div
+                                    class="comment-user"
+                                >
+                                    @${userID.replace(
+                                        /^@/,
+                                        ""
+                                    )}
+                                </div>
+
+
+                                <div
+                                    class="comment-category"
+                                >
+                                    ${escapeHTML(
+                                        category
+                                    )}
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="comment-text"
+                                style="
+                                    font-size:${fontSize}px;
+                                    font-weight:${fontWeight};
+                                "
+                            >
+                                ${message}
+                            </div>
+
+
+                            <div
+                                class="ticket-bottom"
+                            >
+
+                                <div
+                                    class="comment-date"
+                                >
+                                    ${date}
+                                </div>
+
+
+                                <div
+                                    class="barcode"
+                                ></div>
+
+                            </div>
+
+                        </article>
+
+                    `;
+
+                }
+            ).join("");
+
+
+    } catch (error) {
 
         console.error(
-            "Load comments error:",
+            "Unable to load comments:",
             error
         );
 
-        commentList.innerHTML = `
 
-            <div class="empty-message"
-                 style="display:block;">
-
-                <div class="empty-icon">
-                    !
-                </div>
-
-                <p>
-                    暂时无法读取留言。
-                </p>
-
-                <p style="font-size:12px;margin-top:8px;">
-                    请检查 Supabase Table / RLS 设置。
-                </p>
-
+        commentsList.innerHTML = `
+            <div class="empty-state">
+                暂时无法读取留言。<br>
+                请稍后再试。
             </div>
-
         `;
 
     }
@@ -1325,302 +1910,169 @@ async function loadComments() {
 }
 
 
-/* =========================================================
+/* =========================
    SUBMIT COMMENT
-========================================================= */
+========================= */
 
-commentForm.addEventListener(
-    "submit",
-    async function(event) {
+document
+    .getElementById("commentForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
-
-
-        const userID =
-            document
-                .getElementById("userID")
-                .value
-                .trim();
+            event.preventDefault();
 
 
-        const category =
-            document
-                .getElementById("category")
-                .value;
+            const userID =
+                document
+                    .getElementById("userID")
+                    .value
+                    .trim();
 
 
-        const message =
-            messageInput
-                .value
-                .trim();
+            const category =
+                document
+                    .getElementById("category")
+                    .value;
 
 
-        /* =========================
-           BASIC VALIDATION
-        ========================= */
-
-        if (!userID) {
-
-            alert("请输入你的ID。");
-
-            return;
-        }
+            const message =
+                document
+                    .getElementById("message")
+                    .value
+                    .trim();
 
 
-        if (!category) {
-
-            alert("请选择留言分类。");
-
-            return;
-        }
-
-
-        if (!message) {
-
-            alert("请输入留言内容。");
-
-            return;
-        }
-
-
-        if (message.length > 300) {
-
-            alert("留言不能超过300字。");
-
-            return;
-        }
-
-
-        /* =========================
-           DISABLE BUTTON
-        ========================= */
-
-        submitButton.disabled =
-            true;
-
-        submitButton.textContent =
-            "发布中……";
-
-
-        try {
-
-            /*
-               IMPORTANT:
-
-               We intentionally do NOT send id.
-
-               Supabase should generate id automatically.
-
-               We also do NOT send created_at.
-
-               Supabase should generate created_at
-               automatically with DEFAULT now().
-            */
-
-            const data = {
-
-                name: userID,
-
-                category: category,
-
-                comment: message
-
-            };
-
-
-            console.log(
-                "Sending to Supabase:",
-                data
-            );
-
-
-            const response =
-                await fetch(
-                    `${SUPABASE_URL}/rest/v1/comments`,
-                    {
-                        method: "POST",
-
-                        headers: {
-
-                            "Content-Type":
-                                "application/json",
-
-                            "apikey":
-                                SUPABASE_KEY,
-
-                            "Authorization":
-                                `Bearer ${SUPABASE_KEY}`,
-
-                            "Prefer":
-                                "return=representation"
-
-                        },
-
-                        body:
-                            JSON.stringify(data)
-                    }
+            const submitBtn =
+                document.getElementById(
+                    "submitBtn"
                 );
 
 
-            /*
-               THIS IS IMPORTANT.
+            if (
+                !userID ||
+                !category ||
+                !message
+            ) {
 
-               Instead of only saying
-               "留言提交失败",
-
-               this displays the actual
-               Supabase error.
-            */
-
-            if (!response.ok) {
-
-                const errorText =
-                    await response.text();
-
-
-                console.error(
-                    "=============================="
+                alert(
+                    "请完整填写留言。"
                 );
 
-                console.error(
-                    "SUPABASE INSERT ERROR"
+                return;
+
+            }
+
+
+            submitBtn.disabled = true;
+
+            submitBtn.textContent =
+                "发送中……";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${SUPABASE_URL}/rest/v1/comments`,
+                        {
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "apikey":
+                                    SUPABASE_KEY,
+
+                                "Authorization":
+                                    `Bearer ${SUPABASE_KEY}`,
+
+                                "Prefer":
+                                    "return=representation"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    name:
+                                        userID,
+
+                                    category:
+                                        category,
+
+                                    comment:
+                                        message
+
+                                })
+
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    const errorText =
+                        await response.text();
+
+                    console.error(
+                        errorText
+                    );
+
+                    throw new Error(
+                        `HTTP ${response.status}`
+                    );
+
+                }
+
+
+                alert(
+                    "留言成功！"
                 );
 
-                console.error(
-                    "Status:",
-                    response.status
-                );
+
+                document
+                    .getElementById(
+                        "commentForm"
+                    )
+                    .reset();
+
+
+                await loadComments();
+
+
+            } catch (error) {
 
                 console.error(
-                    "Response:",
-                    errorText
-                );
-
-                console.error(
-                    "=============================="
+                    "Unable to submit comment:",
+                    error
                 );
 
 
                 alert(
-                    "Supabase 错误：\n\n" +
-                    "HTTP " +
-                    response.status +
-                    "\n\n" +
-                    errorText
+                    "留言发送失败，请稍后再试。"
                 );
 
 
-                throw new Error(
-                    errorText
-                );
-            }
+            } finally {
 
+                submitBtn.disabled =
+                    false;
 
-            const result =
-                await response.json();
-
-
-            console.log(
-                "Supabase insert successful:",
-                result
-            );
-
-
-            /* =========================
-               RESET FORM
-            ========================= */
-
-            commentForm.reset();
-
-            charCount.textContent =
-                "0";
-
-
-            /* =========================
-               SUCCESS MESSAGE
-            ========================= */
-
-            successMessage.classList.add(
-                "show"
-            );
-
-
-            setTimeout(() => {
-
-                successMessage.classList.remove(
-                    "show"
-                );
-
-            }, 4000);
-
-
-            /* =========================
-               RELOAD COMMENTS
-            ========================= */
-
-            await loadComments();
-
-
-            /*
-               Scroll to comments after
-               successful submission.
-            */
-
-            document
-                .querySelector(".comments-box")
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-        }
-
-        catch (error) {
-
-            console.error(
-                "Submit comment error:",
-                error
-            );
-
-            /*
-               The detailed Supabase alert
-               has already appeared above.
-
-               This fallback only handles
-               unexpected browser/network errors.
-            */
-
-            if (
-                !error.message ||
-                !error.message.includes("code")
-            ) {
-
-                console.error(
-                    "Possible network/CORS error:",
-                    error
-                );
+                submitBtn.textContent =
+                    "发送留言";
 
             }
 
         }
-
-        finally {
-
-            submitButton.disabled =
-                false;
-
-            submitButton.textContent =
-                "发布留言";
-
-        }
-
-    }
-);
+    );
 
 
-/* =========================================================
+/* =========================
    INITIAL LOAD
-========================================================= */
+========================= */
 
 loadComments();
 
