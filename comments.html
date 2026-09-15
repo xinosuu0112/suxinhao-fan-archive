@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +7,19 @@
     <title>留言｜苏新皓档案馆</title>
 
     <style>
-        /* =================================================
-           网站主要配色 —— 与 index.html 保持一致
-        ================================================= */
-
         :root {
             --主色: #F19483;
             --红色: #EE3F4D;
             --深红: #D93645;
-
             --奶油白: #FFF9F5;
             --白色: #FFFFFF;
-
             --深色: #241E1E;
             --灰色: #756D6B;
-
             --边框: #E8D9D4;
             --浅色: #F9E9E5;
             --浅粉: #FCEDEA;
             --中粉: #F6C1B8;
         }
-
-
-        /* =================================================
-           基础设置
-        ================================================= */
 
         * {
             margin: 0;
@@ -45,115 +32,95 @@
         }
 
         body {
-            font-family:
-                Arial,
-                "Microsoft YaHei",
-                "微软雅黑",
-                sans-serif;
-
+            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
             background: var(--奶油白);
             color: var(--深色);
             line-height: 1.6;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        button,
-        input,
-        textarea,
-        select {
-            font-family: inherit;
-        }
+        /* =========================
+           NAVIGATION
+        ========================= */
 
-
-        /* =================================================
-           导航栏
-        ================================================= */
-
-        nav {
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
             height: 72px;
-
-            background: rgba(255, 249, 245, 0.96);
+            background: rgba(255, 249, 245, 0.95);
             backdrop-filter: blur(12px);
-
             border-bottom: 1px solid var(--边框);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+            padding: 0 24px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            padding: 0 5%;
-
-            z-index: 1000;
         }
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            font-size: 16px;
-            font-weight: 700;
-
-            white-space: nowrap;
-        }
-
-        .nav-logo-mark {
-            width: 38px;
-            height: 38px;
-
+        .logo {
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-
-            background: var(--红色);
-            color: white;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            font-weight: bold;
-            font-size: 18px;
+            background: var(--红色);
+            color: var(--白色);
+
+            font-size: 20px;
+            font-weight: 800;
+
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 6px;
         }
 
         .nav-links a {
-            font-size: 13px;
-            color: var(--灰色);
-
             position: relative;
 
-            transition: 0.25s ease;
-            white-space: nowrap;
+            padding: 8px 12px;
+
+            color: var(--深色);
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: color 0.25s ease;
         }
 
         .nav-links a::after {
             content: "";
 
             position: absolute;
-
             left: 50%;
-            bottom: -7px;
+            bottom: 2px;
 
             width: 0;
             height: 2px;
 
             background: var(--红色);
+            border-radius: 10px;
 
             transform: translateX(-50%);
-
             transition: width 0.25s ease;
         }
 
@@ -164,2005 +131,1500 @@
 
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 100%;
+            width: 60%;
         }
 
-        .nav-menu {
+        .menu-button {
             display: none;
 
             border: none;
-            background: transparent;
+            background: none;
 
-            font-size: 25px;
+            font-size: 26px;
             color: var(--深色);
 
             cursor: pointer;
         }
 
+        /* =========================
+           HERO
+        ========================= */
 
-        /* =================================================
-           页面 Hero
-        ================================================= */
-
-        .page-hero {
-            min-height: 520px;
-
-            padding:
-                150px 7%
-                90px;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(241, 148, 131, 0.25),
-                    transparent 35%
-                ),
-                var(--奶油白);
+        .hero {
+            margin-top: 72px;
+            min-height: 400px;
 
             display: flex;
             align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 15% 30%,
+                    rgba(241, 148, 131, 0.22),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(238, 63, 77, 0.12),
+                    transparent 30%
+                ),
+                var(--奶油白);
         }
 
-        .hero-content {
-            max-width: 1000px;
+        .hero-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 24px;
         }
 
-        .eyebrow {
-            display: inline-block;
-
-            font-size: 12px;
-            letter-spacing: 2px;
-
+        .hero-small {
             color: var(--红色);
-
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
             margin-bottom: 18px;
         }
 
-        .page-hero h1 {
-            font-size: clamp(58px, 9vw, 110px);
-
-            line-height: 0.95;
-            letter-spacing: -5px;
-
-            font-weight: 800;
-
-            margin-bottom: 30px;
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1;
+            letter-spacing: -4px;
+            margin-bottom: 24px;
         }
 
-        .page-hero h1 span {
+        .hero h1 span {
             color: var(--红色);
         }
 
         .hero-description {
-            max-width: 650px;
+            max-width: 600px;
 
-            font-size: 16px;
             color: var(--灰色);
-
+            font-size: 17px;
             line-height: 1.9;
         }
 
-        .hero-label {
-            margin-top: 35px;
+        /* =========================
+           MAIN
+        ========================= */
 
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            font-size: 13px;
-            color: var(--灰色);
-        }
-
-        .hero-label-line {
-            width: 50px;
-            height: 1px;
-
-            background: var(--红色);
-        }
-
-
-        /* =================================================
-           留言主体
-        ================================================= */
-
-        .comments-section {
-            padding: 100px 7%;
-            background: var(--白色);
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 24px 100px;
         }
 
         .section-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-
-            gap: 30px;
-
-            margin-bottom: 55px;
+            margin-bottom: 40px;
         }
 
-        .section-title-small {
-            font-size: 12px;
-
+        .section-label {
             color: var(--红色);
+            font-size: 12px;
+            font-weight: 800;
             letter-spacing: 2px;
-
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .section-header h2 {
-            font-size: clamp(32px, 5vw, 54px);
-
-            letter-spacing: -2px;
-            line-height: 1.1;
+        .section-title {
+            font-size: 32px;
+            line-height: 1.2;
         }
 
-        .section-description {
-            max-width: 420px;
+        /* =========================
+           COMMENT LAYOUT
+        ========================= */
 
-            color: var(--灰色);
-            font-size: 14px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =================================================
-           留言布局
-        ================================================= */
-
-        .comments-layout {
-            max-width: 1200px;
-
-            margin: 0 auto;
-
+        .comment-layout {
             display: grid;
-
-            grid-template-columns:
-                minmax(0, 1.4fr)
-                minmax(300px, 0.6fr);
-
-            gap: 55px;
-
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 40px;
             align-items: start;
         }
 
+        /* =========================
+           COMMENT WALL
+        ========================= */
 
-        /* =================================================
-           留言墙
-        ================================================= */
+        .comments-box {
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 20px;
+            padding: 28px;
+        }
 
-        .comments-wall {
+        .comments-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+
+            border-bottom: 1px solid var(--边框);
+        }
+
+        .comments-top h3 {
+            font-size: 20px;
+        }
+
+        .comment-count {
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: var(--浅粉);
+            color: var(--红色);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .comment-list {
             display: flex;
             flex-direction: column;
-
-            gap: 18px;
+            gap: 16px;
         }
 
         .comment-card {
-            position: relative;
+            padding: 20px;
 
             background: var(--奶油白);
-
             border: 1px solid var(--边框);
-
-            padding: 25px 28px;
-
-            border-radius: 18px;
+            border-radius: 16px;
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .comment-card:hover {
-            transform: translateY(-3px);
-
-            border-color: var(--中粉);
+            transform: translateY(-2px);
 
             box-shadow:
-                0 15px 35px rgba(36, 30, 30, 0.06);
+                0 8px 24px rgba(36, 30, 30, 0.06);
         }
 
-        .comment-top {
+        .comment-header {
             display: flex;
-
             align-items: center;
-
-            gap: 13px;
-
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .avatar {
             width: 42px;
             height: 42px;
 
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            background: var(--主色);
-            color: white;
-
             display: flex;
             align-items: center;
             justify-content: center;
 
-            font-weight: bold;
+            border-radius: 50%;
+
+            background: var(--中粉);
+            color: var(--深色);
+
+            font-weight: 800;
+            font-size: 16px;
+
+            flex-shrink: 0;
         }
 
         .comment-user {
             flex: 1;
         }
 
-        .comment-user strong {
-            display: block;
-
-            font-size: 14px;
+        .comment-name {
+            font-size: 15px;
+            font-weight: 800;
         }
 
         .comment-date {
-            display: block;
-
-            font-size: 11px;
             color: var(--灰色);
-
+            font-size: 12px;
             margin-top: 2px;
         }
 
         .comment-category {
-            padding: 5px 10px;
+            display: inline-block;
 
-            border-radius: 50px;
+            padding: 4px 9px;
+
+            border-radius: 20px;
 
             background: var(--浅粉);
             color: var(--红色);
-
-            font-size: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .comment-text {
-            font-size: 14px;
-
-            color: var(--深色);
-
-            line-height: 1.9;
-
-            padding-left: 55px;
-        }
-
-        .delete-btn {
-            position: absolute;
-
-            right: 20px;
-            bottom: 18px;
-
-            border: none;
-
-            background: transparent;
-
-            color: #b7aaa7;
 
             font-size: 11px;
-
-            cursor: pointer;
-
-            display: none;
+            font-weight: 700;
         }
 
-        .delete-btn:hover {
+        .comment-content {
+            color: var(--深色);
+            font-size: 15px;
+            line-height: 1.8;
+
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .delete-button {
+            margin-top: 14px;
+
+            border: none;
+            background: transparent;
+
+            color: var(--灰色);
+
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
             color: var(--红色);
         }
 
+        /* =========================
+           EMPTY
+        ========================= */
 
-        /* =================================================
-           留言数量
-        ================================================= */
+        .empty-message {
+            padding: 60px 20px;
 
-        .comment-count {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-width: 32px;
-            height: 32px;
-
-            padding: 0 10px;
-
-            margin-left: 8px;
-
-            border-radius: 50px;
-
-            background: var(--红色);
-            color: white;
-
-            font-size: 12px;
+            text-align: center;
+            color: var(--灰色);
         }
 
+        .empty-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
 
-        /* =================================================
-           留言表单
-        ================================================= */
+        /* =========================
+           FORM
+        ========================= */
 
-        .comment-form-card {
+        .form-box {
+            background: var(--白色);
+            border: 1px solid var(--边框);
+            border-radius: 20px;
+            padding: 28px;
+
             position: sticky;
             top: 100px;
-
-            background: var(--浅粉);
-
-            border-radius: 24px;
-
-            padding: 32px;
-
-            border: 1px solid var(--边框);
         }
 
-        .form-label {
-            display: block;
-
-            font-size: 12px;
-            font-weight: 700;
-
+        .form-box h3 {
+            font-size: 22px;
             margin-bottom: 8px;
+        }
 
-            color: var(--深色);
+        .form-description {
+            color: var(--灰色);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 26px;
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-input,
-        .form-select,
-        .form-textarea {
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
 
             border: 1px solid var(--边框);
-
-            background: var(--白色);
-
-            color: var(--深色);
-
             border-radius: 12px;
 
-            padding: 13px 15px;
+            padding: 12px 14px;
+
+            background: var(--奶油白);
+            color: var(--深色);
+
+            font-family: inherit;
+            font-size: 14px;
 
             outline: none;
-
-            font-size: 13px;
 
             transition:
                 border-color 0.2s ease,
                 box-shadow 0.2s ease;
         }
 
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             border-color: var(--主色);
 
             box-shadow:
                 0 0 0 3px rgba(241, 148, 131, 0.15);
         }
 
-        .form-textarea {
-            min-height: 145px;
-
+        .form-group textarea {
+            min-height: 150px;
             resize: vertical;
-
-            line-height: 1.7;
         }
 
-        .form-hint {
-            margin-top: 7px;
-
-            font-size: 10px;
-
-            color: var(--灰色);
+        .char-count {
+            margin-top: 6px;
 
             text-align: right;
+
+            color: var(--灰色);
+            font-size: 11px;
         }
 
-        .submit-btn {
+        .submit-button {
             width: 100%;
 
             border: none;
+            border-radius: 12px;
+
+            padding: 14px;
 
             background: var(--红色);
-            color: white;
+            color: var(--白色);
 
-            padding: 14px 20px;
-
-            border-radius: 50px;
-
-            font-size: 13px;
-            font-weight: 700;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
 
             cursor: pointer;
 
             transition:
-                transform 0.2s ease,
-                background 0.2s ease;
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
-        .submit-btn:hover {
+        .submit-button:hover {
             background: var(--深红);
-
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-        /* =================================================
-           成功提示
-        ================================================= */
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
 
         .success-message {
             display: none;
 
-            margin-top: 15px;
-
-            padding: 12px 15px;
+            margin-bottom: 20px;
+            padding: 12px 14px;
 
             border-radius: 10px;
 
-            background: rgba(255, 255, 255, 0.8);
+            background: #f0f9f2;
+            border: 1px solid #cce8d0;
 
-            color: var(--深红);
+            color: #367542;
 
-            font-size: 12px;
-
-            text-align: center;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         .success-message.show {
             display: block;
         }
 
-
-        /* =================================================
-           空留言
-        ================================================= */
-
-        .empty-message {
-            display: none;
-
-            padding: 60px 20px;
-
-            text-align: center;
-
-            border: 1px dashed var(--边框);
-
-            border-radius: 18px;
-
-            color: var(--灰色);
-
-            font-size: 13px;
-        }
-
-        .empty-message.show {
-            display: block;
-        }
-
-
-        /* =================================================
-           信号灯区域
-        ================================================= */
-
-        .community-section {
-            padding: 100px 7%;
-
-            background: var(--红色);
-
-            color: white;
-        }
-
-        .community-inner {
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-        }
-
-        .community-section .section-title-small {
-            color: var(--浅粉);
-        }
-
-        .community-section h2 {
-            font-size: clamp(35px, 5vw, 60px);
-
-            line-height: 1.1;
-
-            letter-spacing: -2px;
-
-            margin-bottom: 25px;
-        }
-
-        .community-section p {
-            color: rgba(255,255,255,0.85);
-
-            font-size: 14px;
-
-            line-height: 1.9;
-        }
-
-        .community-note {
-            background: rgba(255,255,255,0.12);
-
-            border: 1px solid rgba(255,255,255,0.25);
-
-            border-radius: 22px;
-
-            padding: 35px;
-        }
-
-        .community-note span {
-            display: block;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 15px;
-
-            color: var(--浅粉);
-        }
-
-        .community-note strong {
-            display: block;
-
-            font-size: 24px;
-
-            line-height: 1.5;
-
-            margin-bottom: 15px;
-        }
-
-
-        /* =================================================
-           返回区域
-        ================================================= */
-
-        .continue-section {
-            padding: 80px 7%;
-
-            background: var(--奶油白);
-        }
-
-        .continue-inner {
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .continue-card {
-            background: white;
-
-            border: 1px solid var(--边框);
-
-            border-radius: 18px;
-
-            padding: 25px;
-
-            transition: 0.25s ease;
-        }
-
-        .continue-card:hover {
-            transform: translateY(-4px);
-
-            border-color: var(--主色);
-        }
-
-        .continue-card span {
-            font-size: 11px;
-
-            color: var(--红色);
-        }
-
-        .continue-card h3 {
-            margin-top: 12px;
-
-            font-size: 18px;
-        }
-
-        .continue-card p {
-            margin-top: 5px;
-
-            font-size: 12px;
-
-            color: var(--灰色);
-        }
-
-
-        /* =================================================
-           页脚
-        ================================================= */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            background: var(--浅粉);
+            background: var(--深色);
+            color: var(--白色);
 
-            padding: 60px 7% 25px;
+            padding: 50px 24px;
         }
 
-        .footer-top {
-            max-width: 1100px;
-
+        .footer-container {
+            max-width: 1200px;
             margin: auto;
 
             display: flex;
-
             justify-content: space-between;
+            align-items: center;
 
-            gap: 50px;
-
-            padding-bottom: 45px;
+            gap: 30px;
         }
 
         .footer-brand {
-            max-width: 400px;
+            font-size: 18px;
+            font-weight: 800;
         }
 
-        .footer-brand h2 {
-            font-size: 22px;
-
-            margin-bottom: 12px;
-        }
-
-        .footer-brand p {
-            color: var(--灰色);
-
+        .footer-subtitle {
+            margin-top: 5px;
+            color: #c9c0bd;
             font-size: 12px;
-
-            line-height: 1.8;
         }
 
-        .footer-links {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, auto);
-
-            gap: 12px 30px;
-
-            align-content: start;
-        }
-
-        .footer-links a {
-            color: var(--灰色);
-
+        .footer-right {
+            color: #c9c0bd;
             font-size: 12px;
-
-            transition: 0.2s ease;
+            text-align: right;
         }
 
-        .footer-links a:hover {
-            color: var(--红色);
-        }
-
-        .footer-bottom {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding-top: 20px;
-
-            border-top: 1px solid var(--边框);
-
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            color: var(--灰色);
-
-            font-size: 10px;
-        }
-
-
-        /* =================================================
-           平板 / 手机
-        ================================================= */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 900px) {
 
             .nav-links {
-                position: absolute;
+                display: none;
 
+                position: absolute;
                 top: 72px;
                 left: 0;
 
                 width: 100%;
 
-                background: var(--奶油白);
-
-                border-bottom: 1px solid var(--边框);
-
-                padding: 22px 6%;
-
-                display: none;
+                padding: 15px 20px;
 
                 flex-direction: column;
+                align-items: stretch;
 
-                align-items: flex-start;
-
-                gap: 17px;
+                background: rgba(255, 249, 245, 0.98);
+                border-bottom: 1px solid var(--边框);
             }
 
-            .nav-links.active {
+            .nav-links.show {
                 display: flex;
             }
 
-            .nav-menu {
+            .nav-links a {
+                text-align: center;
+                padding: 13px;
+            }
+
+            .menu-button {
                 display: block;
             }
 
-            .comments-layout {
+            .comment-layout {
                 grid-template-columns: 1fr;
             }
 
-            .comment-form-card {
+            .form-box {
                 position: static;
-            }
-
-            .community-inner {
-                grid-template-columns: 1fr;
             }
         }
 
+        @media (max-width: 600px) {
 
-        @media (max-width: 650px) {
-
-            .page-hero {
-                padding:
-                    130px 5%
-                    70px;
+            .nav-container {
+                padding: 0 18px;
             }
 
-            .page-hero h1 {
-                font-size: 60px;
-
-                letter-spacing: -4px;
+            .hero-container {
+                padding: 65px 20px;
             }
 
-            .comments-section,
-            .community-section,
-            .continue-section {
-                padding-left: 5%;
-                padding-right: 5%;
+            .hero h1 {
+                letter-spacing: -2px;
             }
 
-            .section-header {
-                display: block;
+            .hero-description {
+                font-size: 15px;
             }
 
-            .section-description {
-                margin-top: 15px;
+            main {
+                padding: 60px 18px 80px;
+            }
+
+            .comments-box,
+            .form-box {
+                padding: 20px;
+                border-radius: 16px;
             }
 
             .comment-card {
-                padding: 22px;
+                padding: 16px;
             }
 
-            .comment-text {
-                padding-left: 0;
-            }
-
-            .comment-category {
-                display: none;
-            }
-
-            .comment-form-card {
-                padding: 25px 20px;
-            }
-
-            .continue-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-top {
+            .footer-container {
                 flex-direction: column;
+                align-items: flex-start;
             }
 
-            .footer-links {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
+            .footer-right {
+                text-align: left;
             }
         }
     </style>
 </head>
 
-
 <body>
 
-    <!-- =================================================
-         导航栏
-    ================================================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-    <nav>
+<nav class="navbar">
+    <div class="nav-container">
 
-        <a href="index.html" class="nav-logo">
-
-            <div class="nav-logo-mark">
-                苏
-            </div>
-
-            <span>
-                苏新皓｜档案馆
-            </span>
-
-        </a>
-
+        <a href="index.html" class="logo">苏</a>
 
         <div class="nav-links" id="navLinks">
 
-            <a href="index.html">
-                首页
-            </a>
-
-            <a href="profile.html">
-                个人档案
-            </a>
-
-            <a href="journey.html">
-                成长经历
-            </a>
-
-            <a href="moments.html">
-                瞬间
-            </a>
-
-            <a href="works.html">
-                作品
-            </a>
-
-            <a href="stage.html">
-                舞台
-            </a>
-
-            <a href="fan-edits.html">
-                粉丝剪辑
-            </a>
-
-            <a href="comments.html" class="active">
-                留言
-            </a>
-
-            <a href="beads.html">
-                拼豆
-            </a>
-
-            <a href="archive.html">
-                资料
-            </a>
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人档案</a>
+            <a href="growth.html">成长经历</a>
+            <a href="moments.html">瞬间</a>
+            <a href="works.html">作品</a>
+            <a href="stage.html">舞台</a>
+            <a href="fan-edit.html">粉丝剪辑</a>
+            <a href="comments.html" class="active">留言</a>
+            <a href="perler.html">拼豆</a>
+            <a href="resources.html">资料</a>
 
         </div>
-
 
         <button
-            class="nav-menu"
-            id="navMenu"
-            aria-label="打开菜单">
-
+            class="menu-button"
+            id="menuButton"
+            aria-label="打开导航"
+        >
             ☰
-
         </button>
 
-    </nav>
+    </div>
+</nav>
 
 
-    <!-- =================================================
-         页面主视觉
-    ================================================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <section class="page-hero">
+<section class="hero">
 
-        <div class="hero-content">
+    <div class="hero-container">
 
-            <div class="eyebrow">
-                苏新皓 · 粉丝档案馆
+        <div class="hero-small">
+            SIGNAL LIGHT COMMUNITY
+        </div>
+
+        <h1>
+            留言 <span>/</span> 空间
+        </h1>
+
+        <p class="hero-description">
+            留下你想对苏新皓说的话。
+            可以分享喜欢的舞台、歌曲、作品，
+            也可以记录一路陪伴他的瞬间。
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+    <div class="section-header">
+
+        <div class="section-label">
+            FAN COMMUNITY
+        </div>
+
+        <h2 class="section-title">
+            一句话，也可以成为收藏。
+        </h2>
+
+    </div>
+
+
+    <div class="comment-layout">
+
+        <!-- =========================
+             COMMENTS
+        ========================= -->
+
+        <section class="comments-box">
+
+            <div class="comments-top">
+
+                <h3>留言墙</h3>
+
+                <div class="comment-count">
+                    <span id="commentCount">0</span> 条留言
+                </div>
+
             </div>
 
-            <h1>
-                留言
-                <br>
-                <span>空间</span>
-            </h1>
 
-            <p class="hero-description">
-                这里属于每一位信号灯。
-                可以留下想说的话、喜欢的舞台，
-                也可以记录那些因为苏新皓而产生的珍贵瞬间。
+            <div
+                class="comment-list"
+                id="commentList"
+            ></div>
+
+
+            <div
+                class="empty-message"
+                id="emptyMessage"
+                style="display:none;"
+            >
+                <div class="empty-icon">♡</div>
+
+                <p>
+                    这里还没有留言。
+                </p>
+
+                <p>
+                    成为第一个留下话语的人吧。
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FORM
+        ========================= -->
+
+        <section class="form-box">
+
+            <h3>留下你的话</h3>
+
+            <p class="form-description">
+                不需要很长，一句话也可以。
+                你的留言会出现在留言墙上。
             </p>
 
-            <div class="hero-label">
 
-                <div class="hero-label-line"></div>
-
-                <span>
-                    SIGNAL LIGHT COMMUNITY
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         留言区域
-    ================================================= -->
-
-    <section class="comments-section">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="section-title-small">
-                    01 · 留言墙
-                </div>
-
-                <h2>
-                    信号灯的声音
-                    <span class="comment-count" id="commentCount">
-                        0
-                    </span>
-                </h2>
-
-            </div>
-
-            <p class="section-description">
-                分享你想对苏新皓说的话，
-                或者记录一个让你印象深刻的舞台、作品与成长瞬间。
-            </p>
-
-        </div>
-
-
-        <div class="comments-layout">
-
-            <!-- 留言墙 -->
-
-            <div>
-
-                <div
-                    class="comments-wall"
-                    id="commentList">
-                </div>
-
-                <div
-                    class="empty-message"
-                    id="emptyMessage">
-
-                    还没有留言。
-                    <br>
-                    成为第一个留下文字的人吧 ♡
-
-                </div>
-
+            <div
+                class="success-message"
+                id="successMessage"
+            >
+                留言发布成功！谢谢你的分享 ♡
             </div>
 
 
-            <!-- 留言表单 -->
+            <form id="commentForm">
 
-            <div class="comment-form-card">
+                <!-- NAME -->
 
-                <div class="section-title-small">
-                    02 · 写下留言
+                <div class="form-group">
+
+                    <label for="userID">
+                        你的 ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="userID"
+                        name="userID"
+                        maxlength="20"
+                        placeholder="请输入你的ID"
+                        required
+                    >
+
                 </div>
 
-                <h3 style="
-                    font-size: 26px;
-                    margin-bottom: 25px;
-                ">
-                    留下你的话
-                </h3>
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        留言分类
+                    </label>
+
+                    <select
+                        id="category"
+                        name="category"
+                        required
+                    >
+
+                        <option value="">
+                            请选择分类
+                        </option>
+
+                        <option value="MESSAGE">
+                            想说的话
+                        </option>
+
+                        <option value="STAGE">
+                            舞台
+                        </option>
+
+                        <option value="VOCAL">
+                            唱歌
+                        </option>
+
+                        <option value="DANCE">
+                            舞蹈
+                        </option>
+
+                        <option value="WORKS">
+                            作品
+                        </option>
+
+                        <option value="GROWTH">
+                            成长
+                        </option>
+
+                        <option value="LOVE">
+                            喜欢与支持
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <form id="commentForm">
+                <!-- MESSAGE -->
 
-                    <!-- ID -->
+                <div class="form-group">
 
-                    <div class="form-group">
+                    <label for="message">
+                        留言内容
+                    </label>
 
-                        <label
-                            class="form-label"
-                            for="userID">
+                    <textarea
+                        id="message"
+                        name="message"
+                        maxlength="300"
+                        placeholder="写下你想说的话……"
+                        required
+                    ></textarea>
 
-                            你的 ID
-
-                        </label>
-
-                        <input
-                            type="text"
-                            id="userID"
-                            class="form-input"
-                            maxlength="20"
-                            placeholder="请输入你的ID"
-                            required>
-
+                    <div class="char-count">
+                        <span id="charCount">0</span> / 300
                     </div>
 
-
-                    <!-- 分类 -->
-
-                    <div class="form-group">
-
-                        <label
-                            class="form-label"
-                            for="category">
-
-                            留言分类
-
-                        </label>
-
-                        <select
-                            id="category"
-                            class="form-select"
-                            required>
-
-                            <option value="">
-                                请选择分类
-                            </option>
-
-                            <option value="MESSAGE">
-                                想说的话
-                            </option>
-
-                            <option value="STAGE">
-                                舞台
-                            </option>
-
-                            <option value="VOCAL">
-                                唱歌
-                            </option>
-
-                            <option value="DANCE">
-                                舞蹈
-                            </option>
-
-                            <option value="WORKS">
-                                作品
-                            </option>
-
-                            <option value="GROWTH">
-                                成长
-                            </option>
-
-                            <option value="LOVE">
-                                喜欢与支持
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- 留言 -->
-
-                    <div class="form-group">
-
-                        <label
-                            class="form-label"
-                            for="message">
-
-                            留言内容
-
-                        </label>
-
-                        <textarea
-                            id="message"
-                            class="form-textarea"
-                            maxlength="300"
-                            placeholder="写下你想说的话……"
-                            required></textarea>
-
-                        <div class="form-hint">
-                            最多 300 字
-                        </div>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="submit-btn">
-
-                        发布留言
-
-                    </button>
-
-
-                    <div
-                        class="success-message"
-                        id="successMessage">
-
-                        留言已成功发布 ♡
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         社区区域
-    ================================================= -->
-
-    <section class="community-section">
-
-        <div class="community-inner">
-
-            <div>
-
-                <div class="section-title-small">
-                    03 · 信号灯
-                </div>
-
-                <h2>
-                    因为喜欢，
-                    <br>
-                    所以记录。
-                </h2>
-
-                <p>
-                    每一条留言都是档案馆的一部分。
-                    不只是记录苏新皓的成长，
-                    也记录我们作为信号灯一路陪伴的记忆。
-                </p>
-
-            </div>
-
-
-            <div class="community-note">
-
-                <span>
-                    A NOTE TO THE COMMUNITY
-                </span>
-
-                <strong>
-                    温柔表达，
-                    尊重彼此。
-                </strong>
-
-                <p>
-                    请不要发布攻击、辱骂、广告或其他不适当内容。
-                    让这里成为一个舒服、友善的粉丝空间。
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         继续浏览
-    ================================================= -->
-
-    <section class="continue-section">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="section-title-small">
-                    04 · CONTINUE
-                </div>
-
-                <h2>
-                    继续探索档案馆
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="continue-inner">
-
-            <a
-                href="fan-edits.html"
-                class="continue-card">
-
-                <span>
-                    06
-                </span>
-
-                <h3>
-                    粉丝剪辑
-                </h3>
-
-                <p>
-                    查看信号灯的二创与视频作品
-                </p>
-
-            </a>
-
-
-            <a
-                href="beads.html"
-                class="continue-card">
-
-                <span>
-                    08
-                </span>
-
-                <h3>
-                    拼豆
-                </h3>
-
-                <p>
-                    粉丝手作作品收藏
-                </p>
-
-            </a>
-
-
-            <a
-                href="archive.html"
-                class="continue-card">
-
-                <span>
-                    09
-                </span>
-
-                <h3>
-                    资料
-                </h3>
-
-                <p>
-                    网站资料与档案整理
-                </p>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         页脚
-    ================================================= -->
-
-    <footer>
-
-        <div class="footer-top">
-
-            <div class="footer-brand">
-
-                <h2>
-                    苏新皓｜档案馆
-                </h2>
-
-                <p>
-                    一个记录苏新皓成长、舞台、作品
-                    与粉丝记忆的个人粉丝网站。
-                    所有内容仅用于个人兴趣与学习用途。
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <a href="index.html">
-                    首页
-                </a>
-
-                <a href="profile.html">
-                    个人档案
-                </a>
-
-                <a href="journey.html">
-                    成长经历
-                </a>
-
-                <a href="moments.html">
-                    瞬间
-                </a>
-
-                <a href="works.html">
-                    作品
-                </a>
-
-                <a href="stage.html">
-                    舞台
-                </a>
-
-                <a href="fan-edits.html">
-                    粉丝剪辑
-                </a>
-
-                <a href="comments.html">
-                    留言
-                </a>
-
-                <a href="beads.html">
-                    拼豆
-                </a>
-
-                <a href="archive.html">
-                    资料
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 苏新皓｜档案馆
-            </span>
-
-            <span>
-                用心记录每一个瞬间 ♡
-            </span>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =================================================
-         JavaScript
-    ================================================= -->
-
-    <script>
-
-        /* ================================
-           手机导航
-        ================================= */
-
-        const navMenu =
-            document.getElementById("navMenu");
-
-        const navLinks =
-            document.getElementById("navLinks");
-
-        navMenu.addEventListener(
-            "click",
-            function () {
-
-                navLinks.classList.toggle("active");
-
-            }
-        );
-
-
-        /* ================================
-           Supabase 设置
-           
-           ⚠️ 把下面的 Publishable Key
-           换成你自己的。
-           
-           不要放 Secret Key。
-        ================================= */
-
-        const SUPABASE_URL =
-            "https://vmtggymyccudfomthhiw.supabase.co";
-
-        const SUPABASE_KEY =
-            "sb_publishable_ttHmLpi1x2rYy-bZb11Aeg_hMowvNML";
-
-        /* ================================
-           基础工具
-        ================================= */
-
-        function escapeHTML(text) {
-
-            const div =
-                document.createElement("div");
-
-            div.textContent = text;
-
-            return div.innerHTML;
-        }
-
-
-        function getAvatar(userID) {
-
-            return escapeHTML(
-                userID.trim().charAt(0) || "信"
-            );
-
-        }
-
-
-        function formatDate(dateString) {
-
-            const date =
-                new Date(dateString);
-
-            const year =
-                date.getFullYear();
-
-            const month =
-                String(
-                    date.getMonth() + 1
-                ).padStart(2, "0");
-
-            const day =
-                String(
-                    date.getDate()
-                ).padStart(2, "0");
-
-            return `${year}.${month}.${day}`;
-
-        }
-
-
-        function getCategoryName(category) {
-
-            const names = {
-
-                MESSAGE: "想说的话",
-                STAGE: "舞台",
-                VOCAL: "唱歌",
-                DANCE: "舞蹈",
-                WORKS: "作品",
-                GROWTH: "成长",
-                LOVE: "喜欢与支持"
-
-            };
-
-            return names[category] || category;
-
-        }
-
-
-        /* ================================
-           更新留言数量
-        ================================= */
-
-        function updateCommentCount() {
-
-            const cards =
-                document.querySelectorAll(
-                    ".comment-card"
-                );
-
-            document.getElementById(
-                "commentCount"
-            ).textContent = cards.length;
-
-        }
-
-
-        /* ================================
-           创建留言卡片
-        ================================= */
-
-        function createComment(
-            id,
-            userID,
-            category,
-            message,
-            createdAt,
-            showDelete = false
-        ) {
-
-            const card =
-                document.createElement("article");
-
-            card.className =
-                "comment-card";
-
-            card.dataset.id = id;
-
-
-            card.innerHTML = `
-
-                <div class="comment-top">
-
-                    <div class="avatar">
-                        ${getAvatar(userID)}
-                    </div>
-
-                    <div class="comment-user">
-
-                        <strong>
-                            ${escapeHTML(userID)}
-                        </strong>
-
-                        <span class="comment-date">
-                            ${formatDate(createdAt)}
-                        </span>
-
-                    </div>
-
-                    <span class="comment-category">
-                        ${escapeHTML(
-                            getCategoryName(category)
-                        )}
-                    </span>
-
-                </div>
-
-
-                <div class="comment-text">
-                    ${escapeHTML(message)}
                 </div>
 
 
                 <button
-                    class="delete-btn"
-                    onclick="deleteComment(this)"
-                    style="${showDelete ? "display:block;" : ""}">
-
-                    删除
-
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    发布留言
                 </button>
 
-            `;
+            </form>
+
+        </section>
+
+    </div>
+
+</main>
 
 
-            return card;
+<!-- =========================
+     FOOTER
+========================= -->
 
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="footer-brand">
+                苏新皓档案馆
+            </div>
+
+            <div class="footer-subtitle">
+                A FAN ARCHIVE FOR SU XINHAO
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+            本网站为粉丝个人制作，仅用于非商业交流与记录。
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+
+const SUPABASE_URL =
+    "https://vmtggymyccudfomthhiw.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_ttHmLpi1x2rYy-bZb11Aeg_hMowvNML";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const commentForm =
+    document.getElementById("commentForm");
+
+const commentList =
+    document.getElementById("commentList");
+
+const commentCount =
+    document.getElementById("commentCount");
+
+const emptyMessage =
+    document.getElementById("emptyMessage");
+
+const successMessage =
+    document.getElementById("successMessage");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const messageInput =
+    document.getElementById("message");
+
+const charCount =
+    document.getElementById("charCount");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+menuButton.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+/* =========================================================
+   CHARACTER COUNT
+========================================================= */
+
+messageInput.addEventListener("input", () => {
+
+    charCount.textContent =
+        messageInput.value.length;
+
+});
+
+
+/* =========================================================
+   ESCAPE HTML
+   Prevents user-entered HTML from being rendered
+========================================================= */
+
+function escapeHTML(text) {
+
+    if (text === null || text === undefined) {
+        return "";
+    }
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+function getAvatar(name) {
+
+    if (!name) {
+        return "♡";
+    }
+
+    return escapeHTML(
+        name.trim().charAt(0).toUpperCase()
+    );
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "";
+    }
+
+    const date =
+        new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+        return "";
+    }
+
+    return date.toLocaleString(
+        "zh-CN",
+        {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit"
         }
+    );
+}
 
 
-        /* ================================
-           从 Supabase 读取留言
-        ================================= */
+/* =========================================================
+   CATEGORY NAME
+========================================================= */
 
-        async function loadComments() {
+function getCategoryName(category) {
 
-            const list =
-                document.getElementById(
-                    "commentList"
-                );
+    const categories = {
 
-            const empty =
-                document.getElementById(
-                    "emptyMessage"
-                );
+        MESSAGE: "想说的话",
 
+        STAGE: "舞台",
 
-            /*
-             * 如果还没有填写 Key，
-             * 暂时不连接数据库。
-             */
+        VOCAL: "唱歌",
 
-            if (
-                SUPABASE_KEY ===
-                "YOUR_SUPABASE_PUBLISHABLE_KEY"
-            ) {
+        DANCE: "舞蹈",
 
-                console.warn(
-                    "请先填写 Supabase Publishable Key。"
-                );
+        WORKS: "作品",
 
-                empty.classList.add("show");
+        GROWTH: "成长",
 
-                updateCommentCount();
+        LOVE: "喜欢与支持"
 
-                return;
-            }
+    };
+
+    return categories[category] || "留言";
+
+}
 
 
-            try {
+/* =========================================================
+   UPDATE COUNT
+========================================================= */
 
-                const response =
-                    await fetch(
-                        `${SUPABASE_URL}/rest/v1/comments?select=*&order=created_at.desc`,
-                        {
+function updateCommentCount(count) {
 
-                            headers: {
+    commentCount.textContent =
+        count;
 
-                                "apikey":
-                                    SUPABASE_KEY,
-
-                                "Authorization":
-                                    `Bearer ${SUPABASE_KEY}`
-
-                            }
-
-                        }
-                    );
+}
 
 
-                if (!response.ok) {
+/* =========================================================
+   CREATE COMMENT CARD
+========================================================= */
 
-                    throw new Error(
-                        "无法读取留言"
-                    );
+function createComment(comment) {
 
-                }
+    const card =
+        document.createElement("article");
 
-
-                const comments =
-                    await response.json();
-
-
-                list.innerHTML = "";
+    card.className =
+        "comment-card";
 
 
-                if (
-                    !comments ||
-                    comments.length === 0
-                ) {
+    const safeName =
+        escapeHTML(comment.name || "匿名用户");
 
-                    empty.classList.add("show");
+    const safeComment =
+        escapeHTML(comment.comment || "");
 
-                } else {
+    const categoryName =
+        getCategoryName(comment.category);
 
-                    empty.classList.remove("show");
-
-
-                    comments.forEach(
-                        comment => {
-
-                            const card =
-                                createComment(
-                                    comment.id,
-                                    comment.name,
-                                    comment.category,
-                                    comment.comment,
-                                    comment.created_at
-                                );
-
-                            list.appendChild(card);
-
-                        }
-                    );
-
-                }
+    const avatar =
+        getAvatar(comment.name);
 
 
-                updateCommentCount();
+    card.innerHTML = `
+
+        <div class="comment-header">
+
+            <div class="avatar">
+                ${avatar}
+            </div>
+
+            <div class="comment-user">
+
+                <div class="comment-name">
+                    ${safeName}
+                </div>
+
+                <div class="comment-date">
+                    ${formatDate(comment.created_at)}
+                </div>
+
+            </div>
+
+            <div class="comment-category">
+                ${categoryName}
+            </div>
+
+        </div>
+
+        <div class="comment-content">
+            ${safeComment}
+        </div>
+
+    `;
 
 
-            } catch (error) {
+    /*
+       Delete button is intentionally not shown
+       to normal visitors.
 
-                console.error(
-                    "读取留言失败：",
-                    error
-                );
-
-                empty.textContent =
-                    "暂时无法读取留言，请稍后再试。";
-
-                empty.classList.add("show");
-
-            }
-
-        }
+       Your current RLS policy requires an authenticated
+       admin user before deletion can work.
+    */
 
 
-        /* ================================
-           提交留言
-        ================================= */
-
-        document
-            .getElementById("commentForm")
-            .addEventListener(
-                "submit",
-                async function (event) {
-
-                    event.preventDefault();
+    return card;
+}
 
 
-                    const userID =
-                        document
-                            .getElementById("userID")
-                            .value
-                            .trim();
+/* =========================================================
+   LOAD COMMENTS
+========================================================= */
 
+async function loadComments() {
 
-                    const category =
-                        document
-                            .getElementById("category")
-                            .value;
+    try {
 
+        const response =
+            await fetch(
+                `${SUPABASE_URL}/rest/v1/comments?select=*&order=created_at.desc`,
+                {
+                    method: "GET",
 
-                    const message =
-                        document
-                            .getElementById("message")
-                            .value
-                            .trim();
-
-
-                    if (
-                        !userID ||
-                        !category ||
-                        !message
-                    ) {
-
-                        alert(
-                            "请完整填写留言内容。"
-                        );
-
-                        return;
-
+                    headers: {
+                        "apikey": SUPABASE_KEY,
+                        "Authorization":
+                            `Bearer ${SUPABASE_KEY}`
                     }
-
-
-                    if (
-                        SUPABASE_KEY ===
-                        "YOUR_SUPABASE_PUBLISHABLE_KEY"
-                    ) {
-
-                        alert(
-                            "请先在代码中填写 Supabase Publishable Key。"
-                        );
-
-                        return;
-
-                    }
-
-
-                    const button =
-                        event.target.querySelector(
-                            ".submit-btn"
-                        );
-
-
-                    button.disabled = true;
-
-                    button.textContent =
-                        "发布中……";
-
-
-                    try {
-
-                        const response =
-                            await fetch(
-                                `${SUPABASE_URL}/rest/v1/comments`,
-                                {
-
-                                    method: "POST",
-
-                                    headers: {
-
-                                        "Content-Type":
-                                            "application/json",
-
-                                        "apikey":
-                                            SUPABASE_KEY,
-
-                                        "Authorization":
-                                            `Bearer ${SUPABASE_KEY}`,
-
-                                        "Prefer":
-                                            "return=representation"
-
-                                    },
-
-                                    body:
-                                        JSON.stringify({
-
-                                            name:
-                                                userID,
-
-                                            category:
-                                                category,
-
-                                            comment:
-                                                message
-
-                                        })
-
-                                }
-                            );
-
-
-                        if (!response.ok) {
-
-                            const errorText =
-                                await response.text();
-
-                            console.error(
-                                errorText
-                            );
-
-                            throw new Error(
-                                "留言提交失败"
-                            );
-
-                        }
-
-
-                        document
-                            .getElementById(
-                                "commentForm"
-                            )
-                            .reset();
-
-
-                        document
-                            .getElementById(
-                                "successMessage"
-                            )
-                            .classList.add(
-                                "show"
-                            );
-
-
-                        await loadComments();
-
-
-                        document
-                            .getElementById(
-                                "commentList"
-                            )
-                            .scrollIntoView({
-
-                                behavior: "smooth",
-                                block: "start"
-
-                            });
-
-
-                        setTimeout(
-                            function () {
-
-                                document
-                                    .getElementById(
-                                        "successMessage"
-                                    )
-                                    .classList
-                                    .remove(
-                                        "show"
-                                    );
-
-                            },
-                            3500
-                        );
-
-
-                    } catch (error) {
-
-                        console.error(
-                            error
-                        );
-
-                        alert(
-                            "留言发布失败，请检查 Supabase 设置。"
-                        );
-
-                    } finally {
-
-                        button.disabled = false;
-
-                        button.textContent =
-                            "发布留言";
-
-                    }
-
                 }
             );
 
 
-        /* ================================
-           删除留言
-           
-           ⚠️ 你的 Supabase DELETE RLS
-           会负责真正限制管理员权限。
-        ================================= */
+        if (!response.ok) {
 
-        async function deleteComment(button) {
+            const errorText =
+                await response.text();
+
+            console.error(
+                "Supabase LOAD Error:",
+                response.status,
+                errorText
+            );
+
+            throw new Error(
+                `读取留言失败 (${response.status})`
+            );
+        }
+
+
+        const comments =
+            await response.json();
+
+
+        commentList.innerHTML = "";
+
+
+        updateCommentCount(
+            comments.length
+        );
+
+
+        if (comments.length === 0) {
+
+            emptyMessage.style.display =
+                "block";
+
+            return;
+        }
+
+
+        emptyMessage.style.display =
+            "none";
+
+
+        comments.forEach(comment => {
 
             const card =
-                button.closest(
-                    ".comment-card"
+                createComment(comment);
+
+            commentList.appendChild(card);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Load comments error:",
+            error
+        );
+
+        commentList.innerHTML = `
+
+            <div class="empty-message"
+                 style="display:block;">
+
+                <div class="empty-icon">
+                    !
+                </div>
+
+                <p>
+                    暂时无法读取留言。
+                </p>
+
+                <p style="font-size:12px;margin-top:8px;">
+                    请检查 Supabase Table / RLS 设置。
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBMIT COMMENT
+========================================================= */
+
+commentForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const userID =
+            document
+                .getElementById("userID")
+                .value
+                .trim();
+
+
+        const category =
+            document
+                .getElementById("category")
+                .value;
+
+
+        const message =
+            messageInput
+                .value
+                .trim();
+
+
+        /* =========================
+           BASIC VALIDATION
+        ========================= */
+
+        if (!userID) {
+
+            alert("请输入你的ID。");
+
+            return;
+        }
+
+
+        if (!category) {
+
+            alert("请选择留言分类。");
+
+            return;
+        }
+
+
+        if (!message) {
+
+            alert("请输入留言内容。");
+
+            return;
+        }
+
+
+        if (message.length > 300) {
+
+            alert("留言不能超过300字。");
+
+            return;
+        }
+
+
+        /* =========================
+           DISABLE BUTTON
+        ========================= */
+
+        submitButton.disabled =
+            true;
+
+        submitButton.textContent =
+            "发布中……";
+
+
+        try {
+
+            /*
+               IMPORTANT:
+
+               We intentionally do NOT send id.
+
+               Supabase should generate id automatically.
+
+               We also do NOT send created_at.
+
+               Supabase should generate created_at
+               automatically with DEFAULT now().
+            */
+
+            const data = {
+
+                name: userID,
+
+                category: category,
+
+                comment: message
+
+            };
+
+
+            console.log(
+                "Sending to Supabase:",
+                data
+            );
+
+
+            const response =
+                await fetch(
+                    `${SUPABASE_URL}/rest/v1/comments`,
+                    {
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                `Bearer ${SUPABASE_KEY}`,
+
+                            "Prefer":
+                                "return=representation"
+
+                        },
+
+                        body:
+                            JSON.stringify(data)
+                    }
                 );
 
-            const id =
-                card.dataset.id;
 
+            /*
+               THIS IS IMPORTANT.
 
-            if (!id) {
+               Instead of only saying
+               "留言提交失败",
 
-                return;
+               this displays the actual
+               Supabase error.
+            */
 
-            }
+            if (!response.ok) {
 
+                const errorText =
+                    await response.text();
 
-            const confirmed =
-                confirm(
-                    "确定要删除这条留言吗？"
-                );
-
-
-            if (!confirmed) {
-
-                return;
-
-            }
-
-
-            try {
-
-                const response =
-                    await fetch(
-                        `${SUPABASE_URL}/rest/v1/comments?id=eq.${encodeURIComponent(id)}`,
-                        {
-
-                            method: "DELETE",
-
-                            headers: {
-
-                                "apikey":
-                                    SUPABASE_KEY,
-
-                                "Authorization":
-                                    `Bearer ${SUPABASE_KEY}`
-
-                            }
-
-                        }
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "删除失败"
-                    );
-
-                }
-
-
-                card.remove();
-
-                updateCommentCount();
-
-
-            } catch (error) {
 
                 console.error(
-                    error
+                    "=============================="
                 );
 
+                console.error(
+                    "SUPABASE INSERT ERROR"
+                );
+
+                console.error(
+                    "Status:",
+                    response.status
+                );
+
+                console.error(
+                    "Response:",
+                    errorText
+                );
+
+                console.error(
+                    "=============================="
+                );
+
+
                 alert(
-                    "删除失败。只有管理员可以删除留言。"
+                    "Supabase 错误：\n\n" +
+                    "HTTP " +
+                    response.status +
+                    "\n\n" +
+                    errorText
+                );
+
+
+                throw new Error(
+                    errorText
+                );
+            }
+
+
+            const result =
+                await response.json();
+
+
+            console.log(
+                "Supabase insert successful:",
+                result
+            );
+
+
+            /* =========================
+               RESET FORM
+            ========================= */
+
+            commentForm.reset();
+
+            charCount.textContent =
+                "0";
+
+
+            /* =========================
+               SUCCESS MESSAGE
+            ========================= */
+
+            successMessage.classList.add(
+                "show"
+            );
+
+
+            setTimeout(() => {
+
+                successMessage.classList.remove(
+                    "show"
+                );
+
+            }, 4000);
+
+
+            /* =========================
+               RELOAD COMMENTS
+            ========================= */
+
+            await loadComments();
+
+
+            /*
+               Scroll to comments after
+               successful submission.
+            */
+
+            document
+                .querySelector(".comments-box")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Submit comment error:",
+                error
+            );
+
+            /*
+               The detailed Supabase alert
+               has already appeared above.
+
+               This fallback only handles
+               unexpected browser/network errors.
+            */
+
+            if (
+                !error.message ||
+                !error.message.includes("code")
+            ) {
+
+                console.error(
+                    "Possible network/CORS error:",
+                    error
                 );
 
             }
 
         }
 
+        finally {
 
-        /* ================================
-           初始加载
-        ================================= */
+            submitButton.disabled =
+                false;
 
-        loadComments();
+            submitButton.textContent =
+                "发布留言";
 
-    </script>
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadComments();
+
+</script>
 
 </body>
-
 </html>
