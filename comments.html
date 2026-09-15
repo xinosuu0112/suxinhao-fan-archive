@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>留言｜苏新皓档案馆</title>
 
     <style>
+
         :root {
             --主色: #F19483;
             --红色: #EE3F4D;
@@ -32,7 +34,8 @@
         }
 
         body {
-            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+            font-family: Arial, "Microsoft YaHei", "微软雅黑",
+                "PingFang SC", sans-serif;
             background: var(--奶油白);
             color: var(--深色);
             line-height: 1.6;
@@ -48,6 +51,7 @@
             display: block;
         }
 
+
         /* =========================
            NAVIGATION
         ========================= */
@@ -58,17 +62,22 @@
             left: 0;
             width: 100%;
             height: 72px;
+
             background: rgba(255, 249, 245, 0.96);
             backdrop-filter: blur(12px);
+
             border-bottom: 1px solid var(--边框);
+
             z-index: 1000;
         }
 
         .nav-inner {
-            max-width: 1280px;
+            max-width: 1400px;
             height: 100%;
+
             margin: auto;
             padding: 0 32px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -77,21 +86,28 @@
         .logo {
             display: flex;
             align-items: center;
+
             gap: 11px;
+
             font-weight: 700;
             letter-spacing: 1px;
+
             white-space: nowrap;
         }
 
         .logo-mark {
             width: 34px;
             height: 34px;
+
             border-radius: 50%;
+
             background: var(--红色);
             color: var(--白色);
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 14px;
         }
 
@@ -103,23 +119,40 @@
 
         .nav-links a {
             position: relative;
+
             padding: 9px 13px;
+
             color: var(--灰色);
+
             font-size: 13px;
+            font-weight: 500;
+
             transition: color 0.25s ease;
         }
 
+        /* Active / hover red dot */
+
         .nav-links a::after {
             content: "";
+
             position: absolute;
+
             left: 50%;
-            bottom: 3px;
-            width: 0;
-            height: 2px;
-            border-radius: 10px;
+            bottom: 1px;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
             background: var(--红色);
-            transform: translateX(-50%);
-            transition: width 0.25s ease;
+
+            transform:
+                translateX(-50%)
+                scale(0);
+
+            transition:
+                transform 0.25s ease;
         }
 
         .nav-links a:hover,
@@ -129,8 +162,11 @@
 
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 22px;
+            transform:
+                translateX(-50%)
+                scale(1);
         }
+
 
         /* =========================
            HERO
@@ -138,10 +174,16 @@
 
         .hero {
             min-height: 650px;
+
             padding: 150px 7% 90px;
+
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
+
+            grid-template-columns:
+                1.05fr 0.95fr;
+
             align-items: center;
+
             gap: 80px;
 
             background:
@@ -156,27 +198,39 @@
         .eyebrow {
             display: inline-flex;
             align-items: center;
+
             gap: 10px;
+
             margin-bottom: 24px;
+
             color: var(--红色);
+
             font-size: 12px;
             font-weight: 700;
+
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .eyebrow::before {
             content: "";
+
             width: 28px;
             height: 1px;
+
             background: var(--红色);
         }
 
         .hero h1 {
             margin-bottom: 30px;
-            font-size: clamp(52px, 7vw, 92px);
+
+            font-size:
+                clamp(52px, 7vw, 92px);
+
             line-height: 0.98;
+
             letter-spacing: -4px;
+
             font-weight: 800;
         }
 
@@ -186,46 +240,66 @@
 
         .hero-description {
             max-width: 560px;
+
             color: var(--灰色);
+
             font-size: 16px;
+
             line-height: 1.9;
         }
 
         .hero-label {
             margin-top: 35px;
+
             color: var(--深色);
+
             font-size: 11px;
             font-weight: 700;
+
             letter-spacing: 3px;
         }
 
         .hero-image {
             position: relative;
+
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .hero-image::before {
             content: "";
+
             position: absolute;
+
             width: 82%;
             height: 82%;
+
             border-radius: 50%;
+
             background: var(--浅粉);
+
             z-index: 0;
         }
 
         .hero-image img {
             position: relative;
+
             z-index: 1;
+
             width: min(430px, 100%);
+
             max-height: 500px;
+
             object-fit: contain;
+
             filter:
                 drop-shadow(
-                    0 20px 35px rgba(36, 30, 30, 0.12)
+                    0 20px 35px
+                    rgba(36, 30, 30, 0.12)
                 );
         }
+
 
         /* =========================
            SECTION
@@ -233,7 +307,9 @@
 
         .section {
             max-width: 1280px;
+
             margin: auto;
+
             padding: 100px 7%;
         }
 
@@ -243,38 +319,58 @@
 
         .section-number {
             margin-bottom: 12px;
+
             color: var(--红色);
+
             font-size: 11px;
             font-weight: 700;
+
             letter-spacing: 2px;
         }
 
         .section-heading h2 {
-            font-size: clamp(34px, 5vw, 58px);
+            font-size:
+                clamp(34px, 5vw, 58px);
+
             line-height: 1.05;
+
             letter-spacing: -2px;
+
+            font-weight: 800;
         }
 
         .section-heading p {
             margin-top: 15px;
+
             color: var(--灰色);
+
             font-size: 14px;
         }
 
         .count-pill {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
+
             min-width: 38px;
             height: 28px;
+
             padding: 0 10px;
+
             margin-left: 8px;
+
             border-radius: 30px;
+
             background: var(--红色);
+
             color: white;
+
             font-size: 12px;
+
             vertical-align: middle;
         }
+
 
         /* =========================
            COMMENTS LAYOUT
@@ -282,27 +378,39 @@
 
         .comments-layout {
             display: grid;
+
             grid-template-columns:
                 minmax(0, 1fr) 350px;
+
             gap: 55px;
+
             align-items: start;
         }
 
         .comments-list {
             display: flex;
+
             flex-direction: column;
+
             gap: 22px;
         }
 
+
         /* =========================
            TICKET CARD
+           
+           SAME DESIGN ON
+           DESKTOP / TABLET / PHONE
         ========================= */
 
         .comment-card {
             position: relative;
+
             width: 100%;
+
             height: 205px;
             min-height: 205px;
+
             padding: 18px 28px 14px;
 
             background:
@@ -313,12 +421,14 @@
                 );
 
             border: 1px solid var(--中粉);
+
             border-radius: 18px;
 
             overflow: hidden;
 
             box-shadow:
-                0 6px 20px rgba(36, 30, 30, 0.045);
+                0 6px 20px
+                rgba(36, 30, 30, 0.045);
 
             transition:
                 transform 0.25s ease,
@@ -336,9 +446,12 @@
 
         .comment-card:hover {
             transform: translateY(-3px);
+
             box-shadow:
-                0 12px 28px rgba(36, 30, 30, 0.08);
+                0 12px 28px
+                rgba(36, 30, 30, 0.08);
         }
+
 
         /* =========================
            TICKET CUT-OUTS
@@ -347,13 +460,20 @@
         .comment-card::before,
         .comment-card::after {
             content: "";
+
             position: absolute;
+
             top: 50%;
+
             width: 18px;
             height: 18px;
+
             background: var(--奶油白);
+
             border-radius: 50%;
+
             transform: translateY(-50%);
+
             z-index: 5;
         }
 
@@ -365,17 +485,21 @@
             right: -10px;
         }
 
+
         /* =========================
            TICKET TOP
         ========================= */
 
         .ticket-top {
             position: relative;
+
             z-index: 3;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 20px;
 
             padding-bottom: 10px;
@@ -386,16 +510,21 @@
 
         .ticket-brand {
             color: var(--红色);
+
             font-size: 9px;
             font-weight: 800;
+
             letter-spacing: 2px;
         }
 
         .ticket-number {
             color: var(--灰色);
+
             font-size: 9px;
+
             letter-spacing: 1px;
         }
+
 
         /* =========================
            USER + CATEGORY
@@ -403,11 +532,14 @@
 
         .ticket-info {
             position: relative;
+
             z-index: 3;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 20px;
 
             padding-top: 9px;
@@ -415,6 +547,7 @@
 
         .comment-user {
             color: var(--深色);
+
             font-size: 13px;
             font-weight: 700;
         }
@@ -423,18 +556,22 @@
             flex-shrink: 0;
 
             padding: 4px 10px;
+
             border-radius: 20px;
 
             background: var(--红色);
+
             color: white;
 
             font-size: 9px;
             font-weight: 700;
         }
 
-        /* ==================================================
-           MESSAGE — TRUE CENTER OF THE ENTIRE TICKET
-        ================================================== */
+
+        /* =========================
+           MESSAGE
+           TRUE CENTER OF TICKET
+        ========================= */
 
         .comment-text {
             position: absolute;
@@ -442,7 +579,8 @@
             left: 50%;
             top: 50%;
 
-            transform: translate(-50%, -50%);
+            transform:
+                translate(-50%, -50%);
 
             width: calc(100% - 100px);
 
@@ -452,17 +590,22 @@
             color: var(--深色);
 
             text-align: center;
+
             line-height: 1.5;
+
             letter-spacing: 0.2px;
 
             white-space: pre-wrap;
+
             overflow-wrap: anywhere;
 
             z-index: 2;
 
             max-height: 115px;
+
             overflow: hidden;
         }
+
 
         /* =========================
            TICKET BOTTOM
@@ -473,13 +616,16 @@
 
             left: 28px;
             right: 28px;
+
             bottom: 14px;
 
             z-index: 3;
 
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 20px;
 
             padding-top: 9px;
@@ -490,7 +636,9 @@
 
         .comment-date {
             color: var(--灰色);
+
             font-size: 9px;
+
             letter-spacing: 1px;
         }
 
@@ -514,18 +662,22 @@
             opacity: 0.5;
         }
 
+
         /* =========================
            FORM
         ========================= */
 
         .comment-form-card {
             position: sticky;
+
             top: 100px;
 
             padding: 30px;
+
             border-radius: 22px;
 
             background: var(--浅粉);
+
             border: 1px solid var(--边框);
         }
 
@@ -535,18 +687,23 @@
 
         .form-heading small {
             display: block;
+
             margin-bottom: 8px;
 
             color: var(--红色);
 
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: 2px;
         }
 
         .form-heading h3 {
             font-size: 25px;
+
             line-height: 1.2;
+
+            font-weight: 800;
         }
 
         .form-group {
@@ -555,6 +712,7 @@
 
         .form-group label {
             display: block;
+
             margin-bottom: 8px;
 
             font-size: 12px;
@@ -567,14 +725,18 @@
             width: 100%;
 
             border: 1px solid var(--边框);
+
             border-radius: 12px;
 
             padding: 13px 14px;
 
-            background: rgba(255, 255, 255, 0.8);
+            background:
+                rgba(255, 255, 255, 0.8);
+
             color: var(--深色);
 
             font-family: inherit;
+
             font-size: 13px;
 
             outline: none;
@@ -586,6 +748,7 @@
 
         .form-group textarea {
             min-height: 135px;
+
             resize: vertical;
         }
 
@@ -593,6 +756,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--红色);
+
             background: white;
         }
 
@@ -600,14 +764,17 @@
             width: 100%;
 
             border: none;
+
             border-radius: 30px;
 
             padding: 14px 20px;
 
             background: var(--红色);
+
             color: white;
 
             font-family: inherit;
+
             font-size: 13px;
             font-weight: 700;
 
@@ -620,33 +787,43 @@
 
         .submit-btn:hover {
             background: var(--深红);
+
             transform: translateY(-2px);
         }
 
         .submit-btn:disabled {
             opacity: 0.6;
+
             cursor: wait;
+
             transform: none;
         }
 
         .form-note {
             margin-top: 15px;
+
             color: var(--灰色);
+
             font-size: 10px;
+
             line-height: 1.7;
         }
 
         .empty-state {
             padding: 60px 20px;
+
             text-align: center;
 
             border:
                 1px dashed var(--中粉);
 
             border-radius: 18px;
+
             color: var(--灰色);
+
             font-size: 13px;
         }
+
 
         /* =========================
            COMMUNITY
@@ -654,35 +831,48 @@
 
         .community {
             padding: 100px 7%;
+
             background: var(--红色);
+
             color: white;
         }
 
         .community-inner {
             max-width: 1100px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 80px;
+
             align-items: center;
         }
 
         .community h2 {
-            font-size: clamp(38px, 5vw, 65px);
+            font-size:
+                clamp(38px, 5vw, 65px);
+
             line-height: 1.05;
+
             letter-spacing: -2px;
+
+            font-weight: 800;
         }
 
         .community p {
             max-width: 500px;
+
             margin-top: 20px;
 
             color:
                 rgba(255, 255, 255, 0.8);
 
             font-size: 14px;
+
             line-height: 1.9;
         }
 
@@ -690,24 +880,31 @@
             padding: 30px;
 
             border:
-                1px solid rgba(255, 255, 255, 0.35);
+                1px solid
+                rgba(255, 255, 255, 0.35);
 
             border-radius: 20px;
         }
 
         .community-note span {
             display: block;
+
             margin-bottom: 15px;
 
             font-size: 10px;
             font-weight: 700;
+
             letter-spacing: 2px;
         }
 
         .community-note strong {
             font-size: 20px;
+
             line-height: 1.6;
+
+            font-weight: 700;
         }
+
 
         /* =========================
            EXPLORE
@@ -715,12 +912,15 @@
 
         .explore {
             max-width: 1280px;
+
             margin: auto;
+
             padding: 100px 7%;
         }
 
         .explore-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(3, 1fr);
 
@@ -729,10 +929,13 @@
 
         .explore-card {
             min-height: 220px;
+
             padding: 28px;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
 
             background: white;
@@ -749,32 +952,43 @@
 
         .explore-card:hover {
             transform: translateY(-5px);
+
             border-color: var(--中粉);
         }
 
         .explore-number {
             color: var(--红色);
+
             font-size: 11px;
             font-weight: 700;
+
             letter-spacing: 2px;
         }
 
         .explore-card h3 {
             margin-top: auto;
+
             margin-bottom: 8px;
+
             font-size: 22px;
+
+            font-weight: 800;
         }
 
         .explore-card p {
             color: var(--灰色);
+
             font-size: 12px;
         }
 
         .explore-arrow {
             margin-top: 20px;
+
             color: var(--红色);
+
             font-size: 20px;
         }
+
 
         /* =========================
            FOOTER
@@ -784,43 +998,54 @@
             padding: 55px 7% 35px;
 
             background: var(--深色);
+
             color: white;
         }
 
         .footer-inner {
             max-width: 1280px;
+
             margin: auto;
 
             display: flex;
+
             justify-content: space-between;
+
             gap: 40px;
 
             padding-bottom: 35px;
 
             border-bottom:
-                1px solid rgba(255, 255, 255, 0.12);
+                1px solid
+                rgba(255, 255, 255, 0.12);
         }
 
         .footer-brand {
             font-size: 17px;
+
             font-weight: 700;
         }
 
         .footer-brand span {
             display: block;
+
             margin-top: 8px;
 
             color:
                 rgba(255, 255, 255, 0.5);
 
             font-size: 10px;
+
             font-weight: 400;
+
             letter-spacing: 1px;
         }
 
         .footer-links {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 18px;
         }
 
@@ -829,6 +1054,7 @@
                 rgba(255, 255, 255, 0.65);
 
             font-size: 11px;
+
             transition: color 0.2s ease;
         }
 
@@ -838,14 +1064,17 @@
 
         .copyright {
             max-width: 1280px;
+
             margin: 25px auto 0;
 
             color:
                 rgba(255, 255, 255, 0.35);
 
             font-size: 9px;
+
             letter-spacing: 1px;
         }
+
 
         /* =========================
            TABLET
@@ -863,6 +1092,7 @@
 
             .nav-links a {
                 padding: 8px 7px;
+
                 font-size: 11px;
             }
 
@@ -883,7 +1113,29 @@
             .comment-form-card {
                 position: static;
             }
+
+            /*
+               IMPORTANT:
+               Ticket remains 205px.
+               Same design as desktop.
+            */
+
+            .comment-card {
+                height: 205px;
+                min-height: 205px;
+            }
+
+            .comment-text {
+                width: calc(100% - 100px);
+            }
+
+            .ticket-bottom {
+                left: 28px;
+                right: 28px;
+                bottom: 14px;
+            }
         }
+
 
         /* =========================
            MOBILE
@@ -893,6 +1145,7 @@
 
             nav {
                 height: auto;
+
                 min-height: 65px;
             }
 
@@ -900,22 +1153,36 @@
                 padding: 12px 18px;
 
                 flex-direction: column;
+
                 gap: 10px;
             }
 
             .nav-links {
                 width: 100%;
+
                 overflow-x: auto;
 
                 justify-content: flex-start;
+
                 padding-bottom: 3px;
+
+                scrollbar-width: none;
+            }
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
             }
 
             .nav-links a {
                 flex-shrink: 0;
+
                 font-size: 10px;
+
                 padding: 6px 8px;
             }
+
+
+            /* HERO */
 
             .hero {
                 min-height: auto;
@@ -923,6 +1190,7 @@
                 padding: 150px 6% 70px;
 
                 grid-template-columns: 1fr;
+
                 gap: 45px;
             }
 
@@ -936,9 +1204,14 @@
             }
 
             .hero-image img {
-                width: min(280px, 80%);
+                width:
+                    min(280px, 80%);
+
                 max-height: 350px;
             }
+
+
+            /* SECTIONS */
 
             .section,
             .explore {
@@ -953,28 +1226,43 @@
                 gap: 35px;
             }
 
-            /* MOBILE TICKET */
+
+            /*
+               SAME TICKET DESIGN
+               AS DESKTOP
+            */
 
             .comment-card {
-                height: 195px;
-                min-height: 195px;
-                padding:
-                    16px 22px 13px;
+                width: 100%;
+
+                height: 205px;
+                min-height: 205px;
+
+                padding: 18px 28px 14px;
             }
 
             .comment-text {
-                width: calc(100% - 70px);
+                width:
+                    calc(100% - 100px);
+
+                max-height: 115px;
             }
 
             .ticket-bottom {
-                left: 22px;
-                right: 22px;
-                bottom: 13px;
+                left: 28px;
+                right: 28px;
+                bottom: 14px;
             }
+
+
+            /* FORM */
 
             .comment-form-card {
                 padding: 25px;
             }
+
+
+            /* COMMUNITY */
 
             .community {
                 padding: 70px 6%;
@@ -982,8 +1270,12 @@
 
             .community-inner {
                 grid-template-columns: 1fr;
+
                 gap: 35px;
             }
+
+
+            /* EXPLORE */
 
             .explore-grid {
                 grid-template-columns: 1fr;
@@ -993,13 +1285,18 @@
                 min-height: 180px;
             }
 
+
+            /* FOOTER */
+
             .footer-inner {
                 flex-direction: column;
             }
         }
 
+
         /* =========================
-           SMALL MOBILE
+           SMALL PHONE
+           SAME TICKET DESIGN
         ========================= */
 
         @media (max-width: 480px) {
@@ -1011,6 +1308,7 @@
             .logo-mark {
                 width: 30px;
                 height: 30px;
+
                 font-size: 12px;
             }
 
@@ -1022,12 +1320,19 @@
                 font-size: 14px;
             }
 
-            .comment-card {
-                height: 185px;
-                min-height: 185px;
 
-                padding:
-                    14px 18px 11px;
+            /*
+               DO NOT SHRINK THE TICKET.
+
+               It remains 205px high,
+               exactly like desktop.
+            */
+
+            .comment-card {
+                height: 205px;
+                min-height: 205px;
+
+                padding: 18px 28px 14px;
             }
 
             .ticket-brand,
@@ -1041,18 +1346,22 @@
 
             .comment-category {
                 font-size: 8px;
-                padding:
-                    4px 8px;
+
+                padding: 4px 8px;
             }
 
             .comment-text {
-                width: calc(100% - 55px);
+                width:
+                    calc(100% - 100px);
+
+                max-height: 115px;
             }
 
             .ticket-bottom {
-                left: 18px;
-                right: 18px;
-                bottom: 11px;
+                left: 28px;
+                right: 28px;
+
+                bottom: 14px;
             }
 
             .barcode {
@@ -1060,10 +1369,13 @@
                 height: 15px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVIGATION
@@ -1084,6 +1396,7 @@
             </span>
 
         </a>
+
 
         <div class="nav-links">
 
@@ -1119,8 +1432,7 @@
                 留言
             </a>
 
-            <!-- CHANGED: 拼豆 → 美工 -->
-            <a href="mei-gong.html">
+            <a href="arts.html">
                 美工
             </a>
 
@@ -1133,6 +1445,7 @@
     </div>
 
 </nav>
+
 
 
 <!-- =========================
@@ -1153,9 +1466,13 @@
         </h1>
 
         <p class="hero-description">
+
             这里是属于信号灯的留言空间。
+
             可以留下想对苏新皓说的话，也可以记录某个让你记住的瞬间。
+
             每一份喜欢，都值得被好好保存。
+
         </p>
 
         <div class="hero-label">
@@ -1163,6 +1480,7 @@
         </div>
 
     </div>
+
 
     <div class="hero-image">
 
@@ -1174,6 +1492,7 @@
     </div>
 
 </header>
+
 
 
 <!-- =========================
@@ -1210,6 +1529,7 @@
 
     <div class="comments-layout">
 
+
         <!-- COMMENT LIST -->
 
         <div
@@ -1222,6 +1542,7 @@
             </div>
 
         </div>
+
 
 
         <!-- FORM -->
@@ -1242,6 +1563,7 @@
 
 
             <form id="commentForm">
+
 
                 <div class="form-group">
 
@@ -1334,8 +1656,11 @@
 
 
                 <div class="form-note">
+
                     留言会显示在公开留言墙中。
+
                     请保持友善，也请不要填写私人信息。
+
                 </div>
 
             </form>
@@ -1345,6 +1670,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1370,9 +1696,13 @@
             </h2>
 
             <p>
+
                 从舞台上的光，到生活里的细节，
+
                 每一次成长都值得被记住。
+
                 这里不只是一个留言墙，也是信号灯们共同留下的记录。
+
             </p>
 
         </div>
@@ -1396,6 +1726,7 @@
 </section>
 
 
+
 <!-- =========================
      EXPLORE
 ========================= -->
@@ -1417,7 +1748,8 @@
 
     <div class="explore-grid">
 
-        <!-- 01 FAN EDITS -->
+
+        <!-- FAN EDITS -->
 
         <a
             href="fan-edits.html"
@@ -1447,10 +1779,11 @@
         </a>
 
 
-        <!-- 02 DESIGN / 美工 -->
+
+        <!-- DESIGN -->
 
         <a
-            href="mei-gong.html"
+            href="arts.html"
             class="explore-card"
         >
 
@@ -1477,7 +1810,8 @@
         </a>
 
 
-        <!-- 03 ARCHIVE -->
+
+        <!-- ARCHIVE -->
 
         <a
             href="archive.html"
@@ -1509,6 +1843,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1562,13 +1897,17 @@
 
 
     <div class="copyright">
+
         © 2026 苏新皓粉丝档案馆 · Fan-made website
+
     </div>
 
 </footer>
 
 
+
 <script>
+
 
 /* =========================
    SUPABASE
@@ -1605,6 +1944,7 @@ const categoryNames = {
 function escapeHTML(text) {
 
     return String(text)
+
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -1651,7 +1991,8 @@ function formatDate(dateString) {
 
 function getCommentFontSize(text) {
 
-    const length = text.length;
+    const length =
+        text.length;
 
     if (length <= 10) return 21;
     if (length <= 18) return 19;
@@ -1672,7 +2013,8 @@ function getCommentFontSize(text) {
 
 function getCommentFontWeight(text) {
 
-    const length = text.length;
+    const length =
+        text.length;
 
     if (length <= 20) return 700;
     if (length <= 50) return 650;
@@ -1698,12 +2040,16 @@ async function loadComments() {
             "commentCount"
         );
 
+
     try {
 
         const response =
             await fetch(
+
                 `${SUPABASE_URL}/rest/v1/comments?select=*&order=created_at.desc`,
+
                 {
+
                     method: "GET",
 
                     headers: {
@@ -1715,7 +2061,9 @@ async function loadComments() {
                             `Bearer ${SUPABASE_KEY}`
 
                     }
+
                 }
+
             );
 
 
@@ -1739,10 +2087,15 @@ async function loadComments() {
         if (!comments.length) {
 
             commentsList.innerHTML = `
+
                 <div class="empty-state">
+
                     还没有留言。<br>
+
                     成为第一个留下信号的人吧。
+
                 </div>
+
             `;
 
             return;
@@ -1751,7 +2104,9 @@ async function loadComments() {
 
 
         commentsList.innerHTML =
+
             comments.map(
+
                 (item, index) => {
 
                     const userID =
@@ -1804,6 +2159,7 @@ async function loadComments() {
                             class="comment-card"
                         >
 
+
                             <div
                                 class="ticket-top"
                             >
@@ -1813,6 +2169,7 @@ async function loadComments() {
                                 >
                                     SU XINHAO · FAN ARCHIVE
                                 </span>
+
 
                                 <span
                                     class="ticket-number"
@@ -1827,6 +2184,7 @@ async function loadComments() {
                                 </span>
 
                             </div>
+
 
 
                             <div
@@ -1846,23 +2204,30 @@ async function loadComments() {
                                 <div
                                     class="comment-category"
                                 >
+
                                     ${escapeHTML(
                                         category
                                     )}
+
                                 </div>
 
                             </div>
 
 
+
                             <div
                                 class="comment-text"
+
                                 style="
                                     font-size:${fontSize}px;
                                     font-weight:${fontWeight};
                                 "
                             >
+
                                 ${message}
+
                             </div>
+
 
 
                             <div
@@ -1882,11 +2247,13 @@ async function loadComments() {
 
                             </div>
 
+
                         </article>
 
                     `;
 
                 }
+
             ).join("");
 
 
@@ -1899,10 +2266,15 @@ async function loadComments() {
 
 
         commentsList.innerHTML = `
+
             <div class="empty-state">
+
                 暂时无法读取留言。<br>
+
                 请稍后再试。
+
             </div>
+
         `;
 
     }
@@ -1974,8 +2346,11 @@ document
 
                 const response =
                     await fetch(
+
                         `${SUPABASE_URL}/rest/v1/comments`,
+
                         {
+
                             method: "POST",
 
                             headers: {
@@ -1994,6 +2369,7 @@ document
 
                             },
 
+
                             body:
                                 JSON.stringify({
 
@@ -2009,6 +2385,7 @@ document
                                 })
 
                         }
+
                     );
 
 
