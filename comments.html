@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -118,6 +117,7 @@
 
         .nav-links a {
             position: relative;
+
             padding: 9px 13px;
 
             color: var(--灰色);
@@ -140,6 +140,7 @@
             height: 5px;
 
             border-radius: 50%;
+
             background: var(--红色);
 
             transform:
@@ -467,7 +468,7 @@
 
 
         /* =========================
-           TICKET CARD
+           TICKET
         ========================= */
 
         .comment-card {
@@ -528,7 +529,7 @@
 
 
         /* =========================
-           TICKET CUT-OUTS
+           TICKET CUT-OUT
         ========================= */
 
         .comment-card::before,
@@ -662,8 +663,12 @@
 
 
         /* =========================
-           MESSAGE
-           LEFT ALIGNED
+           COMMENT TEXT
+           
+           IMPORTANT:
+           This is NOT flex anymore.
+           Text starts from the actual
+           left edge of the text area.
         ========================= */
 
         .comment-text {
@@ -673,10 +678,9 @@
 
             width: 100%;
 
-            margin: auto 0;
+            margin: 10px 0;
 
-            padding:
-                14px 24px 12px;
+            padding: 14px 0;
 
             color: var(--深色);
 
@@ -691,10 +695,7 @@
             overflow-wrap: anywhere;
             word-break: break-word;
 
-            flex: 1;
-
-            display: flex;
-            align-items: center;
+            display: block;
 
             min-height: 65px;
 
@@ -1330,7 +1331,7 @@
             }
 
 
-            /* FILTERS */
+            /* FILTER */
 
             .comment-filters {
                 margin-bottom: 22px;
@@ -1394,18 +1395,27 @@
                 font-size: 8px;
             }
 
+
+            /* IMPORTANT:
+               Still block on mobile */
             .comment-text {
+                width: 100%;
+
+                margin: 8px 0;
+
+                padding: 10px 0;
+
+                text-align: left;
+
+                display: block;
+
                 min-height: 62px;
 
                 max-height: 92px;
 
-                padding:
-                    10px 12px;
-
-                text-align: left;
-
                 line-height: 1.5;
             }
+
 
             .ticket-bottom {
                 padding-top: 8px;
@@ -1520,16 +1530,26 @@
                     3px 7px;
             }
 
+
+            /* LEFT ALIGNED ON SMALL PHONES */
             .comment-text {
+                width: 100%;
+
+                margin: 7px 0;
+
+                padding: 8px 0;
+
+                text-align: left;
+
+                display: block;
+
                 min-height: 58px;
 
                 max-height: 82px;
 
-                padding:
-                    8px 8px;
-
-                text-align: left;
+                line-height: 1.5;
             }
+
 
             .ticket-bottom {
                 padding-top: 7px;
@@ -1583,8 +1603,15 @@
             }
 
             .comment-text {
-                padding:
-                    7px 7px;
+                width: 100%;
+
+                margin: 6px 0;
+
+                padding: 7px 0;
+
+                text-align: left;
+
+                display: block;
             }
 
             .barcode {
@@ -1759,6 +1786,7 @@
         </span>
 
         <button
+            type="button"
             class="filter-btn active"
             data-filter="ALL"
         >
@@ -1766,6 +1794,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="MESSAGE"
         >
@@ -1773,6 +1802,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="STAGE"
         >
@@ -1780,6 +1810,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="VOCAL"
         >
@@ -1787,6 +1818,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="DANCE"
         >
@@ -1794,6 +1826,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="WORKS"
         >
@@ -1801,6 +1834,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="GROWTH"
         >
@@ -1808,6 +1842,7 @@
         </button>
 
         <button
+            type="button"
             class="filter-btn"
             data-filter="LOVE"
         >
@@ -1834,7 +1869,7 @@
         </div>
 
 
-        <!-- FILTER EMPTY -->
+        <!-- EMPTY FILTER MESSAGE -->
 
         <div
             class="filter-empty"
@@ -2202,7 +2237,7 @@ const SUPABASE_KEY =
 
 
 /* =========================
-   CATEGORY
+   CATEGORY NAMES
 ========================= */
 
 const categoryNames = {
@@ -2506,9 +2541,7 @@ async function loadComments() {
                                     font-size:${fontSize}px;
                                     font-weight:${fontWeight};
                                 "
-                            >
-                                ${message}
-                            </div>
+                            >${message}</div>
 
 
                             <div
@@ -2565,7 +2598,7 @@ async function loadComments() {
 
 
 /* =========================
-   FILTER COMMENTS
+   APPLY FILTER
 ========================= */
 
 function applyFilter(filter) {
@@ -2851,4 +2884,3 @@ loadComments();
 
 </body>
 </html>
-```
