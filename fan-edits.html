@@ -13,7 +13,7 @@
             --dark-red: #D93645;
             --cream: #FFF9F5;
             --white: #FFFFFF;
-            --dark: #5F4A46;
+            --dark: #241E1E;
             --gray: #756D6B;
             --border: #E8D9D4;
             --soft: #F9E9E5;
@@ -38,6 +38,10 @@
             line-height: 1.7;
         }
 
+        body.modal-open {
+            overflow: hidden;
+        }
+
         a {
             color: inherit;
             text-decoration: none;
@@ -47,27 +51,28 @@
             font-family: inherit;
         }
 
-        /* =========================
+        /* =====================================================
            NAVIGATION
-        ========================= */
+           Same editorial style as INDEX
+        ===================================================== */
 
         .nav {
             position: sticky;
             top: 0;
             z-index: 100;
             background: rgba(255, 249, 245, 0.96);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
             max-width: 1400px;
             margin: auto;
-            padding: 16px 40px;
+            padding: 17px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
+            gap: 35px;
         }
 
         .logo {
@@ -75,6 +80,7 @@
             font-weight: 800;
             color: var(--red);
             white-space: nowrap;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -85,186 +91,269 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 8px;
+            gap: 7px;
             flex-wrap: wrap;
         }
 
         .nav-links a {
-            padding: 7px 11px;
-            border-radius: 20px;
+            position: relative;
+            padding: 7px 11px 11px;
             font-size: 13px;
             color: var(--gray);
-            transition: .25s ease;
+            transition: color .25s ease;
+        }
+
+        /* centered hover dot */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--red);
+            left: 50%;
+            bottom: 2px;
+            transform: translateX(-50%) scale(0);
+            transition: transform .25s ease;
         }
 
         .nav-links a:hover {
             color: var(--red);
-            background: var(--pale);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: translateX(-50%) scale(1);
         }
 
         .nav-links a.active {
-            color: var(--white);
-            background: var(--red);
+            color: var(--red);
+            font-weight: 700;
         }
 
-        /* =========================
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
             background: var(--pink);
-            padding: 95px 40px 90px;
+            padding: 105px 40px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "FAN EDITS";
+            position: absolute;
+            right: -20px;
+            bottom: -38px;
+            font-size: clamp(90px, 15vw, 190px);
+            font-weight: 900;
+            line-height: .85;
+            color: rgba(255, 255, 255, .10);
+            pointer-events: none;
+            letter-spacing: -7px;
         }
 
         .hero-inner {
             max-width: 1400px;
             margin: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 3px;
-            color: rgba(95, 74, 70, .72);
-            margin-bottom: 18px;
+            color: rgba(36, 30, 30, .62);
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(54px, 9vw, 110px);
-            line-height: .95;
+            font-size: clamp(58px, 9vw, 112px);
+            line-height: .92;
             color: var(--white);
-            letter-spacing: -4px;
-            margin-bottom: 28px;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
         }
 
         .hero p {
             max-width: 680px;
             font-size: 17px;
-            color: rgba(95, 74, 70, .85);
+            color: rgba(36, 30, 30, .78);
+            line-height: 1.8;
         }
 
-        /* =========================
-           INTRO
-        ========================= */
 
-        .page-intro {
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
             max-width: 1400px;
             margin: auto;
-            padding: 85px 40px 55px;
+            padding: 95px 40px 70px;
+        }
+
+        .intro-top {
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 70px;
+            align-items: start;
         }
 
         .intro-label {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 3px;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 15px;
+            padding-top: 8px;
         }
 
-        .page-intro h2 {
-            font-size: clamp(32px, 5vw, 55px);
-            line-height: 1.15;
-            margin-bottom: 20px;
+        .intro-content h2 {
+            font-size: clamp(34px, 5vw, 62px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
         }
 
-        .page-intro p {
-            max-width: 760px;
+        .intro-content p {
+            max-width: 720px;
             color: var(--gray);
             font-size: 16px;
+            line-height: 1.9;
         }
 
-        /* =========================
-           FAN EDIT SECTION
-        ========================= */
 
-        .edit-section {
+        /* =====================================================
+           ARCHIVE HEADER
+        ===================================================== */
+
+        .archive-section {
             max-width: 1400px;
-            margin: 0 auto;
-            padding: 45px 40px 90px;
+            margin: auto;
+            padding: 25px 40px 110px;
         }
 
-        .section-heading {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 30px;
+        .archive-header {
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
             margin-bottom: 35px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
         }
 
-        .section-heading-left {
-            max-width: 800px;
+        .archive-header-left {
+            max-width: 700px;
         }
 
-        .section-number {
-            font-size: 12px;
-            letter-spacing: 2px;
+        .archive-number {
+            font-size: 11px;
+            letter-spacing: 3px;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .section-heading h2 {
-            font-size: clamp(28px, 4vw, 44px);
-            line-height: 1.15;
             margin-bottom: 10px;
         }
 
-        .section-heading p {
-            color: var(--gray);
-            font-size: 15px;
+        .archive-header h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
         }
 
-        /* =========================
+        .archive-header p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .archive-count {
+            font-size: 12px;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
            EDIT GRID
-        ========================= */
+        ===================================================== */
 
         .edit-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
         }
 
-        /* =========================
-           EDIT CARD
-        ========================= */
+
+        /* =====================================================
+           EDITORIAL EDIT CARD
+        ===================================================== */
 
         .edit-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            min-height: 250px;
+            min-height: 300px;
+            background: var(--cream);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            padding: 30px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: .3s ease;
+
+            position: relative;
+            transition:
+                background .3s ease,
+                transform .3s ease;
         }
 
         .edit-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--medium-pink);
-            box-shadow: 0 15px 35px rgba(95, 74, 70, .10);
+            background: var(--white);
+        }
+
+        .edit-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         .edit-number {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gray);
-            letter-spacing: 1px;
-            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .edit-category {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .edit-middle {
+            padding: 35px 0;
         }
 
         .edit-title {
-            font-size: clamp(22px, 2.5vw, 30px);
-            font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 12px;
+            font-size: clamp(24px, 2.6vw, 32px);
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
         }
 
         .edit-description {
-            font-size: 14px;
             color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 25px;
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 330px;
         }
 
         .edit-bottom {
@@ -272,120 +361,164 @@
             align-items: center;
             justify-content: space-between;
             gap: 15px;
-        }
-
-        .edit-info {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .edit-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 12px;
-            border-radius: 20px;
-            background: var(--pale);
-            color: var(--red);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
         }
 
         .edit-creator {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gray);
         }
 
-        /* Same arrow as works.html */
+
+        /* =====================================================
+           ARROW BUTTON
+        ===================================================== */
 
         .edit-arrow {
-            width: 42px;
-            height: 42px;
-            border: none;
+            width: 38px;
+            height: 38px;
+
+            border: 1px solid var(--border);
             border-radius: 50%;
-            background: var(--medium-pink);
-            color: var(--red);
+
+            background: transparent;
+
+            position: relative;
             cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: .25s ease;
+
             flex-shrink: 0;
+
+            transition: .25s ease;
+        }
+
+        .edit-arrow::before {
+            content: "";
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            border-top: 1.5px solid var(--red);
+            border-right: 1.5px solid var(--red);
+
+            transform: rotate(45deg);
+
+            top: 13px;
+            left: 11px;
+        }
+
+        .edit-arrow::after {
+            content: "";
+            position: absolute;
+
+            width: 15px;
+            height: 1.5px;
+
+            background: var(--red);
+
+            top: 18px;
+            left: 9px;
         }
 
         .edit-arrow:hover {
-            background: var(--pink);
-            color: var(--white);
-            transform: translate(3px, -3px);
+            background: var(--red);
+            border-color: var(--red);
+            transform: translate(2px, -2px);
         }
 
-        /* =========================
-           SUBMIT / COMMUNITY
-        ========================= */
+        .edit-arrow:hover::before {
+            border-color: var(--white);
+        }
+
+        .edit-arrow:hover::after {
+            background: var(--white);
+        }
+
+
+        /* =====================================================
+           FEATURED COMMUNITY SECTION
+        ===================================================== */
 
         .community-section {
             background: var(--soft);
-            padding: 85px 40px;
+            padding: 100px 40px;
         }
 
         .community-inner {
             max-width: 1400px;
             margin: auto;
+
             display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
 
         .community-label {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 3px;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .community-inner h2 {
-            font-size: clamp(35px, 5vw, 60px);
-            line-height: 1.1;
-            margin-bottom: 20px;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
         }
 
         .community-inner p {
-            max-width: 650px;
+            max-width: 600px;
             color: var(--gray);
+            line-height: 1.9;
         }
 
         .community-box {
             background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
+
+            padding: 38px;
+
+            position: relative;
+        }
+
+        .community-box::before {
+            content: "FAN COMMUNITY";
+            display: block;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--red);
+            font-weight: 700;
+
+            margin-bottom: 18px;
         }
 
         .community-box h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 12px;
         }
 
         .community-box p {
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .community-button {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            border-radius: 25px;
+
+            padding: 12px 22px;
+
             background: var(--red);
             color: var(--white);
-            font-size: 13px;
+
+            font-size: 12px;
             font-weight: 700;
+
             transition: .25s ease;
         }
 
@@ -394,13 +527,14 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
+
+        /* =====================================================
            CONTINUE
-        ========================= */
+        ===================================================== */
 
         .continue-section {
             background: var(--pale);
-            padding: 90px 40px;
+            padding: 100px 40px;
         }
 
         .continue-inner {
@@ -409,54 +543,61 @@
         }
 
         .continue-label {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 3px;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .continue-inner h2 {
-            font-size: clamp(35px, 5vw, 60px);
-            margin-bottom: 35px;
+            font-size: clamp(38px, 5vw, 65px);
             line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 38px;
         }
 
         .continue-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .continue-links a {
-            padding: 12px 20px;
+            padding: 11px 18px;
+
             border: 1px solid var(--border);
-            border-radius: 30px;
             background: var(--white);
-            color: var(--dark);
-            font-size: 14px;
+
+            font-size: 13px;
+
             transition: .25s ease;
         }
 
         .continue-links a:hover {
-            background: var(--red);
             color: var(--white);
+            background: var(--red);
             border-color: var(--red);
             transform: translateY(-2px);
         }
 
-        /* =========================
+
+        /* =====================================================
            MODAL
-        ========================= */
+        ===================================================== */
 
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(40, 30, 28, .72);
+
+            background: rgba(36, 30, 30, .72);
+
             z-index: 999;
+
             display: none;
             align-items: center;
             justify-content: center;
+
             padding: 25px;
         }
 
@@ -467,29 +608,61 @@
         .modal {
             width: min(850px, 100%);
             max-height: 90vh;
-            overflow-y: auto;
+
             background: var(--white);
-            border-radius: 22px;
+
             position: relative;
-            overflow: hidden;
+
+            overflow-y: auto;
+
             box-shadow: 0 25px 80px rgba(0, 0, 0, .25);
         }
 
         .modal-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
+
+            top: 15px;
+            right: 15px;
+
             z-index: 5;
-            width: 42px;
-            height: 42px;
+
+            width: 40px;
+            height: 40px;
+
             border: none;
             border-radius: 50%;
+
             background: var(--pink);
             color: var(--red);
+
             cursor: pointer;
-            font-size: 25px;
-            line-height: 1;
+
+            font-size: 0;
+
             transition: .25s ease;
+        }
+
+        .modal-close::before,
+        .modal-close::after {
+            content: "";
+
+            position: absolute;
+
+            width: 16px;
+            height: 2px;
+
+            background: currentColor;
+
+            left: 12px;
+            top: 19px;
+        }
+
+        .modal-close::before {
+            transform: rotate(45deg);
+        }
+
+        .modal-close::after {
+            transform: rotate(-45deg);
         }
 
         .modal-close:hover {
@@ -498,85 +671,102 @@
         }
 
         .modal-video {
-            background: #111111;
-            min-height: 420px;
+            min-height: 430px;
+
+            background: var(--dark);
+
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, .6);
+
+            color: rgba(255,255,255,.55);
+
             text-align: center;
+
             padding: 40px;
         }
 
         .modal-video span {
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 3px;
         }
 
         .modal-info {
-            padding: 30px;
+            padding: 35px;
         }
 
         .modal-tag {
-            display: inline-flex;
-            padding: 6px 12px;
-            border-radius: 20px;
+            display: inline-block;
+
+            padding: 5px 10px;
+
             background: var(--pale);
             color: var(--red);
+
             font-size: 10px;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 14px;
+            letter-spacing: 1.5px;
+
+            margin-bottom: 15px;
         }
 
         .modal-info h2 {
-            font-size: 32px;
-            line-height: 1.3;
-            margin-bottom: 10px;
+            font-size: 34px;
+            line-height: 1.25;
+            margin-bottom: 12px;
         }
 
         .modal-info p {
             color: var(--gray);
             font-size: 14px;
+            line-height: 1.8;
         }
 
-        /* =========================
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
             background: var(--pink);
+
             padding: 35px 40px;
+
             text-align: center;
-            color: rgba(95, 74, 70, .7);
-            font-size: 13px;
+
+            color: rgba(36, 30, 30, .62);
+
+            font-size: 12px;
+            letter-spacing: .3px;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
         @media (max-width: 1100px) {
 
             .nav-inner {
-                padding: 15px 25px;
+                padding: 16px 25px;
             }
 
             .nav-links {
-                gap: 4px;
+                gap: 3px;
             }
 
             .nav-links a {
                 font-size: 12px;
-                padding: 6px 9px;
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .hero {
-                padding: 80px 30px;
+                padding: 85px 30px 90px;
             }
 
-            .page-intro,
-            .edit-section {
+            .intro,
+            .archive-section {
                 padding-left: 30px;
                 padding-right: 30px;
             }
@@ -585,101 +775,148 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .community-section {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-
+            .community-section,
             .continue-section {
                 padding-left: 30px;
                 padding-right: 30px;
             }
         }
 
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
         @media (max-width: 700px) {
 
             .nav-inner {
                 align-items: flex-start;
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
                 padding: 14px 18px;
             }
 
             .nav-links {
                 width: 100%;
+
                 justify-content: flex-start;
+
                 overflow-x: auto;
                 flex-wrap: nowrap;
-                padding-bottom: 3px;
+
+                padding-bottom: 5px;
+
+                scrollbar-width: none;
+
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
             }
 
             .nav-links a {
                 white-space: nowrap;
             }
 
+
             .hero {
-                padding: 65px 20px;
+                padding: 65px 20px 70px;
             }
 
             .hero h1 {
                 font-size: 58px;
-                letter-spacing: -2px;
+                letter-spacing: -3px;
             }
 
             .hero p {
                 font-size: 15px;
             }
 
-            .page-intro {
-                padding: 60px 20px 35px;
+
+            .intro {
+                padding: 65px 20px 55px;
             }
 
-            .edit-section {
-                padding: 35px 20px 60px;
-            }
-
-            .edit-grid {
+            .intro-top {
                 grid-template-columns: 1fr;
-                gap: 14px;
+                gap: 20px;
             }
 
-            .edit-card {
-                min-height: 230px;
-                padding: 24px;
+            .intro-content h2 {
+                font-size: 39px;
             }
 
-            .edit-title {
-                font-size: 24px;
+
+            .archive-section {
+                padding: 15px 20px 70px;
             }
 
-            .section-heading {
+            .archive-header {
                 display: block;
                 margin-bottom: 25px;
             }
 
+            .archive-count {
+                display: block;
+                margin-top: 15px;
+            }
+
+            .edit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .edit-card {
+                min-height: 280px;
+                padding: 25px;
+            }
+
+            .edit-middle {
+                padding: 30px 0;
+            }
+
+            .edit-title {
+                font-size: 27px;
+            }
+
+
             .community-section {
-                padding: 65px 20px;
+                padding: 70px 20px;
             }
 
             .community-inner {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 35px;
             }
+
+            .community-inner h2 {
+                font-size: 43px;
+            }
+
+            .community-box {
+                padding: 28px;
+            }
+
 
             .continue-section {
-                padding: 65px 20px;
+                padding: 70px 20px;
             }
 
-            footer {
-                padding: 30px 20px;
+            .continue-inner h2 {
+                font-size: 43px;
             }
+
 
             .modal-overlay {
-                padding: 15px;
+                padding: 12px;
+            }
+
+            .modal {
+                max-height: 94vh;
             }
 
             .modal-video {
-                min-height: 280px;
+                min-height: 250px;
             }
 
             .modal-info {
@@ -687,9 +924,19 @@
             }
 
             .modal-info h2 {
-                font-size: 27px;
+                font-size: 28px;
+            }
+
+
+            footer {
+                padding: 30px 20px;
             }
         }
+
+
+        /* =====================================================
+           SMALL PHONE
+        ===================================================== */
 
         @media (max-width: 400px) {
 
@@ -697,24 +944,37 @@
                 font-size: 50px;
             }
 
+            .intro-content h2 {
+                font-size: 34px;
+            }
+
             .edit-card {
-                min-height: 215px;
+                min-height: 265px;
             }
 
             .edit-title {
-                font-size: 22px;
+                font-size: 24px;
+            }
+
+            .community-inner h2,
+            .continue-inner h2 {
+                font-size: 37px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
+
+    <!-- =====================================================
          NAVIGATION
-    ========================= -->
+    ===================================================== -->
 
     <nav class="nav">
+
         <div class="nav-inner">
 
             <a href="index.html" class="logo">
@@ -722,34 +982,52 @@
             </a>
 
             <div class="nav-links">
+
                 <a href="index.html">首页</a>
+
                 <a href="profile.html">个人档案</a>
+
                 <a href="journey.html">成长经历</a>
+
                 <a href="moments.html">瞬间</a>
+
                 <a href="works.html">作品</a>
+
                 <a href="stage.html">舞台</a>
-                <a href="fan-edits.html" class="active">粉丝剪辑</a>
+
+                <a href="fan-edits.html" class="active">
+                    粉丝剪辑
+                </a>
+
                 <a href="comments.html">留言</a>
+
                 <a href="beads.html">拼豆</a>
+
                 <a href="archive.html">资料</a>
+
             </div>
 
         </div>
+
     </nav>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          HERO
-    ========================= -->
+    ===================================================== -->
 
     <header class="hero">
+
         <div class="hero-inner">
 
             <div class="hero-label">
                 06 · 粉丝创作
             </div>
 
-            <h1>粉丝剪辑</h1>
+            <h1>
+                粉丝剪辑
+            </h1>
 
             <p>
                 收藏粉丝镜头里的苏新皓，
@@ -757,50 +1035,64 @@
             </p>
 
         </div>
+
     </header>
+
 
 
     <main>
 
-        <!-- =========================
+
+        <!-- =====================================================
              INTRO
-        ========================= -->
+        ===================================================== -->
 
-        <section class="page-intro">
+        <section class="intro">
 
-            <div class="intro-label">
-                FAN EDITS
+            <div class="intro-top">
+
+                <div class="intro-label">
+                    FAN EDITS
+                </div>
+
+                <div class="intro-content">
+
+                    <h2>
+                        因为喜欢，<br>
+                        所以想把瞬间留下。
+                    </h2>
+
+                    <p>
+                        这里是属于粉丝的创作空间。
+                        无论是舞台混剪、成长记录、氛围向视频，
+                        还是特别企划，都可以成为档案馆的一部分。
+                    </p>
+
+                </div>
+
             </div>
-
-            <h2>
-                因为喜欢，<br>
-                所以想把瞬间留下。
-            </h2>
-
-            <p>
-                这里是属于粉丝的创作空间。
-                无论是舞台混剪、成长记录、氛围向视频，
-                还是特别企划，都可以成为档案馆的一部分。
-            </p>
 
         </section>
 
 
-        <!-- =========================
+
+        <!-- =====================================================
              FAN EDIT ARCHIVE
-        ========================= -->
+        ===================================================== -->
 
-        <section class="edit-section">
+        <section class="archive-section">
 
-            <div class="section-heading">
+            <div class="archive-header">
 
-                <div class="section-heading-left">
+                <div class="archive-header-left">
 
-                    <div class="section-number">
-                        🎬 01｜FAN EDIT ARCHIVE
+                    <div class="archive-number">
+                        01｜FAN EDIT ARCHIVE
                     </div>
 
-                    <h2>粉丝剪辑档案</h2>
+                    <h2>
+                        粉丝剪辑档案
+                    </h2>
 
                     <p>
                         收录不同主题、不同风格的粉丝创作。
@@ -808,43 +1100,60 @@
 
                 </div>
 
+                <div class="archive-count">
+                    09 EDITS
+                </div>
+
             </div>
+
 
 
             <div class="edit-grid">
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 01
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">01</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            01
+                        </span>
+
+                        <span class="edit-category">
+                            GROWTH
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             少年成长线
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             从小时候到现在，
                             记录一路走来的成长与变化。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">GROWTH</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('少年成长线', 'GROWTH')"
-                            aria-label="查看少年成长线"
-                        >
-                            ↗
+                            aria-label="查看少年成长线">
                         </button>
 
                     </div>
@@ -852,38 +1161,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 02
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">02</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            02
+                        </span>
+
+                        <span class="edit-category">
+                            STAGE
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             舞台高光合集
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             聚集不同舞台中的高光时刻，
                             看见每一次登台时的闪耀。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">STAGE</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('舞台高光合集', 'STAGE')"
-                            aria-label="查看舞台高光合集"
-                        >
-                            ↗
+                            aria-label="查看舞台高光合集">
                         </button>
 
                     </div>
@@ -891,38 +1212,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 03
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">03</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            03
+                        </span>
+
+                        <span class="edit-category">
+                            DANCE
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             舞蹈混剪
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             用不同舞台串联动作、
                             节奏与属于他的舞台表现力。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">DANCE</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('舞蹈混剪', 'DANCE')"
-                            aria-label="查看舞蹈混剪"
-                        >
-                            ↗
+                            aria-label="查看舞蹈混剪">
                         </button>
 
                     </div>
@@ -930,38 +1263,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 04
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">04</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            04
+                        </span>
+
+                        <span class="edit-category">
+                            VOCAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             声音收藏
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             收藏不同时期的歌声，
                             留下声音里的情绪与故事。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">VOCAL</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('声音收藏', 'VOCAL')"
-                            aria-label="查看声音收藏"
-                        >
-                            ↗
+                            aria-label="查看声音收藏">
                         </button>
 
                     </div>
@@ -969,38 +1314,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 05
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">05</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            05
+                        </span>
+
+                        <span class="edit-category">
+                            DAILY
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             少年感瞬间
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             收集镜头里自然、可爱、
                             充满少年感的瞬间。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">DAILY</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('少年感瞬间', 'DAILY')"
-                            aria-label="查看少年感瞬间"
-                        >
-                            ↗
+                            aria-label="查看少年感瞬间">
                         </button>
 
                     </div>
@@ -1008,38 +1365,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 06
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">06</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            06
+                        </span>
+
+                        <span class="edit-category">
+                            SPECIAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             生日特别企划
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             属于特别日子的粉丝创作，
                             用另一种方式记录生日与祝福。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">SPECIAL</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('生日特别企划', 'SPECIAL')"
-                            aria-label="查看生日特别企划"
-                        >
-                            ↗
+                            aria-label="查看生日特别企划">
                         </button>
 
                     </div>
@@ -1047,38 +1416,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 07
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">07</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            07
+                        </span>
+
+                        <span class="edit-category">
+                            EVENT
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             红毯 / 活动记录
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             记录活动、红毯与公开场合中的
                             造型和精彩瞬间。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">EVENT</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('红毯 / 活动记录', 'EVENT')"
-                            aria-label="查看红毯活动记录"
-                        >
-                            ↗
+                            aria-label="查看红毯活动记录">
                         </button>
 
                     </div>
@@ -1086,38 +1467,50 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 08
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">08</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            08
+                        </span>
+
+                        <span class="edit-category">
+                            MOOD
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             氛围感混剪
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             用音乐、画面与色彩，
                             拼出属于苏新皓的独特氛围。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">MOOD</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('氛围感混剪', 'MOOD')"
-                            aria-label="查看氛围感混剪"
-                        >
-                            ↗
+                            aria-label="查看氛围感混剪">
                         </button>
 
                     </div>
@@ -1125,52 +1518,66 @@
                 </article>
 
 
-                <!-- =========================
+
+                <!-- =================================================
                      EDIT 09
-                ========================= -->
+                ================================================= -->
 
                 <article class="edit-card">
 
-                    <div>
-                        <div class="edit-number">09</div>
+                    <div class="edit-top">
 
-                        <div class="edit-title">
+                        <span class="edit-number">
+                            09
+                        </span>
+
+                        <span class="edit-category">
+                            MUSIC
+                        </span>
+
+                    </div>
+
+
+                    <div class="edit-middle">
+
+                        <h3 class="edit-title">
                             同款音乐企划
-                        </div>
+                        </h3>
 
-                        <div class="edit-description">
+                        <p class="edit-description">
                             用不同音乐重新诠释画面，
                             创造属于粉丝自己的版本。
-                        </div>
+                        </p>
+
                     </div>
+
 
                     <div class="edit-bottom">
 
-                        <div class="edit-info">
-                            <span class="edit-tag">MUSIC</span>
-                            <span class="edit-creator">Fan Edit</span>
-                        </div>
+                        <span class="edit-creator">
+                            Fan Edit
+                        </span>
 
                         <button
                             class="edit-arrow"
                             onclick="openEditModal('同款音乐企划', 'MUSIC')"
-                            aria-label="查看同款音乐企划"
-                        >
-                            ↗
+                            aria-label="查看同款音乐企划">
                         </button>
 
                     </div>
 
                 </article>
+
 
             </div>
 
         </section>
 
 
-        <!-- =========================
+
+        <!-- =====================================================
              COMMUNITY
-        ========================= -->
+        ===================================================== -->
 
         <section class="community-section">
 
@@ -1197,15 +1604,19 @@
 
                 <div class="community-box">
 
-                    <h3>留下你的作品</h3>
+                    <h3>
+                        留下你的作品
+                    </h3>
 
                     <p>
                         分享你最喜欢的剪辑，
                         一起把这些珍贵的瞬间保存下来。
                     </p>
 
-                    <a href="comments.html" class="community-button">
-                        前往留言 →
+                    <a
+                        href="comments.html"
+                        class="community-button">
+                        前往留言
                     </a>
 
                 </div>
@@ -1215,9 +1626,10 @@
         </section>
 
 
-        <!-- =========================
+
+        <!-- =====================================================
              CONTINUE
-        ========================= -->
+        ===================================================== -->
 
         <section class="continue-section">
 
@@ -1234,23 +1646,23 @@
                 <div class="continue-links">
 
                     <a href="moments.html">
-                        瞬间 →
+                        瞬间
                     </a>
 
                     <a href="stage.html">
-                        舞台 →
+                        舞台
                     </a>
 
                     <a href="works.html">
-                        作品 →
+                        作品
                     </a>
 
                     <a href="comments.html">
-                        留言 →
+                        留言
                     </a>
 
                     <a href="archive.html">
-                        资料 →
+                        资料
                     </a>
 
                 </div>
@@ -1262,9 +1674,10 @@
     </main>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          MODAL
-    ========================= -->
+    ===================================================== -->
 
     <div
         class="modal-overlay"
@@ -1277,16 +1690,31 @@
             <button
                 class="modal-close"
                 onclick="closeEditModalButton()"
-                aria-label="关闭"
-            >
-                ×
+                aria-label="关闭">
             </button>
 
 
+            <!--
+                ===============================================
+                CHANGE VIDEO HERE
+                ===============================================
+
+                Later you can replace this entire div with:
+
+                <video controls>
+                    <source src="videos/your-video.mp4"
+                            type="video/mp4">
+                </video>
+
+                ===============================================
+            -->
+
             <div class="modal-video">
+
                 <span>
                     FAN EDIT · VIDEO
                 </span>
+
             </div>
 
 
@@ -1294,8 +1722,7 @@
 
                 <div
                     class="modal-tag"
-                    id="modalTag"
-                >
+                    id="modalTag">
                     FAN EDIT
                 </div>
 
@@ -1305,7 +1732,9 @@
 
                 <p>
                     这里可以放对应的粉丝剪辑视频。
-                    之后只需要在这里加入你自己的视频路径即可。
+                    之后只需要在上面的
+                    <strong>CHANGE VIDEO HERE</strong>
+                    位置加入你自己的视频路径即可。
                 </p>
 
             </div>
@@ -1315,27 +1744,36 @@
     </div>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          FOOTER
-    ========================= -->
+    ===================================================== -->
 
     <footer>
+
         苏新皓档案馆 · Fan Archive
+
     </footer>
 
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
     <script>
 
         function openEditModal(title, tag) {
 
             document.getElementById("modalTitle").textContent = title;
+
             document.getElementById("modalTag").textContent = tag;
 
             document
                 .getElementById("editModal")
                 .classList.add("show");
 
-            document.body.style.overflow = "hidden";
+            document.body.classList.add("modal-open");
         }
 
 
@@ -1352,7 +1790,7 @@
                 .getElementById("editModal")
                 .classList.remove("show");
 
-            document.body.style.overflow = "";
+            document.body.classList.remove("modal-open");
         }
 
 
@@ -1362,19 +1800,22 @@
                 .getElementById("editModal")
                 .classList.remove("show");
 
-            document.body.style.overflow = "";
+            document.body.classList.remove("modal-open");
         }
 
 
         document.addEventListener("keydown", function(event) {
 
             if (event.key === "Escape") {
+
                 closeEditModalButton();
+
             }
 
         });
 
     </script>
+
 
 </body>
 </html>
