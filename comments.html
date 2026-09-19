@@ -37,11 +37,9 @@
         body {
             font-family: Arial, "Microsoft YaHei", "微软雅黑",
                 "PingFang SC", sans-serif;
-
             background: var(--奶油白);
             color: var(--深色);
             line-height: 1.6;
-
             overflow-x: hidden;
         }
 
@@ -64,7 +62,6 @@
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
             height: 72px;
 
@@ -72,7 +69,6 @@
             backdrop-filter: blur(12px);
 
             border-bottom: 1px solid var(--边框);
-
             z-index: 1000;
         }
 
@@ -91,12 +87,10 @@
         .logo {
             display: flex;
             align-items: center;
-
             gap: 11px;
 
             font-weight: 700;
             letter-spacing: 1px;
-
             white-space: nowrap;
         }
 
@@ -124,7 +118,6 @@
 
         .nav-links a {
             position: relative;
-
             padding: 9px 13px;
 
             color: var(--灰色);
@@ -147,7 +140,6 @@
             height: 5px;
 
             border-radius: 50%;
-
             background: var(--红色);
 
             transform:
@@ -203,7 +195,6 @@
             align-items: center;
 
             gap: 10px;
-
             margin-bottom: 24px;
 
             color: var(--红色);
@@ -247,7 +238,6 @@
             color: var(--灰色);
 
             font-size: 16px;
-
             line-height: 1.9;
         }
 
@@ -317,7 +307,7 @@
         }
 
         .section-heading {
-            margin-bottom: 50px;
+            margin-bottom: 35px;
         }
 
         .section-number {
@@ -360,18 +350,93 @@
             height: 28px;
 
             padding: 0 10px;
-
             margin-left: 8px;
 
             border-radius: 30px;
 
             background: var(--红色);
-
             color: white;
 
             font-size: 12px;
-
             vertical-align: middle;
+        }
+
+
+        /* =========================
+           FILTERS
+        ========================= */
+
+        .comment-filters {
+            width: 100%;
+
+            margin-bottom: 28px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            overflow-x: auto;
+
+            padding-bottom: 5px;
+
+            scrollbar-width: none;
+        }
+
+        .comment-filters::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-label {
+            flex-shrink: 0;
+
+            margin-right: 5px;
+
+            color: var(--灰色);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+        }
+
+        .filter-btn {
+            flex-shrink: 0;
+
+            padding: 8px 15px;
+
+            border: 1px solid var(--边框);
+            border-radius: 30px;
+
+            background: var(--白色);
+
+            color: var(--灰色);
+
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            color: var(--红色);
+            border-color: var(--中粉);
+
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: var(--红色);
+            border-color: var(--红色);
+
+            color: white;
         }
 
 
@@ -409,7 +474,6 @@
             position: relative;
 
             width: 100%;
-
             min-width: 0;
 
             min-height: 205px;
@@ -456,6 +520,10 @@
             box-shadow:
                 0 12px 28px
                 rgba(36, 30, 30, 0.08);
+        }
+
+        .comment-card.hidden {
+            display: none;
         }
 
 
@@ -525,6 +593,9 @@
             letter-spacing: 2px;
 
             white-space: nowrap;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .ticket-number {
@@ -560,12 +631,12 @@
         }
 
         .comment-user {
+            min-width: 0;
+
             color: var(--深色);
 
             font-size: 13px;
             font-weight: 700;
-
-            min-width: 0;
 
             overflow: hidden;
             text-overflow: ellipsis;
@@ -592,6 +663,7 @@
 
         /* =========================
            MESSAGE
+           LEFT ALIGNED
         ========================= */
 
         .comment-text {
@@ -601,31 +673,28 @@
 
             width: 100%;
 
-            max-width: 650px;
+            margin: auto 0;
 
-            margin: auto;
-
-            padding: 14px 28px 12px;
+            padding:
+                14px 24px 12px;
 
             color: var(--深色);
 
-            text-align: center;
+            text-align: left;
 
-            line-height: 1.5;
+            line-height: 1.55;
 
             letter-spacing: 0.2px;
 
             white-space: pre-wrap;
 
             overflow-wrap: anywhere;
-
             word-break: break-word;
 
             flex: 1;
 
             display: flex;
             align-items: center;
-            justify-content: center;
 
             min-height: 65px;
 
@@ -641,10 +710,6 @@
 
         .ticket-bottom {
             position: relative;
-
-            left: auto;
-            right: auto;
-            bottom: auto;
 
             z-index: 3;
 
@@ -691,6 +756,32 @@
                 );
 
             opacity: 0.5;
+        }
+
+
+        /* =========================
+           FILTER EMPTY
+        ========================= */
+
+        .filter-empty {
+            display: none;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            border:
+                1px dashed var(--中粉);
+
+            border-radius: 18px;
+
+            color: var(--灰色);
+
+            font-size: 13px;
+        }
+
+        .filter-empty.show {
+            display: block;
         }
 
 
@@ -1123,7 +1214,6 @@
 
             .nav-links a {
                 padding: 8px 7px;
-
                 font-size: 11px;
             }
 
@@ -1159,7 +1249,6 @@
 
             nav {
                 height: auto;
-
                 min-height: 65px;
             }
 
@@ -1225,7 +1314,7 @@
             }
 
 
-            /* SECTIONS */
+            /* SECTION */
 
             .section,
             .explore {
@@ -1233,7 +1322,7 @@
             }
 
             .section-heading {
-                margin-bottom: 35px;
+                margin-bottom: 30px;
             }
 
             .comments-layout {
@@ -1241,16 +1330,34 @@
             }
 
 
-            /* =========================
-               MOBILE TICKET
-            ========================= */
+            /* FILTERS */
+
+            .comment-filters {
+                margin-bottom: 22px;
+
+                gap: 7px;
+            }
+
+            .filter-label {
+                display: none;
+            }
+
+            .filter-btn {
+                padding: 7px 13px;
+
+                font-size: 10px;
+            }
+
+
+            /* TICKET */
 
             .comment-card {
                 min-height: 190px;
 
                 height: auto;
 
-                padding: 16px 20px 13px;
+                padding:
+                    16px 20px 13px;
 
                 border-radius: 16px;
             }
@@ -1265,9 +1372,6 @@
                 font-size: 8px;
 
                 letter-spacing: 1.3px;
-
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
             .ticket-number {
@@ -1291,17 +1395,16 @@
             }
 
             .comment-text {
-                width: 100%;
-
-                max-width: 100%;
-
                 min-height: 62px;
 
                 max-height: 92px;
 
-                padding: 10px 16px;
+                padding:
+                    10px 12px;
 
-                line-height: 1.45;
+                text-align: left;
+
+                line-height: 1.5;
             }
 
             .ticket-bottom {
@@ -1385,17 +1488,11 @@
             }
 
 
-            /* =========================
-               SMALL PHONE TICKET
-            ========================= */
-
             .comment-card {
                 min-height: 180px;
 
                 padding:
                     14px 16px 12px;
-
-                border-radius: 15px;
             }
 
             .ticket-top {
@@ -1404,18 +1501,12 @@
 
             .ticket-brand {
                 font-size: 7px;
-
                 letter-spacing: 1px;
             }
 
             .ticket-number {
                 font-size: 7px;
-
                 letter-spacing: 0.5px;
-            }
-
-            .ticket-info {
-                padding-top: 7px;
             }
 
             .comment-user {
@@ -1435,9 +1526,9 @@
                 max-height: 82px;
 
                 padding:
-                    8px 12px;
+                    8px 8px;
 
-                line-height: 1.4;
+                text-align: left;
             }
 
             .ticket-bottom {
@@ -1493,7 +1584,7 @@
 
             .comment-text {
                 padding:
-                    7px 8px;
+                    7px 7px;
             }
 
             .barcode {
@@ -1657,6 +1748,75 @@
     </div>
 
 
+    <!-- =========================
+         FILTERS
+    ========================= -->
+
+    <div class="comment-filters">
+
+        <span class="filter-label">
+            FILTER
+        </span>
+
+        <button
+            class="filter-btn active"
+            data-filter="ALL"
+        >
+            全部
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="MESSAGE"
+        >
+            想说的话
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="STAGE"
+        >
+            舞台
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="VOCAL"
+        >
+            唱歌
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="DANCE"
+        >
+            舞蹈
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="WORKS"
+        >
+            作品
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="GROWTH"
+        >
+            成长
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="LOVE"
+        >
+            喜欢与支持
+        </button>
+
+    </div>
+
+
     <div class="comments-layout">
 
 
@@ -1671,6 +1831,16 @@
                 正在读取留言……
             </div>
 
+        </div>
+
+
+        <!-- FILTER EMPTY -->
+
+        <div
+            class="filter-empty"
+            id="filterEmpty"
+        >
+            这个分类暂时还没有留言。
         </div>
 
 
@@ -1824,13 +1994,9 @@
             </h2>
 
             <p>
-
                 从舞台上的光，到生活里的细节，
-
                 每一次成长都值得被记住。
-
                 这里不只是一个留言墙，也是信号灯们共同留下的记录。
-
             </p>
 
         </div>
@@ -1874,7 +2040,6 @@
 
 
     <div class="explore-grid">
-
 
         <a
             href="fan-edits.html"
@@ -2054,13 +2219,19 @@ const categoryNames = {
 
 
 /* =========================
+   CURRENT FILTER
+========================= */
+
+let currentFilter = "ALL";
+
+
+/* =========================
    ESCAPE HTML
 ========================= */
 
 function escapeHTML(text) {
 
     return String(text)
-
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -2165,7 +2336,6 @@ async function loadComments() {
                 `${SUPABASE_URL}/rest/v1/comments?select=*&order=created_at.desc`,
 
                 {
-
                     method: "GET",
 
                     headers: {
@@ -2240,11 +2410,16 @@ async function loadComments() {
 
 
                     const category =
+                        item.category ||
+                        "MESSAGE";
+
+
+                    const categoryLabel =
                         categoryNames[
-                            item.category
+                            category
                         ]
                         ||
-                        item.category
+                        category
                         ||
                         "留言";
 
@@ -2273,6 +2448,7 @@ async function loadComments() {
 
                         <article
                             class="comment-card"
+                            data-category="${escapeHTML(category)}"
                         >
 
                             <div
@@ -2317,7 +2493,7 @@ async function loadComments() {
                                     class="comment-category"
                                 >
                                     ${escapeHTML(
-                                        category
+                                        categoryLabel
                                     )}
                                 </div>
 
@@ -2360,6 +2536,9 @@ async function loadComments() {
             ).join("");
 
 
+        applyFilter(currentFilter);
+
+
     } catch (error) {
 
         console.error(
@@ -2383,6 +2562,118 @@ async function loadComments() {
     }
 
 }
+
+
+/* =========================
+   FILTER COMMENTS
+========================= */
+
+function applyFilter(filter) {
+
+    currentFilter = filter;
+
+    const cards =
+        document.querySelectorAll(
+            ".comment-card"
+        );
+
+    const filterEmpty =
+        document.getElementById(
+            "filterEmpty"
+        );
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(card => {
+
+        const category =
+            card.dataset.category;
+
+
+        const shouldShow =
+            filter === "ALL" ||
+            category === filter;
+
+
+        if (shouldShow) {
+
+            card.classList.remove(
+                "hidden"
+            );
+
+            visibleCount++;
+
+        } else {
+
+            card.classList.add(
+                "hidden"
+            );
+
+        }
+
+    });
+
+
+    if (
+        visibleCount === 0 &&
+        cards.length > 0
+    ) {
+
+        filterEmpty.classList.add(
+            "show"
+        );
+
+    } else {
+
+        filterEmpty.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+document
+    .querySelectorAll(".filter-btn")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                document
+                    .querySelectorAll(
+                        ".filter-btn"
+                    )
+                    .forEach(btn => {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                applyFilter(
+                    this.dataset.filter
+                );
+
+            }
+        );
+
+    });
 
 
 /* =========================
@@ -2561,42 +2852,3 @@ loadComments();
 </body>
 </html>
 ```
-
-The **key fix** is this part:
-
-```css
-.comment-text {
-    position: relative;
-    width: 100%;
-    margin: auto;
-    padding: 14px 28px 12px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-```
-
-Instead of your old:
-
-```css
-.comment-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: calc(100% - 100px);
-}
-```
-
-That old approach is what was making the text area behave badly when the ticket became narrow on a phone. The new version makes the **ticket itself control the text area**, so the comment stays inside the ticket.
-
-Also, I removed the mobile rule that explicitly said:
-
-```css
-/* DO NOT SHRINK THE TICKET */
-height: 205px;
-```
-
-because that was fighting against responsive design. On mobile, the ticket now adapts to the available width while keeping the same visual style.
